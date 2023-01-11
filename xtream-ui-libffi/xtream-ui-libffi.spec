@@ -35,7 +35,19 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/include/ffi.h
+/root/ffmpeg_build/include/ffitarget.h
+/root/ffmpeg_build/lib64/libffi.a
+/root/ffmpeg_build/lib64/libffi.la
+/root/ffmpeg_build/lib64/libffi.so
+/root/ffmpeg_build/lib64/libffi.so.8
+/root/ffmpeg_build/lib64/libffi.so.8.1.2
+/root/ffmpeg_build/lib64/pkgconfig/libffi.pc
+/root/ffmpeg_build/share/info/libffi.info
+/root/ffmpeg_build/share/man/man3/ffi.3
+/root/ffmpeg_build/share/man/man3/ffi_call.3
+/root/ffmpeg_build/share/man/man3/ffi_prep_cif.3
+/root/ffmpeg_build/share/man/man3/ffi_prep_cif_var.3
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
