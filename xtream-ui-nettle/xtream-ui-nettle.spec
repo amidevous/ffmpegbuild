@@ -1,7 +1,5 @@
 %global debug_package %{nil}
 %define __arch_install_post %{nil}
-%define __find_provides %{nil}
-%define __find_requires %{nil}
 %global __brp_check_rpaths %{nil}
 %global __check_rpaths %{nil}
 Summary: Utilities from the general purpose cryptography library with TLS implementation
@@ -13,6 +11,7 @@ License: ASL 2.0
 URL: https://gnu.org
 BuildRequires: xtream-ui-gmp
 Requires: xtream-ui-gmp
+Provides: libhogweed.so.6()(64bit), libhogweed.so.6(HOGWEED_6)(64bit), libnettle.so.8()(64bit), libnettle.so.8(NETTLE_8)(64bit)
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
