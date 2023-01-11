@@ -34,7 +34,24 @@ make %{?_smp_mflags} all
 %make_install
 
 %files
-
+/root/ffmpeg_build/include/gmp.h
+/root/ffmpeg_build/include/gmpxx.h
+/root/ffmpeg_build/lib64/libgmp.a
+/root/ffmpeg_build/lib64/libgmp.la
+/root/ffmpeg_build/lib64/libgmp.so
+/root/ffmpeg_build/lib64/libgmp.so.10
+/root/ffmpeg_build/lib64/libgmp.so.10.4.1
+/root/ffmpeg_build/lib64/libgmpxx.a
+/root/ffmpeg_build/lib64/libgmpxx.la
+/root/ffmpeg_build/lib64/libgmpxx.so
+/root/ffmpeg_build/lib64/libgmpxx.so.4
+/root/ffmpeg_build/lib64/libgmpxx.so.4.6.1
+/root/ffmpeg_build/lib64/pkgconfig/gmp.pc
+/root/ffmpeg_build/lib64/pkgconfig/gmpxx.pc
+/root/ffmpeg_build/share/info/dir
+/root/ffmpeg_build/share/info/gmp.info
+/root/ffmpeg_build/share/info/gmp.info-1
+/root/ffmpeg_build/share/info/gmp.info-2
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
