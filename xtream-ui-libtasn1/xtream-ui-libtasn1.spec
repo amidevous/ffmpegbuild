@@ -32,6 +32,7 @@ make %{?_smp_mflags} all
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
 /root/ffmpeg_build/bin/asn1Coding
@@ -44,7 +45,6 @@ make %{?_smp_mflags} all
 /root/ffmpeg_build/lib64/libtasn1.so.6
 /root/ffmpeg_build/lib64/libtasn1.so.6.6.3
 /root/ffmpeg_build/lib64/pkgconfig/libtasn1.pc
-/root/ffmpeg_build/share/info/dir
 /root/ffmpeg_build/share/info/libtasn1.info
 /root/ffmpeg_build/share/man/man1/asn1Coding.1
 /root/ffmpeg_build/share/man/man1/asn1Decoding.1
