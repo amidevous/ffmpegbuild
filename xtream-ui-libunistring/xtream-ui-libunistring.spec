@@ -6,7 +6,7 @@ Summary: Utilities from the general purpose cryptography library with TLS implem
 Name: xtream-ui-libunistring
 Version: xtream-ui-libunistringversion
 Release: 1%{?dist}
-Source: https://ftp.gnu.org/gnu/nettle/nettle-%{version}.tar.gz
+Source: https://ftp.gnu.org/gnu/libunistring/libunistring-%{version}.tar.xz
 License: ASL 2.0
 URL: https://gnu.org
 BuildRequires: xtream-ui-p11-kit
