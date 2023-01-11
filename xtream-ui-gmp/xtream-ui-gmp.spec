@@ -2,9 +2,9 @@ Summary: Utilities from the general purpose cryptography library with TLS implem
 Name: xtream-ui-gmp
 Version: xtream-ui-gmpversion
 Release: 1%{?dist}
-Source: http://artfiles.org/openssl.org/source/openssl-%{version}.tar.gz
+Source: https://ftp.gnu.org/gnu/gmp/gmp-%{version}.tar.xz
 License: ASL 2.0
-URL: https://ftp.gnu.org
+URL: https://gnu.org
 BuildRequires: xtream-ui-openssl3
 Requires: xtream-ui-openssl3
 %description
@@ -13,7 +13,7 @@ machines. OpenSSL includes a certificate management tool and shared
 libraries which provide various cryptographic algorithms and
 protocols.
 %prep
-%autosetup -S git -n openssl-%{version}
+%autosetup -S git -n gmp-%{version}
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
