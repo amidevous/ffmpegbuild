@@ -1,4 +1,5 @@
 %global debug_package %{nil}
+
 %define __arch_install_post %{nil}
 %global __brp_check_rpaths %{nil}
 %global __check_rpaths %{nil}
