@@ -35,7 +35,56 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/include/unicase.h
+/root/ffmpeg_build/include/uniconv.h
+/root/ffmpeg_build/include/unictype.h
+/root/ffmpeg_build/include/unigbrk.h
+/root/ffmpeg_build/include/unilbrk.h
+/root/ffmpeg_build/include/uniname.h
+/root/ffmpeg_build/include/uninorm.h
+/root/ffmpeg_build/include/unistdio.h
+/root/ffmpeg_build/include/unistr.h
+/root/ffmpeg_build/include/unistring/cdefs.h
+/root/ffmpeg_build/include/unistring/iconveh.h
+/root/ffmpeg_build/include/unistring/inline.h
+/root/ffmpeg_build/include/unistring/localcharset.h
+/root/ffmpeg_build/include/unistring/stdbool.h
+/root/ffmpeg_build/include/unistring/stdint.h
+/root/ffmpeg_build/include/unistring/version.h
+/root/ffmpeg_build/include/unistring/woe32dll.h
+/root/ffmpeg_build/include/unitypes.h
+/root/ffmpeg_build/include/uniwbrk.h
+/root/ffmpeg_build/include/uniwidth.h
+/root/ffmpeg_build/lib64/libunistring.a
+/root/ffmpeg_build/lib64/libunistring.la
+/root/ffmpeg_build/lib64/libunistring.so
+/root/ffmpeg_build/lib64/libunistring.so.5
+/root/ffmpeg_build/lib64/libunistring.so.5.0.0
+/root/ffmpeg_build/share/doc/libunistring/libunistring_1.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_10.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_11.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_12.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_13.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_14.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_15.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_16.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_17.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_18.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_19.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_2.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_20.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_21.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_22.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_3.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_4.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_5.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_6.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_7.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_8.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_9.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_abt.html
+/root/ffmpeg_build/share/doc/libunistring/libunistring_toc.html
+/root/ffmpeg_build/share/info/libunistring.info
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
