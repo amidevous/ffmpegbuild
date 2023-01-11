@@ -9,8 +9,8 @@ Release: 1%{?dist}
 Source: https://github.com/libffi/libffi/releases/download/v%{version}/libffi-%{version}.tar.gz
 License: ASL 2.0
 URL: https://gnu.org
-BuildRequires: xtream-ui-libffi
-Requires: xtream-ui-libffi
+BuildRequires: xtream-ui-libtasn1
+Requires: xtream-ui-libtasn1
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
