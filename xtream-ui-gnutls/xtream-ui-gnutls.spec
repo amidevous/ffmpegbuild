@@ -37,7 +37,41 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/bin/certtool
+/root/ffmpeg_build/bin/gnutls-cli
+/root/ffmpeg_build/bin/gnutls-cli-debug
+/root/ffmpeg_build/bin/gnutls-serv
+/root/ffmpeg_build/bin/ocsptool
+/root/ffmpeg_build/bin/p11tool
+/root/ffmpeg_build/bin/psktool
+/root/ffmpeg_build/bin/srptool
+/root/ffmpeg_build/include/gnutls/abstract.h
+/root/ffmpeg_build/include/gnutls/compat.h
+/root/ffmpeg_build/include/gnutls/crypto.h
+/root/ffmpeg_build/include/gnutls/dtls.h
+/root/ffmpeg_build/include/gnutls/gnutls.h
+/root/ffmpeg_build/include/gnutls/gnutlsxx.h
+/root/ffmpeg_build/include/gnutls/ocsp.h
+/root/ffmpeg_build/include/gnutls/openpgp.h
+/root/ffmpeg_build/include/gnutls/pkcs11.h
+/root/ffmpeg_build/include/gnutls/pkcs12.h
+/root/ffmpeg_build/include/gnutls/pkcs7.h
+/root/ffmpeg_build/include/gnutls/self-test.h
+/root/ffmpeg_build/include/gnutls/socket.h
+/root/ffmpeg_build/include/gnutls/system-keys.h
+/root/ffmpeg_build/include/gnutls/tpm.h
+/root/ffmpeg_build/include/gnutls/urls.h
+/root/ffmpeg_build/include/gnutls/x509-ext.h
+/root/ffmpeg_build/include/gnutls/x509.h
+/root/ffmpeg_build/lib64/libgnutls.la
+/root/ffmpeg_build/lib64/libgnutls.so
+/root/ffmpeg_build/lib64/libgnutls.so.30
+/root/ffmpeg_build/lib64/libgnutls.so.30.28.2
+/root/ffmpeg_build/lib64/libgnutlsxx.la
+/root/ffmpeg_build/lib64/libgnutlsxx.so
+/root/ffmpeg_build/lib64/libgnutlsxx.so.28
+/root/ffmpeg_build/lib64/libgnutlsxx.so.28.1.0
+/root/ffmpeg_build/lib64/pkgconfig/gnutls.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
