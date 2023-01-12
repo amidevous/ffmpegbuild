@@ -35,7 +35,25 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/bin/lame
+/root/ffmpeg_build/include/lame/lame.h
+/root/ffmpeg_build/lib64/libmp3lame.a
+/root/ffmpeg_build/lib64/libmp3lame.la
+/root/ffmpeg_build/share/doc/lame/html/about.html
+/root/ffmpeg_build/share/doc/lame/html/abr.html
+/root/ffmpeg_build/share/doc/lame/html/cbr.html
+/root/ffmpeg_build/share/doc/lame/html/contact.html
+/root/ffmpeg_build/share/doc/lame/html/contributors.html
+/root/ffmpeg_build/share/doc/lame/html/detailed.html
+/root/ffmpeg_build/share/doc/lame/html/history.html
+/root/ffmpeg_build/share/doc/lame/html/index.html
+/root/ffmpeg_build/share/doc/lame/html/introduction.html
+/root/ffmpeg_build/share/doc/lame/html/links.html
+/root/ffmpeg_build/share/doc/lame/html/list.html
+/root/ffmpeg_build/share/doc/lame/html/ms_stereo.html
+/root/ffmpeg_build/share/doc/lame/html/usage.html
+/root/ffmpeg_build/share/doc/lame/html/vbr.html
+/root/ffmpeg_build/share/man/man1/lame.1
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
