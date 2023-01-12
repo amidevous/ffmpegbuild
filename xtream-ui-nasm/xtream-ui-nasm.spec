@@ -36,7 +36,10 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/bin/nasm
+/root/ffmpeg_build/bin/ndisasm
+/root/ffmpeg_build/share/man/man1/nasm.1
+/root/ffmpeg_build/share/man/man1/ndisasm.1
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
