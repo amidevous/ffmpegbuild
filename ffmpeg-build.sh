@@ -238,7 +238,7 @@ if [[ $(inst  "xtream-ui-openssl3") != "$opensslversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/openssl-$opensslversion.tar.gz http://artfiles.org/openssl.org/source/openssl-$opensslversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-openssl3.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-openssl3/xtream-ui-openssl3.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-openssl3.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-openssl3.spec
 sed -i "s|xtream-ui-openssl3version|$opensslversion|" "/root/rpmbuild/SPECS/xtream-ui-openssl3.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-openssl3.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-openssl3-$opensslversion-1.$dist.x86_64.rpm
@@ -272,7 +272,7 @@ if [[ $(inst  "xtream-ui-gmp") != "$gmpversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/gmp-$gmpversion.tar.xz https://ftp.gnu.org/gnu/gmp/gmp-$gmpversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-gmp.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-gmp/xtream-ui-gmp.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-gmp.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-gmp.spec
 sed -i "s|xtream-ui-gmpversion|$gmpversion|" "/root/rpmbuild/SPECS/xtream-ui-gmp.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gmp.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gmp-$gmpversion-1.$dist.x86_64.rpm
@@ -306,7 +306,7 @@ if [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-nettle.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-nettle/xtream-ui-nettle.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-nettle.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-nettle.spec
 sed -i "s|xtream-ui-nettleversion|$nettleversion|" "/root/rpmbuild/SPECS/xtream-ui-nettle.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nettle.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nettle-$nettleversion-1.$dist.x86_64.rpm
@@ -343,7 +343,7 @@ if [[ $(inst  "xtream-ui-libtasn1") != "$libtasn1version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/libtasn1-$libtasn1version.tar.gz https://ftp.gnu.org/gnu/libtasn1/libtasn1-$libtasn1version.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-libtasn1/xtream-ui-libtasn1.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libtasn1.spec
 sed -i "s|xtream-ui-libtasn1version|$libtasn1version|" "/root/rpmbuild/SPECS/xtream-ui-libtasn1.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libtasn1-$libtasn1version-1.$dist.x86_64.rpm
@@ -378,7 +378,7 @@ if [[ $(inst  "xtream-ui-libffi") != "$libffiversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/libffi-$libffiversion.tar.gz https://github.com/libffi/libffi/releases/download/v$libffiversion/libffi-$libffiversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libffi.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-libffi/xtream-ui-libffi.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-libffi.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libffi.spec
 sed -i "s|xtream-ui-libffiversion|$libffiversion|" "/root/rpmbuild/SPECS/xtream-ui-libffi.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libffi.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libffi-$libffiversion-1.$dist.x86_64.rpm
@@ -413,7 +413,7 @@ if [[ $(inst  "xtream-ui-p11-kit") != "$p11kitversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/p11-kit-$p11kitversion.tar.xz https://github.com/p11-glue/p11-kit/releases/download/$p11kitversion/p11-kit-$p11kitversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-p11-kit/xtream-ui-p11-kit.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-p11-kit.spec
 sed -i "s|xtream-ui-p11-kitversion|$p11kitversion|" "/root/rpmbuild/SPECS/xtream-ui-p11-kit.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-p11-kit-$p11kitversion-1.$dist.x86_64.rpm
@@ -448,7 +448,7 @@ if [[ $(inst  "xtream-ui-libunistring") != "$libunistringversion-1.$dist" ]]; th
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/libunistring-$libunistringversion.tar.xz https://ftp.gnu.org/gnu/libunistring/libunistring-$libunistringversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libunistring.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-libunistring/xtream-ui-libunistring.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-libunistring.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libunistring.spec
 sed -i "s|xtream-ui-libunistringversion|$libunistringversion|" "/root/rpmbuild/SPECS/xtream-ui-libunistring.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libunistring.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libunistring-$libunistringversion-1.$dist.x86_64.rpm
@@ -483,7 +483,7 @@ if [[ $(inst  "xtream-ui-gnutls") != "$gnutlsversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-gnutls.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-gnutls/xtream-ui-gnutls.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-gnutls.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-gnutls.spec
 sed -i "s|xtream-ui-gnutlsversion|$gnutlsversion|" "/root/rpmbuild/SPECS/xtream-ui-gnutls.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gnutls.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gnutls-$gnutlsversion-1.$dist.x86_64.rpm
@@ -520,7 +520,7 @@ if [[ $(inst  "xtream-ui-nasm") != "$nasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
-wget -O /root/rpmbuild/SPECS/xtream-ui-nasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-nasm/xtream-ui-nasm.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-nasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-nasm.spec
 sed -i "s|xtream-ui-nasmversion|$nasmversion|" "/root/rpmbuild/SPECS/xtream-ui-nasm.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nasm.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nasm-$nasmversion-1.$dist.x86_64.rpm
@@ -556,7 +556,7 @@ if [[ $(inst  "xtream-ui-yasm") != "$yasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-yasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-yasm/xtream-ui-yasm.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-yasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-yasm.spec
 sed -i "s|xtream-ui-yasmversion|$yasmversion|" "/root/rpmbuild/SPECS/xtream-ui-yasm.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-yasm.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-yasm-$yasmversion-1.$dist.x86_64.rpm
@@ -591,7 +591,7 @@ if [[ $(inst  "xtream-ui-x264") != "$x264version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-x264.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-x264/xtream-ui-x264.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-x264.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-x264.spec
 sed -i "s|xtream-ui-x264version|$x264version|" "/root/rpmbuild/SPECS/xtream-ui-x264.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x264.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x264-$x264version-1.$dist.x86_64.rpm
@@ -626,7 +626,7 @@ if [[ $(inst  "xtream-ui-x265") != "$x265version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-x265.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-x265/xtream-ui-x265.spec
+wget -O /root/rpmbuild/SPECS/xtream-ui-x265.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-x265.spec
 sed -i "s|xtream-ui-x265version|$x265version|" "/root/rpmbuild/SPECS/xtream-ui-x265.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x265.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x265-$x265version-1.$dist.x86_64.rpm
