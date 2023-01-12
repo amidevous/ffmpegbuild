@@ -30,7 +30,7 @@ fi
 autoreconf -ifv
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --disable-hardware-acceleration \
 --disable-doc --disable-nls --disable-rpath
-make %{?_smp_mflags} all
+make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
