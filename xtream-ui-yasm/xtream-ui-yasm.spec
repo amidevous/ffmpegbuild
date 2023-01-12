@@ -35,7 +35,44 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/bin/vsyasm
+/root/ffmpeg_build/bin/yasm
+/root/ffmpeg_build/bin/ytasm
+/root/ffmpeg_build/include/libyasm-stdint.h
+/root/ffmpeg_build/include/libyasm.h
+/root/ffmpeg_build/include/libyasm/arch.h
+/root/ffmpeg_build/include/libyasm/assocdat.h
+/root/ffmpeg_build/include/libyasm/bitvect.h
+/root/ffmpeg_build/include/libyasm/bytecode.h
+/root/ffmpeg_build/include/libyasm/compat-queue.h
+/root/ffmpeg_build/include/libyasm/coretype.h
+/root/ffmpeg_build/include/libyasm/dbgfmt.h
+/root/ffmpeg_build/include/libyasm/errwarn.h
+/root/ffmpeg_build/include/libyasm/expr.h
+/root/ffmpeg_build/include/libyasm/file.h
+/root/ffmpeg_build/include/libyasm/floatnum.h
+/root/ffmpeg_build/include/libyasm/hamt.h
+/root/ffmpeg_build/include/libyasm/insn.h
+/root/ffmpeg_build/include/libyasm/intnum.h
+/root/ffmpeg_build/include/libyasm/inttree.h
+/root/ffmpeg_build/include/libyasm/linemap.h
+/root/ffmpeg_build/include/libyasm/listfmt.h
+/root/ffmpeg_build/include/libyasm/md5.h
+/root/ffmpeg_build/include/libyasm/module.h
+/root/ffmpeg_build/include/libyasm/objfmt.h
+/root/ffmpeg_build/include/libyasm/parser.h
+/root/ffmpeg_build/include/libyasm/phash.h
+/root/ffmpeg_build/include/libyasm/preproc.h
+/root/ffmpeg_build/include/libyasm/section.h
+/root/ffmpeg_build/include/libyasm/symrec.h
+/root/ffmpeg_build/include/libyasm/valparam.h
+/root/ffmpeg_build/include/libyasm/value.h
+/root/ffmpeg_build/lib64/libyasm.a
+/root/ffmpeg_build/share/man/man1/yasm.1
+/root/ffmpeg_build/share/man/man7/yasm_arch.7
+/root/ffmpeg_build/share/man/man7/yasm_dbgfmts.7
+/root/ffmpeg_build/share/man/man7/yasm_objfmts.7
+/root/ffmpeg_build/share/man/man7/yasm_parsers.7
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
