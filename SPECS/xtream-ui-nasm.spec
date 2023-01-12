@@ -29,7 +29,7 @@ source /opt/rh/devtoolset-8/enable
 fi
 ./autogen.sh
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --bindir="/root/ffmpeg_build/bin"
-make %{?_smp_mflags} all
+make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
