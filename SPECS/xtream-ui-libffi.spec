@@ -28,7 +28,7 @@ if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --disable-multi-os-directory
-make %{?_smp_mflags} all
+make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
