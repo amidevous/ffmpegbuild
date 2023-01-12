@@ -35,7 +35,11 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/bin/x264
+/root/ffmpeg_build/include/x264.h
+/root/ffmpeg_build/include/x264_config.h
+/root/ffmpeg_build/lib64/libx264.a
+/root/ffmpeg_build/lib64/pkgconfig/x264.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
