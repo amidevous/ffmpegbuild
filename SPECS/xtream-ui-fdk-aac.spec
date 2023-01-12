@@ -6,7 +6,8 @@ Summary: Utilities from the general purpose cryptography library with TLS implem
 Name: xtream-ui-fdk-aac
 Version: xtream-ui-fdk-aacversion
 Release: 1%{?dist}
-Source: https://ftp.gnu.org/gnu/nettle/nettle-%{version}.tar.gz
+# wget -O /root/rpmbuild/SOURCES/fdk-aac-2.0.2.tar.gz https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v2.0.2.tar.gz
+Source: fdk-aac-%{version}.tar.gz
 License: ASL 2.0
 URL: https://gnu.org
 BuildRequires: xtream-ui-x265
@@ -17,7 +18,7 @@ machines. OpenSSL includes a certificate management tool and shared
 libraries which provide various cryptographic algorithms and
 protocols.
 %prep
-%autosetup -S git -n nettle-%{version}
+%autosetup -S git -n fdk-aac-%{version}
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
