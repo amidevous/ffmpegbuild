@@ -33,9 +33,19 @@ make %{?_smp_mflags} all
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/man
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/doc
 
 %files
-
+/root/ffmpeg_build/include/opus/opus.h
+/root/ffmpeg_build/include/opus/opus_defines.h
+/root/ffmpeg_build/include/opus/opus_multistream.h
+/root/ffmpeg_build/include/opus/opus_projection.h
+/root/ffmpeg_build/include/opus/opus_types.h
+/root/ffmpeg_build/lib64/libopus.a
+/root/ffmpeg_build/lib64/libopus.la
+/root/ffmpeg_build/lib64/pkgconfig/opus.pc
+/root/ffmpeg_build/share/aclocal/opus.m4
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
