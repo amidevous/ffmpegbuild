@@ -29,7 +29,7 @@ source /opt/rh/devtoolset-8/enable
 fi
 cd build/linux
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="/root/ffmpeg_build" -DLIB_INSTALL_DIR=lib64 -DENABLE_SHARED:bool=off ../../source
-make %{?_smp_mflags} all
+make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 cd build/linux
