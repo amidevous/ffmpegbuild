@@ -6,7 +6,7 @@ Summary: Utilities from the general purpose cryptography library with TLS implem
 Name: xtream-ui-gnutls
 Version: xtream-ui-gnutlsversion
 Release: 1%{?dist}
-Source: https://ftp.gnu.org/gnu/nettle/nettle-%{version}.tar.gz
+Source: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-%{version}.tar.xz
 License: ASL 2.0
 URL: https://gnu.org
 BuildRequires: xtream-ui-libunistring
