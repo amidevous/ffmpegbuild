@@ -32,6 +32,7 @@ cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="/root/ffmpeg_build" -DLIB_INST
 make %{?_smp_mflags} all
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
+cd build/linux
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
