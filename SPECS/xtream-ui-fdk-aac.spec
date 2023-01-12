@@ -30,14 +30,22 @@ source /opt/rh/devtoolset-8/enable
 fi
 autoreconf -fiv
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --disable-shared
-make %{?_smp_mflags} all
+make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/include/fdk-aac/FDK_audio.h
+/root/ffmpeg_build/include/fdk-aac/aacdecoder_lib.h
+/root/ffmpeg_build/include/fdk-aac/aacenc_lib.h
+/root/ffmpeg_build/include/fdk-aac/genericStds.h
+/root/ffmpeg_build/include/fdk-aac/machine_type.h
+/root/ffmpeg_build/include/fdk-aac/syslib_channelMapDescr.h
+/root/ffmpeg_build/lib64/libfdk-aac.a
+/root/ffmpeg_build/lib64/libfdk-aac.la
+/root/ffmpeg_build/lib64/pkgconfig/fdk-aac.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
