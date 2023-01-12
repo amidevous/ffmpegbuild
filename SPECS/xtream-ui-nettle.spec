@@ -32,7 +32,7 @@ fi
 --libexecdir=/root/ffmpeg_build/libexec --sysconfdir=/root/ffmpeg_build/etc  --libdir=/root/ffmpeg_build/lib64 \
 --includedir=/root/ffmpeg_build/include --with-include-path=/root/ffmpeg_build/include --with-lib-path=/root/ffmpeg_build/lib \
  --enable-mini-gmp
-make %{?_smp_mflags} all
+make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
