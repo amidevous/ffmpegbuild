@@ -3,22 +3,22 @@
 %global __brp_check_rpaths %{nil}
 %global __check_rpaths %{nil}
 Summary: Utilities from the general purpose cryptography library with TLS implementation
-Name: xtream-ui-nettle
-Version: xtream-ui-nettleversion
+Name: xtream-ui-libvpx
+Version: xtream-ui-libvpxversion
 Release: 1%{?dist}
 # wget -O /root/rpmbuild/SOURCES/libvpx-$libvpxversion.tar.gz https://chromium.googlesource.com/webm/libvpx/+archive/$libvpxcheckout.tar.gz
 Source: libvpx-%{version}.tar.gz
 License: ASL 2.0
 URL: https://gnu.org
-BuildRequires: xtream-ui-gmp
-Requires: xtream-ui-gmp
+BuildRequires: xtream-ui-opus
+Requires: xtream-ui-opus
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
 libraries which provide various cryptographic algorithms and
 protocols.
 %prep
-%autosetup -S git -n nettle-%{version}
+%autosetup -S git -n libvpx-%{version}
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
