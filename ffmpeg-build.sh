@@ -2,7 +2,7 @@
 #define version
 opensslversion=3.0.7 gmpversion=6.2.1 nettleversion=3.8.1 libtasn1version=4.19.0 libffiversion=3.4.4 p11kitversion=0.24.1
 libunistringversion=1.1 gnutlsversion=3.6.16 gnutlsversionmin=${gnutlsversion:0:3} nasmversion=2.16.01 yasmversion=1.3.0
-x264version=$(date +%Y-%m) x265version=3.5 fdkaacversion=2.0.2 lameversion=3.100 opusversion=1.3.1 libvpxversion=1.12.0
+x264version=$(date +%Y.%m) x265version=3.5 fdkaacversion=2.0.2 lameversion=3.100 opusversion=1.3.1 libvpxversion=1.12.0
 libvpxcheckout=03265cd42b3783532de72f2ded5436652e6f5ce3 fribidiversion=1.0.12 harfbuzzversion=6.0.0 libassversion=0.17.0
 rtmpdumpversion=2.3 theoraversion=1.1.1 liboggversion=1.3.5 vorbisversion=1.3.7 xvidversion=1.3.7
 
@@ -482,6 +482,12 @@ $PACKAGE_INSTALLER xtream-ui-gnutls
 if [[ $(inst  "xtream-ui-gnutls") != "$gnutlsversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
+wget -O /root/rpmbuild/SPECS/xtream-ui-gnutls.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-gnutls/xtream-ui-gnutls.spec
+sed -i "s|xtream-ui-gnutlsversion|$gnutlsversion|" "/root/rpmbuild/SPECS/xtream-ui-gnutls.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gnutls.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gnutls-$gnutlsversion-1.$dist.x86_64.rpm
+$PACKAGE_INSTALLER xtream-ui-gnutls
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
 tar -xvf gnutls-$gnutlsversion.tar.xz
@@ -513,6 +519,12 @@ $PACKAGE_INSTALLER xtream-ui-nasm
 if [[ $(inst  "xtream-ui-nasm") != "$nasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
+wget -O /root/rpmbuild/SPECS/xtream-ui-nasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-nasm/xtream-ui-nasm.spec
+sed -i "s|xtream-ui-nasmversion|$nasmversion|" "/root/rpmbuild/SPECS/xtream-ui-nasm.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nasm.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nasm-$nasmversion-1.$dist.x86_64.rpm
+$PACKAGE_INSTALLER xtream-ui-nasm
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
 tar xjvf nasm-$nasmversion.tar.bz2
@@ -543,6 +555,12 @@ $PACKAGE_INSTALLER xtream-ui-yasm
 if [[ $(inst  "xtream-ui-yasm") != "$yasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-yasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-yasm/xtream-ui-yasm.spec
+sed -i "s|xtream-ui-yasmversion|$yasmversion|" "/root/rpmbuild/SPECS/xtream-ui-yasm.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-yasm.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-yasm-$yasmversion-1.$dist.x86_64.rpm
+$PACKAGE_INSTALLER xtream-ui-yasm
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
 tar xzvf yasm-$yasmversion.tar.gz
@@ -572,6 +590,12 @@ $PACKAGE_INSTALLER xtream-ui-x264
 if [[ $(inst  "xtream-ui-x264") != "$x264version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-x264.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-x264/xtream-ui-x264.spec
+sed -i "s|xtream-ui-x264version|$x264version|" "/root/rpmbuild/SPECS/xtream-ui-x264.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x264.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x264-$x264version-1.$dist.x86_64.rpm
+$PACKAGE_INSTALLER xtream-ui-x264
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
 tar -xvf x264-stable.tar.gz
@@ -601,6 +625,12 @@ $PACKAGE_INSTALLER xtream-ui-x265
 if [[ $(inst  "xtream-ui-x265") != "$x265version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-x265.spec https://github.com/amidevous/ffmpegbuild/raw/main/xtream-ui-x265/xtream-ui-x265.spec
+sed -i "s|xtream-ui-x265version|$x265version|" "/root/rpmbuild/SPECS/xtream-ui-x265.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x265.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x265-$x265version-1.$dist.x86_64.rpm
+$PACKAGE_INSTALLER xtream-ui-x265
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
 tar -xvf x265_$x265version.tar.gz
