@@ -37,7 +37,18 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/include/vpx/vp8.h
+/root/ffmpeg_build/include/vpx/vp8cx.h
+/root/ffmpeg_build/include/vpx/vp8dx.h
+/root/ffmpeg_build/include/vpx/vpx_codec.h
+/root/ffmpeg_build/include/vpx/vpx_decoder.h
+/root/ffmpeg_build/include/vpx/vpx_encoder.h
+/root/ffmpeg_build/include/vpx/vpx_ext_ratectrl.h
+/root/ffmpeg_build/include/vpx/vpx_frame_buffer.h
+/root/ffmpeg_build/include/vpx/vpx_image.h
+/root/ffmpeg_build/include/vpx/vpx_integer.h
+/root/ffmpeg_build/lib64/libvpx.a
+/root/ffmpeg_build/lib64/pkgconfig/vpx.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
