@@ -5,7 +5,7 @@ libunistringversion=1.1 gnutlsversion=3.6.16 gnutlsversionmin=${gnutlsversion:0:
 x264version=$(date +%Y.%m) x265version=3.5 fdkaacversion=2.0.2 lameversion=3.100 opusversion=1.3.1 libvpxversion=1.12.0
 libvpxcheckout=03265cd42b3783532de72f2ded5436652e6f5ce3 fribidiversion=1.0.12 harfbuzzversion=6.0.0 libassversion=0.17.0
 rtmpdumpversion=2.3 theoraversion=1.1.1 liboggversion=1.3.5 vorbisversion=1.3.7 xvidversion=1.3.7
-
+xavsversion=$(date +%Y.%m)
 
 ffmpegversion=5.1.2
 echo -e "\nChecking that minimal requirements are ok"
@@ -114,8 +114,12 @@ $PACKAGE_INSTALLER --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-
 if [[ "$VER" = "8" ]]; then
 dnf config-manager --enable powertools
 fi
+$PACKAGE_INSTALLER @fedora-packager
+$PACKAGE_INSTALLER rpm-build
 elif [[ "$OS" = "Fedora" ]]; then
 $PACKAGE_INSTALLER --nogpgcheck https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+$PACKAGE_INSTALLER @fedora-packager
+$PACKAGE_INSTALLER rpm-build
 fi
 $PACKAGE_UPDATER
 $PACKAGE_UPDGRADER
@@ -167,12 +171,13 @@ mkdir -p /root/ffmpeg_package/$OS/$VER/$ARCH/
 cat > /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd <<EOF
 #!/bin/bash
 NAMERPM=\$(rpm -pq --queryformat "%{NAME}" \$1)
-MINRPM=\${NAMESRC::1}
+MINRPM=\${NAMERPM::1}
 mkdir -p /root/ffmpeg_package/$OS/$VER/$ARCH/Packages/\$MINRPM
 mv \$1 /root/ffmpeg_package/$OS/$VER/$ARCH/Packages/\$MINRPM
 createrepo --update /root/ffmpeg_package/$OS/$VER/$ARCH
 EOF
 chmod +x /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd
+mkdir -p /etc/yum.repos.d/
 cat > /etc/yum.repos.d/ffmpeg-local.repo <<EOF
 [ffmpeg-local]
 name=ffmpeg local
@@ -665,6 +670,23 @@ checkinstall \
 find /root/ffmpeg_sources -name '*.deb' -exec /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd {} \;
 fi
 fi
+if [ ! -f /root/ffmpeg_build/lib64/pkgconfig/x265.pc ]
+then
+mkdir -p /root/ffmpeg_build/lib64/pkgconfig/
+cat > /root/ffmpeg_build/lib64/pkgconfig/x265.pc <<EOF
+prefix=/root/ffmpeg_build
+exec_prefix=\${prefix}
+libdir=\${exec_prefix}/lib64
+includedir=\${prefix}/include
+
+Name: x265
+Description: H.265/HEVC video encoder
+Version: 3.5
+Libs: -L\${libdir} -lx265
+Libs.private: -lstdc++ -lm -lrt -ldl
+Cflags: -I\${includedir}
+EOF
+fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
@@ -819,6 +841,13 @@ $PACKAGE_INSTALLER xtream-ui-fribidi
 if [[ $(inst  "xtream-ui-fribidi") != "$fribidiversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
+wget -O /root/rpmbuild/SPECS/xtream-ui-fribidi.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-fribidi.spec
+sed -i "s|xtream-ui-fribidiversion|$fribidiversion|" "/root/rpmbuild/SPECS/xtream-ui-fribidi.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-fribidi.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-fribidi-$fribidiversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-fribidi
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
 tar -xvf fribidi-$fribidiversion.tar.xz
@@ -849,6 +878,13 @@ $PACKAGE_INSTALLER xtream-ui-harfbuzz
 if [[ $(inst  "xtream-ui-harfbuzz") != "$harfbuzzversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
+wget -O /root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-harfbuzz.spec
+sed -i "s|xtream-ui-harfbuzzversion|$harfbuzzversion|" "/root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-harfbuzz-$harfbuzzversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-harfbuzz
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
 tar -xvf harfbuzz-$harfbuzzversion.tar.xz
@@ -878,6 +914,13 @@ $PACKAGE_INSTALLER xtream-ui-libass
 if [[ $(inst  "xtream-ui-libass") != "$libassversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-libass.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libass.spec
+sed -i "s|xtream-ui-libassversion|$libassversion|" "/root/rpmbuild/SPECS/xtream-ui-libass.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libass.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libass-$libassversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-libass
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
 tar -xvf libass-$libassversion.tar.gz
@@ -907,6 +950,13 @@ $PACKAGE_INSTALLER xtream-ui-libogg
 if [[ $(inst  "xtream-ui-libogg") != "$liboggversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-libogg.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libogg.spec
+sed -i "s|xtream-ui-liboggversion|$liboggversion|" "/root/rpmbuild/SPECS/xtream-ui-libogg.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libogg.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libogg-$liboggversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-libogg
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
 tar -xvf libogg-$liboggversion.tar.gz
@@ -936,13 +986,22 @@ $PACKAGE_INSTALLER xtream-ui-theora
 if [[ $(inst  "xtream-ui-theora") != "$theoraversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
+#patch: png_sizeof no longer available (since libpng 1.6)
+wget -O /root/rpmbuild/SOURCES/theora.patch https://gitlab.xiph.org/xiph/theora/-/commit/7288b539c52e99168488dc3a343845c9365617c8.patch
+wget -O /root/rpmbuild/SPECS/xtream-ui-theora.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-theora.spec
+sed -i "s|xtream-ui-theoraversion|$theoraversion|" "/root/rpmbuild/SPECS/xtream-ui-theora.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-theora.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-theora-$theoraversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-theora
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
 tar -xvf theora-$theoraversion.tar.gz
 cd /root/ffmpeg_sources/theora-$theoraversion
 ./autogen.sh
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
-#examples: png_sizeof no longer available (since libpng 1.6) 
+#patch: png_sizeof no longer available (since libpng 1.6) 
 wget -O theora.patch https://gitlab.xiph.org/xiph/theora/-/commit/7288b539c52e99168488dc3a343845c9365617c8.patch
 patch -p1 < theora.patch
 make -j$(nproc --all)
@@ -969,6 +1028,13 @@ $PACKAGE_INSTALLER xtream-ui-vorbis
 if [[ $(inst  "xtream-ui-vorbis") != "$vorbisversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-vorbis.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-vorbis.spec
+sed -i "s|xtream-ui-vorbisversion|$vorbisversion|" "/root/rpmbuild/SPECS/xtream-ui-vorbis.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-vorbis.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-vorbis-$vorbisversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-vorbis
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
 tar -xvf libvorbis-$vorbisversion.tar.gz
@@ -977,7 +1043,7 @@ cd /root/ffmpeg_sources/libvorbis-$vorbisversion
 make -j$(nproc --all)
 checkinstall \
 	--type=$pack \
-    --pkgsource=vorbis \
+    --pkgsource=libvorbis \
     --pkglicense=GPL3 \
     --deldesc=no \
     --nodoc \
@@ -998,6 +1064,13 @@ $PACKAGE_INSTALLER xtream-ui-xvid
 if [[ $(inst  "xtream-ui-xvid") != "$xvidversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+wget -O /root/rpmbuild/SOURCES/xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
+wget -O /root/rpmbuild/SPECS/xtream-ui-xvid.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xvid.spec
+sed -i "s|xtream-ui-xvidversion|$xvidversion|" "/root/rpmbuild/SPECS/xtream-ui-xvid.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xvid.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-xvid-$xvidversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-xvid
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
 tar -xvf xvidcore-$xvidversion.tar.gz
@@ -1017,6 +1090,43 @@ checkinstall \
 	--exclude=/root/ffmpeg_build/share/info/dir \
     --pkgname=xtream-ui-xvid \
     --requires=xtream-ui-vorbis -y
+find /root/ffmpeg_sources -name '*.deb' -exec /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd {} \;
+fi
+fi
+cd /root/ffmpeg_sources
+rm -rf *
+$PACKAGE_UPDATER
+$PACKAGE_INSTALLER xtream-ui-xavs
+if [[ $(inst  "xtream-ui-xavs") != "xavsversion-1.$dist" ]]; then
+if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
+mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
+svn checkout https://svn.code.sf.net/p/xavs/code/trunk xavs-$xavsversion
+tar -czvf /root/rpmbuild/SOURCES/xavs-$xavsversion.tar.gz xavs-$xavsversion
+rm -rf xavs-$xavsversion
+wget -O /root/rpmbuild/SPECS/xtream-ui-xavs.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xavs.spec
+sed -i "s|xtream-ui-xavsversion|$xavsversion|" "/root/rpmbuild/SPECS/xtream-ui-xavs.spec"
+rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xavs.spec
+/root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-xavs-$xavsversion-1.$dist.x86_64.rpm
+sleep 60
+$PACKAGE_INSTALLER xtream-ui-xavs
+elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
+svn checkout https://svn.code.sf.net/p/xavs/code/trunk xavs-$xavsversion
+cd /root/ffmpeg_sources/xavs-$xavsversion
+./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64
+make -j$(nproc --all)
+checkinstall \
+	--type=$pack \
+    --pkgsource=xavs \
+    --pkglicense=GPL3 \
+    --deldesc=no \
+    --nodoc \
+    --maintainer=amidevous@gmail.com \
+    --pkgarch=$pkgarch \
+    --pkgversion=$xavsversion \
+    --pkgrelease=1.$dist \
+	--exclude=/root/ffmpeg_build/share/info/dir \
+    --pkgname=xtream-ui-xavs \
+    --requires=xtream-ui-xvid -y
 find /root/ffmpeg_sources -name '*.deb' -exec /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd {} \;
 fi
 fi
@@ -1057,7 +1167,12 @@ cd ffmpeg-$ffmpegversion
   --enable-gnutls \
   --enable-version3 \
   --enable-libvorbis \
-   --enable-libxvid \
+  --enable-libxvid \
+  --enable-static \
+  --enable-bzlib \
+  --enable-fontconfig \
+  --enable-zlib \
+  --enable-libxavs \
   --extra-libs='-lstdc++ -lrtmp -lgmp -lssl -lcrypto -lz -ldl -lm -lpthread -lunistring'
 make -j$(nproc --all)
 make install
@@ -1066,6 +1181,7 @@ update-alternatives --set gcc /usr/bin/gcc-7
 update-alternatives --set g++ /usr/bin/g++-7
 update-alternatives --set cpp /usr/bin/cpp-7
 fi
+cd /root
 rm -f /etc/yum.repos.d/ffmpeg-local.repo /etc/apt/sources.list.d/ffmpeg-local.list
 $PACKAGE_REMOVER xtream-ui-openssl3
-rm -rf /root/ffmpeg_build/
+rm -rf /root/ffmpeg_build/ /root/ffmpeg_sources
