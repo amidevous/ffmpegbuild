@@ -1,7 +1,7 @@
-#%global debug_package %{nil}
-#%define __arch_install_post %{nil}
-#%global __brp_check_rpaths %{nil}
-#%global __check_rpaths %{nil}
+%global debug_package %{nil}
+%define __arch_install_post %{nil}
+%global __brp_check_rpaths %{nil}
+%global __check_rpaths %{nil}
 Summary: Utilities from the general purpose cryptography library with TLS implementation
 Name: xtream-ui-x265
 Version: xtream-ui-x265version
@@ -33,6 +33,24 @@ make %{?_smp_mflags}
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 cd build/linux/
 %make_install
+
+if [ ! -f /path/to/file ]
+then
+mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
+cat > $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/x265.pc <<EOF
+prefix=/root/ffmpeg_build
+exec_prefix=\${prefix}
+libdir=\${exec_prefix}/lib64
+includedir=\${prefix}/include
+
+Name: x265
+Description: H.265/HEVC video encoder
+Version: 3.5
+Libs: -L\${libdir} -lx265
+Libs.private: -lstdc++ -lm -lrt -ldl
+Cflags: -I\${includedir}
+EOF
+fi
 
 %files
 /root/ffmpeg_build/bin/x265
