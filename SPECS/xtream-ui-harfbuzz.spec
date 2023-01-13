@@ -33,9 +33,53 @@ make %{?_smp_mflags}
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/gtk-doc/
 
 %files
-
+/root/ffmpeg_build/include/harfbuzz/hb-aat-layout.h
+/root/ffmpeg_build/include/harfbuzz/hb-aat.h
+/root/ffmpeg_build/include/harfbuzz/hb-blob.h
+/root/ffmpeg_build/include/harfbuzz/hb-buffer.h
+/root/ffmpeg_build/include/harfbuzz/hb-common.h
+/root/ffmpeg_build/include/harfbuzz/hb-cplusplus.hh
+/root/ffmpeg_build/include/harfbuzz/hb-deprecated.h
+/root/ffmpeg_build/include/harfbuzz/hb-draw.h
+/root/ffmpeg_build/include/harfbuzz/hb-face.h
+/root/ffmpeg_build/include/harfbuzz/hb-font.h
+/root/ffmpeg_build/include/harfbuzz/hb-map.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-color.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-deprecated.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-font.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-layout.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-math.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-meta.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-metrics.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-name.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-shape.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot-var.h
+/root/ffmpeg_build/include/harfbuzz/hb-ot.h
+/root/ffmpeg_build/include/harfbuzz/hb-set.h
+/root/ffmpeg_build/include/harfbuzz/hb-shape-plan.h
+/root/ffmpeg_build/include/harfbuzz/hb-shape.h
+/root/ffmpeg_build/include/harfbuzz/hb-style.h
+/root/ffmpeg_build/include/harfbuzz/hb-subset-repacker.h
+/root/ffmpeg_build/include/harfbuzz/hb-subset.h
+/root/ffmpeg_build/include/harfbuzz/hb-unicode.h
+/root/ffmpeg_build/include/harfbuzz/hb-version.h
+/root/ffmpeg_build/include/harfbuzz/hb.h
+/root/ffmpeg_build/lib64/cmake/harfbuzz/harfbuzz-config.cmake
+/root/ffmpeg_build/lib64/libharfbuzz-subset.a
+/root/ffmpeg_build/lib64/libharfbuzz-subset.la
+/root/ffmpeg_build/lib64/libharfbuzz-subset.so
+/root/ffmpeg_build/lib64/libharfbuzz-subset.so.0
+/root/ffmpeg_build/lib64/libharfbuzz-subset.so.0.60000.0
+/root/ffmpeg_build/lib64/libharfbuzz.a
+/root/ffmpeg_build/lib64/libharfbuzz.la
+/root/ffmpeg_build/lib64/libharfbuzz.so
+/root/ffmpeg_build/lib64/libharfbuzz.so.0
+/root/ffmpeg_build/lib64/libharfbuzz.so.0.60000.0
+/root/ffmpeg_build/lib64/pkgconfig/harfbuzz-subset.pc
+/root/ffmpeg_build/lib64/pkgconfig/harfbuzz.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
