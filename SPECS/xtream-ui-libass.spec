@@ -35,7 +35,14 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/include/ass/ass.h
+/root/ffmpeg_build/include/ass/ass_types.h
+/root/ffmpeg_build/lib64/libass.a
+/root/ffmpeg_build/lib64/libass.la
+/root/ffmpeg_build/lib64/libass.so
+/root/ffmpeg_build/lib64/libass.so.9
+/root/ffmpeg_build/lib64/libass.so.9.2.0
+/root/ffmpeg_build/lib64/pkgconfig/libass.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
