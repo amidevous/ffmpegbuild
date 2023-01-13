@@ -34,7 +34,7 @@ make %{?_smp_mflags}
 cd build/linux/
 %make_install
 
-if [ ! -f /path/to/file ]
+if [ ! -f $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/x265.pc ]
 then
 mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
 cat > $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/x265.pc <<EOF
