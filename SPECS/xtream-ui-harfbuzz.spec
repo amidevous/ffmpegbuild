@@ -34,6 +34,7 @@ make %{?_smp_mflags}
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/gtk-doc/
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/include/harfbuzz/hb-ft.h
 
 %files
 /root/ffmpeg_build/include/harfbuzz/hb-aat-layout.h
