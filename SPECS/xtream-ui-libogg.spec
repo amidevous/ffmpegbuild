@@ -33,9 +33,19 @@ make %{?_smp_mflags}
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/doc/
 
 %files
-
+/root/ffmpeg_build/include/ogg/config_types.h
+/root/ffmpeg_build/include/ogg/ogg.h
+/root/ffmpeg_build/include/ogg/os_types.h
+/root/ffmpeg_build/lib64/libogg.a
+/root/ffmpeg_build/lib64/libogg.la
+/root/ffmpeg_build/lib64/libogg.so
+/root/ffmpeg_build/lib64/libogg.so.0
+/root/ffmpeg_build/lib64/libogg.so.0.8.5
+/root/ffmpeg_build/lib64/pkgconfig/ogg.pc
+/root/ffmpeg_build/share/aclocal/ogg.m4
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
