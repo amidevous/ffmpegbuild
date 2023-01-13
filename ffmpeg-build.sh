@@ -220,6 +220,7 @@ NAMERPM=\$(rpm -pq --queryformat "%{NAME}" \$1)
 MINRPM=\${NAMERPM::1}
 mkdir -p /root/ffmpeg_package/$OS/$VER/$ARCH/Packages/\$MINRPM
 mv \$1 /root/ffmpeg_package/$OS/$VER/$ARCH/Packages/\$MINRPM
+$PACKAGE_REMOVER /lib64/libldap.so.2
 createrepo --update /root/ffmpeg_package/$OS/$VER/$ARCH
 EOF
 chmod +x /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd
