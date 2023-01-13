@@ -36,7 +36,7 @@ make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
-rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/
 
 %files
 /root/ffmpeg_build/bin/nettle-hash
@@ -123,7 +123,6 @@ rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 /root/ffmpeg_build/lib64/libnettle.so.8.6
 /root/ffmpeg_build/lib64/pkgconfig/hogweed.pc
 /root/ffmpeg_build/lib64/pkgconfig/nettle.pc
-/root/ffmpeg_build/share/info/nettle.info
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
