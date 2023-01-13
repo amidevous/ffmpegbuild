@@ -35,7 +35,10 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/bin/xavs
+/root/ffmpeg_build/include/xavs.h
+/root/ffmpeg_build/lib64/libxavs.a
+/root/ffmpeg_build/lib64/pkgconfig/xavs.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
