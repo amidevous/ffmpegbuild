@@ -39,7 +39,7 @@ ARCH=$(uname -m)
 echo "Detected : $OS  $VER  $ARCH"
 # this part must be updated every 6 months
 if [[ "$OS" = "CentOs" && "$VER" = "7" && "$ARCH" == "x86_64" || "$OS" = "CentOS-Stream" && "$VER" = "8" && "$ARCH" == "x86_64" ||
-"$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "35" && "$ARCH" == "x86_64" ||
+"$OS" = "Fedora" && "$VER" = "35" && "$ARCH" == "x86_64" ||
 "$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "18.04" && "$ARCH" == "x86_64" || "$OS" = "Ubuntu" && "$VER" = "20.04" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "22.04" && "$ARCH" == "x86_64" || "$OS" = "debian" && "$VER" = "10" && "$ARCH" == "x86_64" ||
@@ -51,7 +51,6 @@ else
 	echo "Only aviable for :"
 	echo "Centos Version 7 (LTS)"
 	echo "CentOS Stream Version 8 (LTS)"
-	echo "CentOS Stream Version 9 (LTS)"
 	echo "Fedora Version 35 (Old Stable)"
 	echo "Fedora Version 36 (Stable)"
 	echo "Fedora Version 37 (Next Stable)"
@@ -269,7 +268,7 @@ if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" ]]; then
 dist=el$VER
 pack=rpm
 elif [[ "$OS" = "Fedora" ]]; then
-disy=fc$VER
+dist=fc$VER
 pack=rpm
 elif [[ "$OS" = "Ubuntu" ]]; then
 dist=Ubuntu-$(lsb_release -sc)
