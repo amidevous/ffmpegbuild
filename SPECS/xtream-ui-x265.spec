@@ -41,6 +41,7 @@ rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 /root/ffmpeg_build/include/x265.h
 /root/ffmpeg_build/include/x265_config.h
 /root/ffmpeg_build/lib64/libx265.a
+/root/ffmpeg_build/lib64/pkgconfig/x265.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
