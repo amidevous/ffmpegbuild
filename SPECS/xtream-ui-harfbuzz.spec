@@ -35,6 +35,18 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/gtk-doc/
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/include/harfbuzz/hb-ft.h
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/bin/hb-ot-shape-closure
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/bin/hb-shape
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/bin/hb-subset
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/include/harfbuzz/hb-glib.h
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/include/harfbuzz/hb-icu.h
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libharfbuzz-icu.a
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libharfbuzz-icu.la
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libharfbuzz-icu.so
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libharfbuzz-icu.so.0
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libharfbuzz-icu.so.0.60000.0
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/harfbuzz-icu.pc
+
 
 %files
 /root/ffmpeg_build/include/harfbuzz/hb-aat-layout.h
