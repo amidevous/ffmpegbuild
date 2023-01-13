@@ -1,13 +1,4 @@
 #!/bin/bash
-#define version
-opensslversion=3.0.7 gmpversion=6.2.1 nettleversion=3.8.1 libtasn1version=4.19.0 libffiversion=3.4.4 p11kitversion=0.24.1
-libunistringversion=1.1 gnutlsversion=3.6.16 gnutlsversionmin=${gnutlsversion:0:3} nasmversion=2.16.01 yasmversion=1.3.0
-x264version=$(date +%Y.%m) x265version=3.5 fdkaacversion=2.0.2 lameversion=3.100 opusversion=1.3.1 libvpxversion=1.12.0
-libvpxcheckout=03265cd42b3783532de72f2ded5436652e6f5ce3 fribidiversion=1.0.12 harfbuzzversion=6.0.0 libassversion=0.17.0
-rtmpdumpversion=2.3 theoraversion=1.1.1 liboggversion=1.3.5 vorbisversion=1.3.7 xvidversion=1.3.7
-xavsversion=$(date +%Y.%m)
-
-ffmpegversion=5.1.2
 echo -e "\nChecking that minimal requirements are ok"
 # Ensure the OS is compatible with the launcher
 if [ -f /etc/centos-release ]; then
@@ -123,10 +114,56 @@ $PACKAGE_INSTALLER rpm-build
 fi
 $PACKAGE_UPDATER
 $PACKAGE_UPDGRADER
-$PACKAGE_INSTALLER autoconf automake $bzip2devel cmake $freetypedevel gcc $cpp $freetypedevel git libtool make \
-$pkgconfig $zlibdevel wget curl gpg unzip nano doxygen subversion info dash $gettext patch m4 $lksctptools $harness ca-certificates \
-$testsimple $bigint $complex $localemaketext $maketextsimple $corelist $moduleload $metadata \
-$check $perlversion $digest $sha $utils $cmd $bigrat $html $hires $bignum perl $repo $fontconfig $rtmpdump
+$PACKAGE_INSTALLER autoconf
+$PACKAGE_INSTALLER automake
+$PACKAGE_INSTALLER $bzip2devel
+$PACKAGE_INSTALLER cmake
+$PACKAGE_INSTALLER $freetypedevel
+$PACKAGE_INSTALLER gcc
+$PACKAGE_INSTALLER $cpp
+$PACKAGE_INSTALLER $freetypedevel
+$PACKAGE_INSTALLER git
+$PACKAGE_INSTALLER libtool
+$PACKAGE_INSTALLER make
+$PACKAGE_INSTALLER $pkgconfig
+$PACKAGE_INSTALLER $zlibdevel
+$PACKAGE_INSTALLER wget
+$PACKAGE_INSTALLER curl
+$PACKAGE_INSTALLER gpg
+$PACKAGE_INSTALLER unzip
+$PACKAGE_INSTALLER nano
+$PACKAGE_INSTALLER doxygen
+$PACKAGE_INSTALLER subversion
+$PACKAGE_INSTALLER info
+$PACKAGE_INSTALLER dash
+$PACKAGE_INSTALLER $gettext
+$PACKAGE_INSTALLER patch
+$PACKAGE_INSTALLER m4
+$PACKAGE_INSTALLER $lksctptools
+$PACKAGE_INSTALLER $harness
+$PACKAGE_INSTALLER ca-certificates
+$PACKAGE_INSTALLER $testsimple
+$PACKAGE_INSTALLER $bigint
+$PACKAGE_INSTALLER $complex
+$PACKAGE_INSTALLER $localemaketext
+$PACKAGE_INSTALLER $maketextsimple
+$PACKAGE_INSTALLER $corelist
+$PACKAGE_INSTALLER $moduleload
+$PACKAGE_INSTALLER $metadata
+$PACKAGE_INSTALLER $check
+$PACKAGE_INSTALLER $perlversion
+$PACKAGE_INSTALLER $digest
+$PACKAGE_INSTALLER $sha
+$PACKAGE_INSTALLER $utils
+$PACKAGE_INSTALLER $cmd
+$PACKAGE_INSTALLER $bigrat
+$PACKAGE_INSTALLER $html
+$PACKAGE_INSTALLER $hires
+$PACKAGE_INSTALLER $bignum
+$PACKAGE_INSTALLER perl
+$PACKAGE_INSTALLER $repo
+$PACKAGE_INSTALLER $fontconfig
+$PACKAGE_INSTALLER $rtmpdump
 # podman repository for ubuntu
 if [[ "$OS" = "Ubuntu" && ("$VER" = "18.04" || "$VER" = "20.04" ) ]] ; then
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/ /" | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
