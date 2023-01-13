@@ -1,7 +1,7 @@
-%global debug_package %{nil}
-%define __arch_install_post %{nil}
-%global __brp_check_rpaths %{nil}
-%global __check_rpaths %{nil}
+#%global debug_package %{nil}
+#%define __arch_install_post %{nil}
+#%global __brp_check_rpaths %{nil}
+#%global __check_rpaths %{nil}
 Summary: Utilities from the general purpose cryptography library with TLS implementation
 Name: xtream-ui-x265
 Version: xtream-ui-x265version
@@ -19,7 +19,6 @@ protocols.
 %prep
 %autosetup -S git -n x265_%{version}
 %build
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
 export PATH="/root/ffmpeg_build/bin:$PATH"
 export PKG_CONFIG_PATH="/root/ffmpeg_build/lib64/pkgconfig:$PKG_CONFIG_PATH"
@@ -34,8 +33,6 @@ make %{?_smp_mflags}
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 cd build/linux/
 %make_install
-mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
-install -m 777 x265.pc $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
 
 %files
 /root/ffmpeg_build/bin/x265
