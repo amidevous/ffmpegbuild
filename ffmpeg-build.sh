@@ -123,10 +123,56 @@ $PACKAGE_INSTALLER rpm-build
 fi
 $PACKAGE_UPDATER
 $PACKAGE_UPDGRADER
-$PACKAGE_INSTALLER autoconf automake $bzip2devel cmake $freetypedevel gcc $cpp $freetypedevel git libtool make \
-$pkgconfig $zlibdevel wget curl gpg unzip nano doxygen subversion info dash $gettext patch m4 $lksctptools $harness ca-certificates \
-$testsimple $bigint $complex $localemaketext $maketextsimple $corelist $moduleload $metadata \
-$check $perlversion $digest $sha $utils $cmd $bigrat $html $hires $bignum perl $repo $fontconfig $rtmpdump
+$PACKAGE_INSTALLER autoconf
+$PACKAGE_INSTALLER automake
+$PACKAGE_INSTALLER $bzip2devel
+$PACKAGE_INSTALLER cmake
+$PACKAGE_INSTALLER $freetypedevel
+$PACKAGE_INSTALLER gcc
+$PACKAGE_INSTALLER $cpp
+$PACKAGE_INSTALLER $freetypedevel
+$PACKAGE_INSTALLER git
+$PACKAGE_INSTALLER libtool
+$PACKAGE_INSTALLER make
+$PACKAGE_INSTALLER $pkgconfig
+$PACKAGE_INSTALLER $zlibdevel
+$PACKAGE_INSTALLER wget
+$PACKAGE_INSTALLER curl
+$PACKAGE_INSTALLER gpg
+$PACKAGE_INSTALLER unzip
+$PACKAGE_INSTALLER nano
+$PACKAGE_INSTALLER doxygen
+$PACKAGE_INSTALLER subversion
+$PACKAGE_INSTALLER info
+$PACKAGE_INSTALLER dash
+$PACKAGE_INSTALLER $gettext
+$PACKAGE_INSTALLER patch
+$PACKAGE_INSTALLER m4
+$PACKAGE_INSTALLER $lksctptools
+$PACKAGE_INSTALLER $harness
+$PACKAGE_INSTALLER ca-certificates
+$PACKAGE_INSTALLER $testsimple
+$PACKAGE_INSTALLER $bigint
+$PACKAGE_INSTALLER $complex
+$PACKAGE_INSTALLER $localemaketext
+$PACKAGE_INSTALLER $maketextsimple
+$PACKAGE_INSTALLER $corelist
+$PACKAGE_INSTALLER $moduleload
+$PACKAGE_INSTALLER $metadata
+$PACKAGE_INSTALLER $check
+$PACKAGE_INSTALLER $perlversion
+$PACKAGE_INSTALLER $digest
+$PACKAGE_INSTALLER $sha
+$PACKAGE_INSTALLER $utils
+$PACKAGE_INSTALLER $cmd
+$PACKAGE_INSTALLER $bigrat
+$PACKAGE_INSTALLER $html
+$PACKAGE_INSTALLER $hires
+$PACKAGE_INSTALLER $bignum
+$PACKAGE_INSTALLER perl
+$PACKAGE_INSTALLER $repo
+$PACKAGE_INSTALLER $fontconfig
+$PACKAGE_INSTALLER $rtmpdump
 # podman repository for ubuntu
 if [[ "$OS" = "Ubuntu" && ("$VER" = "18.04" || "$VER" = "20.04" ) ]] ; then
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/ /" | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
