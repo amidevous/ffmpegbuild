@@ -31,16 +31,11 @@ cd build/linux
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="/root/ffmpeg_build" -DLIB_INSTALL_DIR=lib64 -DENABLE_SHARED:bool=off ../../source
 make %{?_smp_mflags}
 %install
-rm -rf $RPM_BUILD_ROOT
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
+cd build/linux/
+%make_install
 mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
-mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/include/
-mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/bin/
-install -m 777 build/linux/libx265.a $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/
-install -m 777 build/linux/x265.h $RPM_BUILD_ROOT/root/ffmpeg_build/include/
-install -m 777 build/linux/x265_config.h $RPM_BUILD_ROOT/root/ffmpeg_build/include/
-install -m 777 build/linux/x265.pc $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
-install -m 777 build/linux/x265 $RPM_BUILD_ROOT/root/ffmpeg_build/bin/
-
+install -m 777 x265.pc $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/pkgconfig/
 
 %files
 /root/ffmpeg_build/bin/x265
