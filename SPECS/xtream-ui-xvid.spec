@@ -37,7 +37,11 @@ cd build/generic
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 
 %files
-
+/root/ffmpeg_build/include/xvid.h
+/root/ffmpeg_build/lib64/libxvidcore.a
+/root/ffmpeg_build/lib64/libxvidcore.so
+/root/ffmpeg_build/lib64/libxvidcore.so.4
+/root/ffmpeg_build/lib64/libxvidcore.so.4.3
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
