@@ -33,6 +33,8 @@ make %{?_smp_mflags}
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf $RPM_BUILD_ROOT/usr
+
 
 %files
 /root/ffmpeg_build/bin/p11-kit
@@ -99,8 +101,6 @@ rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
 /root/ffmpeg_build/share/gtk-doc/html/p11-kit/up-insensitive.png
 /root/ffmpeg_build/share/gtk-doc/html/p11-kit/up.png
 /root/ffmpeg_build/share/p11-kit/modules/p11-kit-trust.module
-/usr/share/bash-completion/completions/p11-kit
-/usr/share/bash-completion/completions/trust
 
 
 %changelog
