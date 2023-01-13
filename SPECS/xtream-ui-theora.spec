@@ -36,9 +36,31 @@ make %{?_smp_mflags}
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/doc/
 
 %files
-
+/root/ffmpeg_build/include/theora/codec.h
+/root/ffmpeg_build/include/theora/theora.h
+/root/ffmpeg_build/include/theora/theoradec.h
+/root/ffmpeg_build/include/theora/theoraenc.h
+/root/ffmpeg_build/lib64/libtheora.a
+/root/ffmpeg_build/lib64/libtheora.la
+/root/ffmpeg_build/lib64/libtheora.so
+/root/ffmpeg_build/lib64/libtheora.so.0
+/root/ffmpeg_build/lib64/libtheora.so.0.3.10
+/root/ffmpeg_build/lib64/libtheoradec.a
+/root/ffmpeg_build/lib64/libtheoradec.la
+/root/ffmpeg_build/lib64/libtheoradec.so
+/root/ffmpeg_build/lib64/libtheoradec.so.1
+/root/ffmpeg_build/lib64/libtheoradec.so.1.1.4
+/root/ffmpeg_build/lib64/libtheoraenc.a
+/root/ffmpeg_build/lib64/libtheoraenc.la
+/root/ffmpeg_build/lib64/libtheoraenc.so
+/root/ffmpeg_build/lib64/libtheoraenc.so.1
+/root/ffmpeg_build/lib64/libtheoraenc.so.1.1.2
+/root/ffmpeg_build/lib64/pkgconfig/theora.pc
+/root/ffmpeg_build/lib64/pkgconfig/theoradec.pc
+/root/ffmpeg_build/lib64/pkgconfig/theoraenc.pc
 
 %changelog
 * Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
