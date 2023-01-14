@@ -1,0 +1,383 @@
+Package: xtream-ui-fdk-aac
+Installed-Size: 16856
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.0.2-1.Ubuntu-jammy
+Depends: xtream-ui-x265
+Provides: xtream-ui-fdk-aac
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fdk-aac/xtream-ui-fdk-aac_2.0.2-1.Ubuntu-jammy_amd64.deb
+Size: 4116748
+SHA256: 3b2628309448ee1aa2d3d8b9788aeb930f0857362cb2555d681f7f981f19f89c
+SHA1: e0193c229c6fe5428756a504cc97c3db23a9e3da
+MD5sum: f6a3b7e3a4c3335177bfb3c0c6d1ee07
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-fribidi
+Installed-Size: 456
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.0.12-1.Ubuntu-jammy
+Depends: xtream-ui-libvpx
+Provides: xtream-ui-fribidi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fribidi/xtream-ui-fribidi_1.0.12-1.Ubuntu-jammy_amd64.deb
+Size: 47610
+SHA256: 87fd1733d3d1de26ccfe94f13384755405ac7c6a02f337c8b203400ef1f4f911
+SHA1: 4584138bb2fa6fb2109bf9205f1e7dec112c34e6
+MD5sum: cebbf2a03aeca24e8ab77d363b9fbec5
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gmp
+Installed-Size: 3500
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.2.1-1.Ubuntu-jammy
+Depends: xtream-ui-openssl3
+Provides: xtream-ui-gmp
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gmp/xtream-ui-gmp_6.2.1-1.Ubuntu-jammy_amd64.deb
+Size: 501960
+SHA256: 3191df1dc28fa4746dc4237369aba802e012e63bb9b245e767ae40947a4b64a9
+SHA1: 2e2f0e760600fba9b50bf6adc285ba3b59a8db13
+MD5sum: 29987c46bc9652a51ab4f335d26fd3cd
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gnutls
+Installed-Size: 4952
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.6.16-1.Ubuntu-jammy
+Depends: xtream-ui-libunistring
+Provides: xtream-ui-gnutls
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gnutls/xtream-ui-gnutls_3.6.16-1.Ubuntu-jammy_amd64.deb
+Size: 1014392
+SHA256: 3d30c01541120da586837e5332991aeea850b9dcd4127350fe243dd59f89fabf
+SHA1: a4f7ae597f208c476ae1fecc6d275766ccb1fbd8
+MD5sum: c2637f4db41a462c15ca6bead9ad8ade
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-harfbuzz
+Installed-Size: 164320
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.0.0-1.Ubuntu-jammy
+Depends: xtream-ui-fribidi
+Provides: xtream-ui-harfbuzz
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-harfbuzz/xtream-ui-harfbuzz_6.0.0-1.Ubuntu-jammy_amd64.deb
+Size: 25281710
+SHA256: 9eee62c0fb5e8ed494cef1da9bfe7990c86898f919517b0bac617cdafb0607b6
+SHA1: b51421c01b5ce94293430035ef8d87ae1f244deb
+MD5sum: 692a989ddf540c0d46e1f63a602845f8
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-lame
+Installed-Size: 1436
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.100-1.Ubuntu-jammy
+Depends: xtream-ui-fdk-aac
+Provides: xtream-ui-lame
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-lame/xtream-ui-lame_3.100-1.Ubuntu-jammy_amd64.deb
+Size: 269862
+SHA256: 74e0e12f89ddd8ae8896074a371f8648c08e013a66dba4f222de2b9f525ac451
+SHA1: ba0f83a4b66cb2494b006ffee1924fba28d993ad
+MD5sum: 77d444b077ec15e58b6aaf034ccdbecc
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libass
+Installed-Size: 784
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.17.0-1.Ubuntu-jammy
+Depends: xtream-ui-harfbuzz
+Provides: xtream-ui-libass
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libass/xtream-ui-libass_0.17.0-1.Ubuntu-jammy_amd64.deb
+Size: 139222
+SHA256: 58a261194ba305d244e8fab57e01445a2533e5ee6bf21cfe148e810c1cabeb71
+SHA1: 82100fbbd4c016f0976b508a20d8536d00977a00
+MD5sum: c6fa4a3eaf2f3fdead1c51766a178736
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libffi
+Installed-Size: 276
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.4.4-1.Ubuntu-jammy
+Depends: xtream-ui-libtasn1
+Provides: xtream-ui-libffi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libffi/xtream-ui-libffi_3.4.4-1.Ubuntu-jammy_amd64.deb
+Size: 48488
+SHA256: 4d450bc6dffd3df16337b0240e181ef07a7f005e4fb6cb0ca29db0f0a4ef12a2
+SHA1: f679d7ccfcb73d459cbae0ea2dcfe16752262372
+MD5sum: 0da342fb683609cb18e619a19cf556e0
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libogg
+Installed-Size: 676
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.5-1.Ubuntu-jammy
+Depends: xtream-ui-libass
+Provides: xtream-ui-libogg
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libogg/xtream-ui-libogg_1.3.5-1.Ubuntu-jammy_amd64.deb
+Size: 199200
+SHA256: e97bbe31c2ad8053762ef725c94f2b5708696f340d05021082d475997cea5c71
+SHA1: 96232487814d7e364a4d909a10a4812ad8dfeb87
+MD5sum: 721a9df4d69367ca1c47350c473a66d5
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libtasn1
+Installed-Size: 636
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 4.19.0-1.Ubuntu-jammy
+Depends: xtream-ui-nettle
+Provides: xtream-ui-libtasn1
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libtasn1/xtream-ui-libtasn1_4.19.0-1.Ubuntu-jammy_amd64.deb
+Size: 90518
+SHA256: 78af854fadfa2e9ac68d6e25eb46b1d75010b83500c27eb47cb2946a6c90d4ca
+SHA1: 44f2c79d0ef9532402d84e2d106b7b7680f926ff
+MD5sum: e449cf68840488428ea664ec67f45d9d
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libunistring
+Installed-Size: 5776
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1-1.Ubuntu-jammy
+Depends: xtream-ui-p11-kit
+Provides: xtream-ui-libunistring
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libunistring/xtream-ui-libunistring_1.1-1.Ubuntu-jammy_amd64.deb
+Size: 714102
+SHA256: e784a7dac4c6be796bffacacb6e809ebb18d4258a87d1a751e49fe401c885c53
+SHA1: a5c89c2b3c8243bf7a74fe1be48f3a0bfb3cea40
+MD5sum: 22b3413d63914d4a61b6b8343355a7b1
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libvpx
+Installed-Size: 4548
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.12.0-1.Ubuntu-jammy
+Depends: xtream-ui-opus
+Provides: xtream-ui-libvpx
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libvpx/xtream-ui-libvpx_1.12.0-1.Ubuntu-jammy_amd64.deb
+Size: 1234880
+SHA256: 17dc1a5fd3f48064a74fae89205a0f2fa78ae766bf992c00a6513f58fe1220db
+SHA1: ca5df94903496939c5bd828d09dd5db075e82027
+MD5sum: 46940be89a3805adc46544d3ade490ec
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nasm
+Installed-Size: 3436
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.16.01-1.Ubuntu-jammy
+Depends: xtream-ui-gnutls
+Provides: xtream-ui-nasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nasm/xtream-ui-nasm_2.16.01-1.Ubuntu-jammy_amd64.deb
+Size: 441974
+SHA256: c2cd18ce444d28530fcbba4ce53e41dbdb669bd35bbc59fddb4abbac36d0e733
+SHA1: b03c65eeb1833f2caf3298d4586922c196fc1854
+MD5sum: b6da4d09f8863fc47f8d5e415f74f1c5
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nettle
+Installed-Size: 29984
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.8.1-1.Ubuntu-jammy
+Depends: xtream-ui-gmp
+Provides: xtream-ui-nettle
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nettle/xtream-ui-nettle_3.8.1-1.Ubuntu-jammy_amd64.deb
+Size: 2083626
+SHA256: 26057384366a663a768baf07b2230f3f3545b3be5c6e727e6c8bb8f426f7be3a
+SHA1: 51b086e544fcd0d86266abde7d4458138998fa11
+MD5sum: 9b1f34d6103ec10d77d6dbe16dc3d001
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-openssl3
+Installed-Size: 37840
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.0.7-1.Ubuntu-jammy
+Provides: xtream-ui-openssl3
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-openssl3/xtream-ui-openssl3_3.0.7-1.Ubuntu-jammy_amd64.deb
+Size: 5437450
+SHA256: 82fa11a850bf380dcbaf5f4dab8414032976186974b1fa43e4788a7682abf225
+SHA1: e9cd2a9b45fe5506b6e9eb748a676d0325fe08e6
+MD5sum: 8ef4ad1f039cafb95cd4eae03d17468c
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-opus
+Installed-Size: 2772
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.1-1.Ubuntu-jammy
+Depends: xtream-ui-lame
+Provides: xtream-ui-opus
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-opus/xtream-ui-opus_1.3.1-1.Ubuntu-jammy_amd64.deb
+Size: 359594
+SHA256: fed27b43fefa7c4fcc45ba53055f5b05c8350100e3a528e52030bc43dc891796
+SHA1: 66b8d1ff61fb590ac07be8b2a160a5eb0c1029e1
+MD5sum: 42c8179babf800bd2d6121e37f9e34fc
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-p11-kit
+Installed-Size: 4428
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.24.1-1.Ubuntu-jammy
+Depends: xtream-ui-libffi
+Provides: xtream-ui-p11-kit
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-p11-kit/xtream-ui-p11-kit_0.24.1-1.Ubuntu-jammy_amd64.deb
+Size: 569612
+SHA256: 61378025cd094dc125143b80f05c137b2357f0992babe1751f2cde08bd006e0f
+SHA1: 1c12b1a1baed4291af07d7e54d24fd837db1f695
+MD5sum: 25c10898369e27b2aef33a4d9eb120c4
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-theora
+Installed-Size: 3452
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1.1-1.Ubuntu-jammy
+Depends: xtream-ui-libogg
+Provides: xtream-ui-theora
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-theora/xtream-ui-theora_1.1.1-1.Ubuntu-jammy_amd64.deb
+Size: 438364
+SHA256: 3f82599a862bd6baab79fdfcc8e16f0b145a79ac2730fc6901c702e5a98860f8
+SHA1: 0a19a346dbcf0774a9208171b0aa335015a3ae72
+MD5sum: 635dbfffcc0dd55bc0608f4fe9110bc3
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-vorbis
+Installed-Size: 3008
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.Ubuntu-jammy
+Depends: xtream-ui-theora
+Provides: xtream-ui-vorbis
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-vorbis/xtream-ui-vorbis_1.3.7-1.Ubuntu-jammy_amd64.deb
+Size: 397468
+SHA256: 75ab1e64ce25e7bec6cf983a82653daa1891d7e56ce2692c5afeb60c19a5f1ea
+SHA1: a9ceda561933616eb6625ada79b14024daaf65e6
+MD5sum: f5f3c2a534ca51eeb9fde32b08dfb88a
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x264
+Installed-Size: 5476
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.Ubuntu-jammy
+Depends: xtream-ui-yasm
+Provides: xtream-ui-x264
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x264/xtream-ui-x264_2023.01-1.Ubuntu-jammy_amd64.deb
+Size: 888476
+SHA256: 8ba570a218bb59410a485deec3064f4a862a0f2ce97ac2ba8e9f7fa1ace6c631
+SHA1: b9e939667e44b2ef99f2d3509ac0e9de737dab3c
+MD5sum: 8587ef746f88ab28832af87c6be9d6b5
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x265
+Installed-Size: 13308
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.5-1.Ubuntu-jammy
+Depends: xtream-ui-x264
+Provides: xtream-ui-x265
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x265/xtream-ui-x265_3.5-1.Ubuntu-jammy_amd64.deb
+Size: 1551396
+SHA256: c1a720fbff9401faf3a799d43dc90443cb7bccbec3ac46c4c3a507baa88661e5
+SHA1: 24e08a559322d5a95fb67934a50cc90bdd205a9b
+MD5sum: 5dcceb2a49187a972b99a8c2d00af5be
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xavs
+Installed-Size: 1164
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.Ubuntu-jammy
+Depends: xtream-ui-xvid
+Provides: xtream-ui-xavs
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xavs/xtream-ui-xavs_2023.01-1.Ubuntu-jammy_amd64.deb
+Size: 238810
+SHA256: dc08b7628a34f27000ddef9abb96b2d27331e64264c34d7563ed25e347ed19d1
+SHA1: 9d51d79207a519a6f69a7d9ef106c5a83b2ea86c
+MD5sum: 515661c74a708563f8e8b53bb7f909eb
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xvid
+Installed-Size: 2504
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.Ubuntu-jammy
+Depends: xtream-ui-vorbis
+Provides: xtream-ui-xvid
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xvid/xtream-ui-xvid_1.3.7-1.Ubuntu-jammy_amd64.deb
+Size: 236274
+SHA256: aafb099c9c2c3f97691b0b2c3becf8eb5884422d953379e57591a5908750443e
+SHA1: f78423904ccc85fb8ef8f34c093316573fdc9939
+MD5sum: 29eb90f6e0d23022436a3307c20d4f1d
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-yasm
+Installed-Size: 5124
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.0-1.Ubuntu-jammy
+Depends: xtream-ui-nasm
+Provides: xtream-ui-yasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-yasm/xtream-ui-yasm_1.3.0-1.Ubuntu-jammy_amd64.deb
+Size: 657856
+SHA256: e70d01069a3621fba86f1dc431c4faba640a160eba3d607e78f12cb21b31156f
+SHA1: 3162365a9f4cedd274871e7587ec9d6ed3cc87f0
+MD5sum: 99b3706abb2601d7e6c8539bbb583fbd
+Description: Package created with checkinstall 1.6.3
+
