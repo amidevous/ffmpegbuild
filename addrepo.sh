@@ -253,7 +253,7 @@ mkdir -p /root/ffmpeg_package/$OS/$VER/$ARCH/
 cat > /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd <<EOF
 #!/bin/bash
 reprepro -Vb /root/ffmpeg_package/$OS/ includedeb $(lsb_release -sc) \$1
-cp /root/ffmpeg_package/Ubuntu/dists/$(lsb_release -sc)/Release /root/ffmpeg_package/Ubuntu/dists/$(lsb_release -sc)/InRelease
+cp /root/ffmpeg_package/$OS/dists/$(lsb_release -sc)/Release /root/ffmpeg_package/$OS/dists/$(lsb_release -sc)/InRelease
 chown -R _apt:root /root/ffmpeg_package/$OS/
 chown -R _apt:root /root/ffmpeg_package/$OS/*
 chmod -R 700 /root/ffmpeg_package/$OS/
