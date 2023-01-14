@@ -4,7 +4,7 @@ auto build use
 
 `bash <(wget -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/ffmpeg-build.sh)`
 
-just install depot ad dependencie
+just install depot and dependencie
 
 
 `bash <(wget -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/addrepo.sh)`
