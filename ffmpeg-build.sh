@@ -176,6 +176,11 @@ rm -f "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/ /" | tee "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 wget --no-check-certificate -qO- "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/Release.key" | gpg --dearmor | tee /etc/apt/trusted.gpg.d/devel_kubic_libcontainers_stable.gpg > /dev/null
 fi
+if [[ "$OS" = "debian"  ]] ; then
+rm -f "/etc/apt/sources.list.d/alvistack.list"
+echo "deb http://download.opensuse.org/repositories/home:/alvistack/Debian_${VER}/ /" | tee "/etc/apt/sources.list.d/alvistack.list"
+wget --no-check-certificate -qO- "http://download.opensuse.org/repositories/home:/alvistack/Debian_${VER}/Release.key" | gpg --dearmor | tee /etc/apt/trusted.gpg.d/alvistack.gpg > /dev/null
+fi
 $PACKAGE_UPDATER
 $PACKAGE_INSTALLER podman
 # update gcc to < 8.0
@@ -259,7 +264,23 @@ cat > /etc/apt/sources.list.d/ffmpeg-local.list <<EOF
 deb [trusted=yes] file:/root/ffmpeg_package/$OS $(lsb_release -sc) main
 EOF
 fi
+if [[ "$OS" = "debian" ]]; then
+mkdir -p /root/ffmpeg_sources
+cd /root/ffmpeg_sources
+apt-get -y instatll debhelper cdbs lintian build-essential fakeroot devscripts dh-make dput
+wget --no-check-certificate -O checkinstall_1.6.2+git20170426.d24a630.orig.tar.xz http://archive.ubuntu.com/ubuntu/pool/universe/c/checkinstall/checkinstall_1.6.2+git20170426.d24a630.orig.tar.xz
+wget -O checkinstall_1.6.2+git20170426.d24a630-2ubuntu2.debian.tar.xz http://archive.ubuntu.com/ubuntu/pool/universe/c/checkinstall/checkinstall_1.6.2+git20170426.d24a630-2ubuntu2.debian.tar.xz
+tar -xvf checkinstall_1.6.2+git20170426.d24a630.orig.tar.xz
+cd checkinstall
+tar -xvf ../checkinstall_1.6.2+git20170426.d24a630-2ubuntu2.debian.tar.xz
+debuild
+cd ..
+dpkg -i checkinstall*.deb
+apt-get update
+apt-get -yf install
+else
 $PACKAGE_INSTALLER checkinstall
+fi
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" ]]; then
 dist=el$VER
 pack=rpm
