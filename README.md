@@ -20,6 +20,14 @@ for build require gcc 8.0 or + build variable
 
 `export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"`
 
+build prefix
+
+`./configure --prefix=/root/ffmpeg_build --bindir=/root/ffmpeg_build/bin --sbindir=/root/ffmpeg_build/bin \`
+
+`--libexecdir=/root/ffmpeg_build/libexec --sysconfdir=/root/ffmpeg_build/etc  --libdir=/root/ffmpeg_build/lib64 \`
+
+`--includedir=/root/ffmpeg_build/include`
+
 
 actual version dependencie include
 
