@@ -13,7 +13,10 @@ LOGLEVEL=I
 # no   => never use colors
 USECOLORS=auto
 BASETGZ=/var/cache/pbuilder/debian-bullseye-amd64-base.tgz
-EXTRAPACKAGES="ubuntu-minimal nano wget dos2unix"
+EXTRAPACKAGES="adduser apt apt-utils bzip2 console-setup debconf debconf-i18n eject init nano wget dos2unix"
+EXTRAPACKAGES="$EXTRAPACKAGES initramfs-tools iproute2 iputils-ping isc-dhcp-client kbd kmod less locales"
+EXTRAPACKAGES="$EXTRAPACKAGES lsb-release mawk mount netbase netcat-openbsd passwd procps python3 sensible-utils"
+EXTRAPACKAGES="$EXTRAPACKAGES sudo tzdata udev vim-tiny whiptail rsyslog"
 #export DEBIAN_BUILDARCH=athlon
 BUILDPLACE=/var/cache/pbuilder/build
 # directory inside the chroot where the build happens. See #789404
