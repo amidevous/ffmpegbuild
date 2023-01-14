@@ -1,0 +1,21 @@
+Origin: ffmpeg local
+Label: ffmpeg local
+Suite: jammy
+Codename: jammy
+Version: 22.04
+Date: Sat, 14 Jan 2023 13:53:43 UTC
+Architectures: amd64
+Components: main
+Description: local repo for ffmpeg build
+MD5Sum:
+ a2365e5eb42a14804a1a01869d8e42d5 12818 main/binary-amd64/Packages
+ d35417ef246f1c442447a5ccdc7b4b03 3382 main/binary-amd64/Packages.gz
+ e2fc9cf4fa6b176f08e5ce9791198652 148 main/binary-amd64/Release
+SHA1:
+ 3e5738fe3d4076577e3fdeca650718db5729605e 12818 main/binary-amd64/Packages
+ 5106a5551766223bd15f7648d9802e6a599e9e4b 3382 main/binary-amd64/Packages.gz
+ 311cbc48fee37c8501bfe707d4415472edb016e6 148 main/binary-amd64/Release
+SHA256:
+ d167d4eb0424d2c8f944f9a72c400774426a4152752bcc0b110e469e9ecb6e2a 12818 main/binary-amd64/Packages
+ d0254738a814b24dff35ee1bf31923f7ff8724f46a6a667033dfebdb4e4a3de4 3382 main/binary-amd64/Packages.gz
+ 76f76d5f0d122b2c13d76aec8a18905dd1262cad36c18158399ed6d69582bbd7 148 main/binary-amd64/Release
