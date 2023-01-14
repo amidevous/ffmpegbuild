@@ -1,0 +1,21 @@
+Origin: ffmpeg local
+Label: ffmpeg local
+Suite: focal
+Codename: focal
+Version: 20.04
+Date: Sat, 14 Jan 2023 11:40:30 UTC
+Architectures: amd64
+Components: main
+Description: local repo for ffmpeg build
+MD5Sum:
+ 07263507e52d41efe4157fe848c0a2f0 12817 main/binary-amd64/Packages
+ 7bf96f698201b9a4d1902e7c972d2e58 3373 main/binary-amd64/Packages.gz
+ 58d17cac010b550c46749ea3d4d014e7 148 main/binary-amd64/Release
+SHA1:
+ 9ec70c4315dc95435312ff14bed9d2813327aaed 12817 main/binary-amd64/Packages
+ 6342e6e2ab82c4f0d2da16a01b7306ca87d32ca1 3373 main/binary-amd64/Packages.gz
+ 3b7110363d8d27c1eef948d900f01f65ecfda272 148 main/binary-amd64/Release
+SHA256:
+ 4d499f488bb4e14d76317ae23c7e440aa94d1e8435b5d842312ddec6fe670fcc 12817 main/binary-amd64/Packages
+ 98fbbc76a7490f44cdf5045833fdf137572bf72d37f753ed222531494b941448 3373 main/binary-amd64/Packages.gz
+ bbadf57f68eb4623335826781c6b619192fb7edb6ba8dda6685fce4260efbecf 148 main/binary-amd64/Release
