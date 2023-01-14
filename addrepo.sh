@@ -278,6 +278,9 @@ cd ..
 dpkg -i checkinstall*.deb
 apt-get update
 apt-get -yf install
+inst() {
+       dpkg-query --showformat='${Version}' --show "$1"
+    }
 else
 $PACKAGE_INSTALLER checkinstall
 fi
