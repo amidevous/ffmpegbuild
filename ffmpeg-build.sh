@@ -267,7 +267,7 @@ fi
 if [[ "$OS" = "debian" ]]; then
 mkdir -p /root/ffmpeg_sources
 cd /root/ffmpeg_sources
-apt-get -y instatll debhelper cdbs lintian build-essential fakeroot devscripts dh-make dput
+apt-get -y install debhelper cdbs lintian build-essential fakeroot devscripts dh-make dput docbook-to-man
 wget --no-check-certificate -O checkinstall_1.6.2+git20170426.d24a630.orig.tar.xz http://archive.ubuntu.com/ubuntu/pool/universe/c/checkinstall/checkinstall_1.6.2+git20170426.d24a630.orig.tar.xz
 wget -O checkinstall_1.6.2+git20170426.d24a630-2ubuntu2.debian.tar.xz http://archive.ubuntu.com/ubuntu/pool/universe/c/checkinstall/checkinstall_1.6.2+git20170426.d24a630-2ubuntu2.debian.tar.xz
 tar -xvf checkinstall_1.6.2+git20170426.d24a630.orig.tar.xz
