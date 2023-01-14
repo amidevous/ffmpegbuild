@@ -1165,7 +1165,10 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-xavs
 if [[ $(inst  "xtream-ui-xavs") != "xavsversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-svn checkout https://svn.code.sf.net/p/xavs/code/trunk xavs-$xavsversion
+wget -O xavs-code-r55-trunk.zip --no-check-certificate https://sourceforge.net/code-snapshots/svn/x/xa/xavs/code/xavs-code-r55-trunk.zip
+unzip xavs-code-r55-trunk.zip
+rm -f xavs-code-r55-trunk.zip
+mv xavs-code-r55-trunk xavs-$xavsversion
 tar -czvf /root/rpmbuild/SOURCES/xavs-$xavsversion.tar.gz xavs-$xavsversion
 rm -rf xavs-$xavsversion
 wget -O /root/rpmbuild/SPECS/xtream-ui-xavs.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xavs.spec
@@ -1175,7 +1178,10 @@ rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xavs.spec
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-xavs
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-svn checkout https://svn.code.sf.net/p/xavs/code/trunk xavs-$xavsversion
+wget -O xavs-code-r55-trunk.zip --no-check-certificate https://sourceforge.net/code-snapshots/svn/x/xa/xavs/code/xavs-code-r55-trunk.zip
+unzip xavs-code-r55-trunk.zip
+rm -f xavs-code-r55-trunk.zip
+mv xavs-code-r55-trunk xavs-$xavsversion
 cd /root/ffmpeg_sources/xavs-$xavsversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64
 make -j$(nproc --all)
