@@ -63,19 +63,20 @@ else
 fi
 # define Package Variable
 if [[ "$OS" = "CentOs" ]] ; then
-    PACKAGE_INSTALLER="yum -y install" PACKAGE_BININSTALLER="rpm -i" PACKAGE_REMOVER="yum -y remove"
-    PACKAGE_UPDATER="yum -y update" PACKAGE_UPDGRADER="yum -y  upgrade" PACKAGE_UTILS="yum-utils"
+    PACKAGE_INSTALLER="yum -y install" PACKAGE_INSTALLER_LOCAL="yum -y --enablerepo ffmpeg-local install" PACKAGE_BININSTALLER="rpm -i"
+	PACKAGE_REMOVER="yum -y remove" PACKAGE_UPDATER="yum -y update" PACKAGE_UPDGRADER="yum -y  upgrade" PACKAGE_UTILS="yum-utils"
     PACKAGE_GROUPINSTALL="yum -y groupinstall" PACKAGE_SOURCEDOWNLOAD="yumdownloader --source"
     PACKAGE_BUILDDEP="yum-builddep -y"
 elif [[ "$OS" = "Fedora" || "$OS" = "CentOS-Stream"  ]]; then
-    PACKAGE_INSTALLER="dnf -y install" PACKAGE_BININSTALLER="rpm -i" PACKAGE_REMOVER="dnf -y remove"
+    PACKAGE_INSTALLER="dnf -y install" PACKAGE_INSTALLER_LOCAL="dnf -y --enablerepo ffmpeg-local install"
+	PACKAGE_BININSTALLER="rpm -i" PACKAGE_REMOVER="dnf -y remove"
     PACKAGE_UPDATER="dnf -y update" PACKAGE_UPDGRADER="dnf -y upgrade" PACKAGE_UTILS="dnf-utils"
     PACKAGE_GROUPINSTALL="dnf -y groupinstall"PACKAGE_SOURCEDOWNLOAD="dnf download --source"
     PACKAGE_BUILDDEP="dnf build-dep -y"
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-    PACKAGE_INSTALLER="apt-get -y install" PACKAGE_BININSTALLER="dpkg -i" PACKAGE_REMOVER="apt-get -y purge"
-	PACKAGE_UPDATER="apt-get -y update" PACKAGE_UPDGRADER="apt-get -y dist-upgrade" PACKAGE_SOURCEDOWNLOAD="apt-get -y source"
-	PACKAGE_BUILDDEP="apt-get -y build-dep"
+    PACKAGE_INSTALLER="apt-get -y install" PACKAGE_INSTALLER_LOCAL="apt-get -y install" PACKAGE_BININSTALLER="dpkg -i" 
+	PACKAGE_REMOVER="apt-get -y purge" PACKAGE_UPDATER="apt-get -y update" PACKAGE_UPDGRADER="apt-get -y dist-upgrade"
+	PACKAGE_SOURCEDOWNLOAD="apt-get -y source" PACKAGE_BUILDDEP="apt-get -y build-dep"
 fi
 # Define diference package name
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
@@ -229,7 +230,7 @@ cat > /etc/yum.repos.d/ffmpeg-local.repo <<EOF
 name=ffmpeg local
 baseurl=file:///root/ffmpeg_package/$OS/$VER/$ARCH
 gpgcheck=0
-enabled=1
+enabled=0
 enabled_metadata=1
 metadata_expire=1m
 EOF
@@ -284,7 +285,7 @@ cd /root/ffmpeg_sources
 $PACKAGE_UPDATER
 $PACKAGE_REMOVER xtream-ui-openssl3
 rm -rf /root/ffmpeg_build/
-$PACKAGE_INSTALLER xtream-ui-openssl3
+$PACKAGE_INSTALLER_LOCAL xtream-ui-openssl3
 if [[ $(inst  "xtream-ui-openssl3") != "$opensslversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -294,7 +295,7 @@ sed -i "s|xtream-ui-openssl3version|$opensslversion|" "/root/rpmbuild/SPECS/xtre
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-openssl3.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-openssl3-$opensslversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-openssl3
+$PACKAGE_INSTALLER_LOCAL xtream-ui-openssl3
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O openssl-$opensslversion.tar.gz http://artfiles.org/openssl.org/source/openssl-$opensslversion.tar.gz
 tar -xvf openssl-$opensslversion.tar.gz
@@ -319,7 +320,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-gmp
+$PACKAGE_INSTALLER_LOCAL xtream-ui-gmp
 if [[ $(inst  "xtream-ui-gmp") != "$gmpversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -329,7 +330,7 @@ sed -i "s|xtream-ui-gmpversion|$gmpversion|" "/root/rpmbuild/SPECS/xtream-ui-gmp
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gmp.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gmp-$gmpversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-gmp
+$PACKAGE_INSTALLER_LOCAL xtream-ui-gmp
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O gmp-$gmpversion.tar.xz https://ftp.gnu.org/gnu/gmp/gmp-$gmpversion.tar.xz
 tar xf gmp-$gmpversion.tar.xz
@@ -354,7 +355,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-nettle
+$PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
 if [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -364,7 +365,7 @@ sed -i "s|xtream-ui-nettleversion|$nettleversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nettle.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nettle-$nettleversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-nettle
+$PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
 tar xf nettle-$nettleversion.tar.gz
@@ -392,7 +393,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-libtasn1
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libtasn1
 if [[ $(inst  "xtream-ui-libtasn1") != "$libtasn1version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -402,7 +403,7 @@ sed -i "s|xtream-ui-libtasn1version|$libtasn1version|" "/root/rpmbuild/SPECS/xtr
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libtasn1-$libtasn1version-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-libtasn1
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libtasn1
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libtasn1-$libtasn1version.tar.gz https://ftp.gnu.org/gnu/libtasn1/libtasn1-$libtasn1version.tar.gz
 tar xf libtasn1-$libtasn1version.tar.gz
@@ -428,7 +429,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-libffi
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libffi
 if [[ $(inst  "xtream-ui-libffi") != "$libffiversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -438,7 +439,7 @@ sed -i "s|xtream-ui-libffiversion|$libffiversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libffi.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libffi-$libffiversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-libffi
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libffi
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libffi-$libffiversion.tar.gz https://github.com/libffi/libffi/releases/download/v$libffiversion/libffi-$libffiversion.tar.gz
 tar xf libffi-$libffiversion.tar.gz
@@ -464,7 +465,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-p11-kit
+$PACKAGE_INSTALLER_LOCAL xtream-ui-p11-kit
 if [[ $(inst  "xtream-ui-p11-kit") != "$p11kitversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -474,7 +475,7 @@ sed -i "s|xtream-ui-p11-kitversion|$p11kitversion|" "/root/rpmbuild/SPECS/xtream
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-p11-kit-$p11kitversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-p11-kit
+$PACKAGE_INSTALLER_LOCAL xtream-ui-p11-kit
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O p11-kit-$p11kitversion.tar.xz https://github.com/p11-glue/p11-kit/releases/download/$p11kitversion/p11-kit-$p11kitversion.tar.xz
 tar xf p11-kit-$p11kitversion.tar.xz
@@ -500,7 +501,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-libunistring
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libunistring
 if [[ $(inst  "xtream-ui-libunistring") != "$libunistringversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -510,7 +511,7 @@ sed -i "s|xtream-ui-libunistringversion|$libunistringversion|" "/root/rpmbuild/S
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libunistring.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libunistring-$libunistringversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-libunistring
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libunistring
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libunistring-$libunistringversion.tar.xz https://ftp.gnu.org/gnu/libunistring/libunistring-$libunistringversion.tar.xz
 tar -xvf libunistring-$libunistringversion.tar.xz
@@ -536,7 +537,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-gnutls
+$PACKAGE_INSTALLER_LOCAL xtream-ui-gnutls
 if [[ $(inst  "xtream-ui-gnutls") != "$gnutlsversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -546,7 +547,7 @@ sed -i "s|xtream-ui-gnutlsversion|$gnutlsversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gnutls.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gnutls-$gnutlsversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-gnutls
+$PACKAGE_INSTALLER_LOCAL xtream-ui-gnutls
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
 tar -xvf gnutls-$gnutlsversion.tar.xz
@@ -574,7 +575,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-nasm
+$PACKAGE_INSTALLER_LOCAL xtream-ui-nasm
 if [[ $(inst  "xtream-ui-nasm") != "$nasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -584,7 +585,7 @@ sed -i "s|xtream-ui-nasmversion|$nasmversion|" "/root/rpmbuild/SPECS/xtream-ui-n
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nasm.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nasm-$nasmversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-nasm
+$PACKAGE_INSTALLER_LOCAL xtream-ui-nasm
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
 tar xjvf nasm-$nasmversion.tar.bz2
@@ -611,7 +612,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-yasm
+$PACKAGE_INSTALLER_LOCAL xtream-ui-yasm
 if [[ $(inst  "xtream-ui-yasm") != "$yasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -621,7 +622,7 @@ sed -i "s|xtream-ui-yasmversion|$yasmversion|" "/root/rpmbuild/SPECS/xtream-ui-y
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-yasm.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-yasm-$yasmversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-yasm
+$PACKAGE_INSTALLER_LOCAL xtream-ui-yasm
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
 tar xzvf yasm-$yasmversion.tar.gz
@@ -647,7 +648,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-x264
+$PACKAGE_INSTALLER_LOCAL xtream-ui-x264
 if [[ $(inst  "xtream-ui-x264") != "$x264version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -657,7 +658,7 @@ sed -i "s|xtream-ui-x264version|$x264version|" "/root/rpmbuild/SPECS/xtream-ui-x
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x264.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x264-$x264version-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-x264
+$PACKAGE_INSTALLER_LOCAL xtream-ui-x264
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
 tar -xvf x264-stable.tar.gz
@@ -683,7 +684,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-x265
+$PACKAGE_INSTALLER_LOCAL xtream-ui-x265
 if [[ $(inst  "xtream-ui-x265") != "$x265version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -693,7 +694,7 @@ sed -i "s|xtream-ui-x265version|$x265version|" "/root/rpmbuild/SPECS/xtream-ui-x
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x265.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x265-$x265version-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-x265
+$PACKAGE_INSTALLER_LOCAL xtream-ui-x265
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
 tar -xvf x265_$x265version.tar.gz
@@ -736,7 +737,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-fdk-aac
+$PACKAGE_INSTALLER_LOCAL xtream-ui-fdk-aac
 if [[ $(inst  "xtream-ui-fdk-aac") != "$fdkaacversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -746,7 +747,7 @@ sed -i "s|xtream-ui-fdk-aacversion|$fdkaacversion|" "/root/rpmbuild/SPECS/xtream
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-fdk-aac.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-fdk-aac-$fdkaacversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-fdk-aac
+$PACKAGE_INSTALLER_LOCAL xtream-ui-fdk-aac
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O fdk-aac-$fdkaacversion.tar.gz https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v$fdkaacversion.tar.gz
 tar -xvf fdk-aac-$fdkaacversion.tar.gz
@@ -773,7 +774,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-lame
+$PACKAGE_INSTALLER_LOCAL xtream-ui-lame
 if [[ $(inst  "xtream-ui-lame") != "$lameversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -783,7 +784,7 @@ sed -i "s|xtream-ui-lameversion|$lameversion|" "/root/rpmbuild/SPECS/xtream-ui-l
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-lame.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-lame-$lameversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-lame
+$PACKAGE_INSTALLER_LOCAL xtream-ui-lame
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O lame-$lameversion.tar.gz https://downloads.sourceforge.net/project/lame/lame/$lameversion/lame-$lameversion.tar.gz
 tar xzvf lame-$lameversion.tar.gz
@@ -809,7 +810,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-opus
+$PACKAGE_INSTALLER_LOCAL xtream-ui-opus
 if [[ $(inst  "xtream-ui-opus") != "$opusversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -819,7 +820,7 @@ sed -i "s|xtream-ui-opusversion|$opusversion|" "/root/rpmbuild/SPECS/xtream-ui-o
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-opus.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-opus-$opusversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-opus
+$PACKAGE_INSTALLER_LOCAL xtream-ui-opus
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O opus-$opusversion.tar.gz https://archive.mozilla.org/pub/opus/opus-$opusversion.tar.gz
 tar xzvf opus-$opusversion.tar.gz
@@ -845,7 +846,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-libvpx
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libvpx
 if [[ $(inst  "xtream-ui-libvpx") != "$libvpxversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -855,7 +856,7 @@ sed -i "s|xtream-ui-libvpxversion|$libvpxversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libvpx.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libvpx-$libvpxversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-libvpx
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libvpx
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libvpx-$libvpxversion.tar.gz https://chromium.googlesource.com/webm/libvpx/+archive/$libvpxcheckout.tar.gz
 mkdir -p /root/ffmpeg_sources/libvpx-$libvpxversion
@@ -883,7 +884,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-fribidi
+$PACKAGE_INSTALLER_LOCAL xtream-ui-fribidi
 if [[ $(inst  "xtream-ui-fribidi") != "$fribidiversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -893,7 +894,7 @@ sed -i "s|xtream-ui-fribidiversion|$fribidiversion|" "/root/rpmbuild/SPECS/xtrea
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-fribidi.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-fribidi-$fribidiversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-fribidi
+$PACKAGE_INSTALLER_LOCAL xtream-ui-fribidi
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
 tar -xvf fribidi-$fribidiversion.tar.xz
@@ -920,7 +921,7 @@ cd /root/ffmpeg_sources
 rm -rf *
 # harfbuzz version 6.0.0 require gcc 8.0 or + or build not work
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-harfbuzz
+$PACKAGE_INSTALLER_LOCAL xtream-ui-harfbuzz
 if [[ $(inst  "xtream-ui-harfbuzz") != "$harfbuzzversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -930,7 +931,7 @@ sed -i "s|xtream-ui-harfbuzzversion|$harfbuzzversion|" "/root/rpmbuild/SPECS/xtr
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-harfbuzz-$harfbuzzversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-harfbuzz
+$PACKAGE_INSTALLER_LOCAL xtream-ui-harfbuzz
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
 tar -xvf harfbuzz-$harfbuzzversion.tar.xz
@@ -956,7 +957,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-libass
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libass
 if [[ $(inst  "xtream-ui-libass") != "$libassversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -966,7 +967,7 @@ sed -i "s|xtream-ui-libassversion|$libassversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libass.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libass-$libassversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-libass
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libass
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
 tar -xvf libass-$libassversion.tar.gz
@@ -992,7 +993,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-libogg
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libogg
 if [[ $(inst  "xtream-ui-libogg") != "$liboggversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -1002,7 +1003,7 @@ sed -i "s|xtream-ui-liboggversion|$liboggversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libogg.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libogg-$liboggversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-libogg
+$PACKAGE_INSTALLER_LOCAL xtream-ui-libogg
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
 tar -xvf libogg-$liboggversion.tar.gz
@@ -1028,7 +1029,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-theora
+$PACKAGE_INSTALLER_LOCAL xtream-ui-theora
 if [[ $(inst  "xtream-ui-theora") != "$theoraversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -1040,7 +1041,7 @@ sed -i "s|xtream-ui-theoraversion|$theoraversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-theora.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-theora-$theoraversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-theora
+$PACKAGE_INSTALLER_LOCAL xtream-ui-theora
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
 tar -xvf theora-$theoraversion.tar.gz
@@ -1070,7 +1071,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-vorbis
+$PACKAGE_INSTALLER_LOCAL xtream-ui-vorbis
 if [[ $(inst  "xtream-ui-vorbis") != "$vorbisversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -1080,7 +1081,7 @@ sed -i "s|xtream-ui-vorbisversion|$vorbisversion|" "/root/rpmbuild/SPECS/xtream-
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-vorbis.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-vorbis-$vorbisversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-vorbis
+$PACKAGE_INSTALLER_LOCAL xtream-ui-vorbis
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
 tar -xvf libvorbis-$vorbisversion.tar.gz
@@ -1106,7 +1107,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-xvid
+$PACKAGE_INSTALLER_LOCAL xtream-ui-xvid
 if [[ $(inst  "xtream-ui-xvid") != "$xvidversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -1116,7 +1117,7 @@ sed -i "s|xtream-ui-xvidversion|$xvidversion|" "/root/rpmbuild/SPECS/xtream-ui-x
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xvid.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-xvid-$xvidversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-xvid
+$PACKAGE_INSTALLER_LOCAL xtream-ui-xvid
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 wget -O xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
 tar -xvf xvidcore-$xvidversion.tar.gz
@@ -1142,7 +1143,7 @@ fi
 cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
-$PACKAGE_INSTALLER xtream-ui-xavs
+$PACKAGE_INSTALLER_LOCAL xtream-ui-xavs
 if [[ $(inst  "xtream-ui-xavs") != "xavsversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
@@ -1154,7 +1155,7 @@ sed -i "s|xtream-ui-xavsversion|$xavsversion|" "/root/rpmbuild/SPECS/xtream-ui-x
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xavs.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-xavs-$xavsversion-1.$dist.x86_64.rpm
 sleep 60
-$PACKAGE_INSTALLER xtream-ui-xavs
+$PACKAGE_INSTALLER_LOCAL xtream-ui-xavs
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
 svn checkout https://svn.code.sf.net/p/xavs/code/trunk xavs-$xavsversion
 cd /root/ffmpeg_sources/xavs-$xavsversion
