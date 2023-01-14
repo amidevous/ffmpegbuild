@@ -40,7 +40,6 @@ echo "Detected : $OS  $VER  $ARCH"
 # this part must be updated every 6 months
 if [[ "$OS" = "CentOs" && "$VER" = "7" && "$ARCH" == "x86_64" || "$OS" = "CentOS-Stream" && "$VER" = "8" && "$ARCH" == "x86_64" ||
 "$OS" = "Fedora" && "$VER" = "35" && "$ARCH" == "x86_64" ||
-"$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "18.04" && "$ARCH" == "x86_64" || "$OS" = "Ubuntu" && "$VER" = "20.04" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "22.04" && "$ARCH" == "x86_64" || "$OS" = "debian" && "$VER" = "10" && "$ARCH" == "x86_64" ||
 "$OS" = "debian" && "$VER" = "11" && "$ARCH" == "x86_64" ]] ; then
@@ -49,11 +48,9 @@ else
     echo "Sorry, this OS is not supported."
 	echo "This script is online for Linux x86_64 Stable Version"
 	echo "Only aviable for :"
-	echo "Centos Version 7 (LTS)"
-	echo "CentOS Stream Version 8 (LTS)"
-	echo "Fedora Version 35 (Old Stable)"
-	echo "Fedora Version 36 (Stable)"
-	echo "Fedora Version 37 (Next Stable)"
+	echo "Centos Version 7"
+	echo "CentOS Stream Version 8"
+	echo "Fedora Version 35"
 	echo "Ubuntu Version 18.04 (LTS)"
 	echo "Ubuntu Version 20.04 (LTS)"
 	echo "Ubuntu Version 22.04 (LTS)"
@@ -175,13 +172,12 @@ $PACKAGE_INSTALLER $fontconfig
 $PACKAGE_INSTALLER $rtmpdump
 # podman repository for ubuntu
 if [[ "$OS" = "Ubuntu" && ("$VER" = "18.04" || "$VER" = "20.04" ) ]] ; then
-echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/ /" | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+rm -f "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/ /" | tee "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 wget --no-check-certificate -qO- "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/Release.key" | gpg --dearmor | tee /etc/apt/trusted.gpg.d/devel_kubic_libcontainers_stable.gpg > /dev/null
 fi
 $PACKAGE_UPDATER
 $PACKAGE_INSTALLER podman
-testgcc=$(gcc --version | awk '/gcc/ && ($3+0)<8.0{print "no"}')
-if [[ "testgcc" = "no" ]]; then
 # update gcc to < 8.0
 if [[ "$OS" = "CentOs" && "$VER" == "7"  ]]; then
 $PACKAGE_UPDATER
@@ -204,7 +200,6 @@ update-alternatives --install /usr/bin/cpp cpp /usr/bin/cpp-8 180
 update-alternatives --set gcc /usr/bin/gcc-8
 update-alternatives --set g++ /usr/bin/g++-8
 update-alternatives --set cpp /usr/bin/cpp-8
-fi
 fi
 export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
 export PATH="/root/ffmpeg_build/bin:$PATH"
@@ -283,6 +278,29 @@ rm -rf /root/bin/* /root/ffmpeg_sources
 mkdir -p /root/ffmpeg_sources
 cd /root/ffmpeg_sources
 $PACKAGE_UPDATER
+$PACKAGE_REMOVER xtream-ui-xavs
+$PACKAGE_REMOVER xtream-ui-xvid
+$PACKAGE_REMOVER xtream-ui-vorbis
+$PACKAGE_REMOVER xtream-ui-theora
+$PACKAGE_REMOVER xtream-ui-libogg
+$PACKAGE_REMOVER xtream-ui-libass
+$PACKAGE_REMOVER xtream-ui-harfbuzz
+$PACKAGE_REMOVER xtream-ui-fribidi
+$PACKAGE_REMOVER xtream-ui-libvpx
+$PACKAGE_REMOVER xtream-ui-opus
+$PACKAGE_REMOVER xtream-ui-lame
+$PACKAGE_REMOVER xtream-ui-fdk-aac
+$PACKAGE_REMOVER xtream-ui-x265
+$PACKAGE_REMOVER xtream-ui-x264
+$PACKAGE_REMOVER xtream-ui-yasm
+$PACKAGE_REMOVER xtream-ui-nasm
+$PACKAGE_REMOVER xtream-ui-gnutls
+$PACKAGE_REMOVER xtream-ui-libunistring
+$PACKAGE_REMOVER xtream-ui-p11-kit
+$PACKAGE_REMOVER xtream-ui-libffi
+$PACKAGE_REMOVER xtream-ui-libtasn1
+$PACKAGE_REMOVER xtream-ui-nettle
+$PACKAGE_REMOVER xtream-ui-gmp
 $PACKAGE_REMOVER xtream-ui-openssl3
 rm -rf /root/ffmpeg_build/
 $PACKAGE_INSTALLER_LOCAL xtream-ui-openssl3
@@ -372,7 +390,7 @@ tar xf nettle-$nettleversion.tar.gz
 cd /root/ffmpeg_sources/nettle-$nettleversion
 ./configure --prefix=/root/ffmpeg_build --bindir=/root/ffmpeg_build/bin --sbindir=/root/ffmpeg_build/bin \
 --libexecdir=/root/ffmpeg_build/libexec --sysconfdir=/root/ffmpeg_build/etc  --libdir=/root/ffmpeg_build/lib64 \
---includedir=/root/ffmpeg_build/include --with-include-path=/root/ffmpeg_build/include --with-lib-path=/root/ffmpeg_build/lib \
+--includedir=/root/ffmpeg_build/include --with-include-path=/root/ffmpeg_build/include --with-lib-path=/root/ffmpeg_build/lib64 \
  --enable-mini-gmp
 make -j$(nproc --all)
 checkinstall \
@@ -1230,5 +1248,28 @@ update-alternatives --set cpp /usr/bin/cpp-7
 fi
 cd /root
 rm -f /etc/yum.repos.d/ffmpeg-local.repo /etc/apt/sources.list.d/ffmpeg-local.list
+$PACKAGE_REMOVER xtream-ui-xavs
+$PACKAGE_REMOVER xtream-ui-xvid
+$PACKAGE_REMOVER xtream-ui-vorbis
+$PACKAGE_REMOVER xtream-ui-theora
+$PACKAGE_REMOVER xtream-ui-libogg
+$PACKAGE_REMOVER xtream-ui-libass
+$PACKAGE_REMOVER xtream-ui-harfbuzz
+$PACKAGE_REMOVER xtream-ui-fribidi
+$PACKAGE_REMOVER xtream-ui-libvpx
+$PACKAGE_REMOVER xtream-ui-opus
+$PACKAGE_REMOVER xtream-ui-lame
+$PACKAGE_REMOVER xtream-ui-fdk-aac
+$PACKAGE_REMOVER xtream-ui-x265
+$PACKAGE_REMOVER xtream-ui-x264
+$PACKAGE_REMOVER xtream-ui-yasm
+$PACKAGE_REMOVER xtream-ui-nasm
+$PACKAGE_REMOVER xtream-ui-gnutls
+$PACKAGE_REMOVER xtream-ui-libunistring
+$PACKAGE_REMOVER xtream-ui-p11-kit
+$PACKAGE_REMOVER xtream-ui-libffi
+$PACKAGE_REMOVER xtream-ui-libtasn1
+$PACKAGE_REMOVER xtream-ui-nettle
+$PACKAGE_REMOVER xtream-ui-gmp
 $PACKAGE_REMOVER xtream-ui-openssl3
 rm -rf /root/ffmpeg_build/ /root/ffmpeg_sources
