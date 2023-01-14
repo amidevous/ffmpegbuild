@@ -1,0 +1,7 @@
+Archive: focal
+Version: 20.04
+Component: main
+Origin: ffmpeg local
+Label: ffmpeg local
+Architecture: amd64
+Description: local repo for ffmpeg build
