@@ -1,0 +1,383 @@
+Package: xtream-ui-fdk-aac
+Installed-Size: 17100
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.0.2-1.Ubuntu-bionic
+Depends: xtream-ui-x265
+Provides: xtream-ui-fdk-aac
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fdk-aac/xtream-ui-fdk-aac_2.0.2-1.Ubuntu-bionic_amd64.deb
+Size: 3049708
+SHA256: 76ba24c8fa760d28052eab020427e270195824fd280c44d6ad1c34efc7fdc9b2
+SHA1: 7066f03fa7009184aba5c687a440bbc9d5bc2904
+MD5sum: 6e53436dc7ee8cd5b6053b6f43eff557
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-fribidi
+Installed-Size: 436
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.0.12-1.Ubuntu-bionic
+Depends: xtream-ui-libvpx
+Provides: xtream-ui-fribidi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fribidi/xtream-ui-fribidi_1.0.12-1.Ubuntu-bionic_amd64.deb
+Size: 43568
+SHA256: 07db5c543e237cf07ccc981da531de342535927c24b0ccaa675fdda4f93c8442
+SHA1: fcc8644deb2dfa891a1b1b3ac437f232b6a9c108
+MD5sum: a4a7ac7582e309f5cd9f704d8c55f135
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-gmp
+Installed-Size: 3488
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.2.1-1.Ubuntu-bionic
+Depends: xtream-ui-openssl3
+Provides: xtream-ui-gmp
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gmp/xtream-ui-gmp_6.2.1-1.Ubuntu-bionic_amd64.deb
+Size: 468372
+SHA256: 926c3a5e4737fb7cde3260fca7f7e198849a6ed97b83385ad18310aadf4286b4
+SHA1: 49d898a1f3aed8ad507ebd054b22d8f98e3688ce
+MD5sum: 68a1110328e30cc505b4f1d7061e0e74
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-gnutls
+Installed-Size: 4768
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.6.16-1.Ubuntu-bionic
+Depends: xtream-ui-libunistring
+Provides: xtream-ui-gnutls
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gnutls/xtream-ui-gnutls_3.6.16-1.Ubuntu-bionic_amd64.deb
+Size: 914484
+SHA256: 38cea62b1ea948d5c7e2f5e601c20ee3997b6db0c9e3c930bb4a64ec7930b174
+SHA1: bbeb6052429feb2ae50115443642774a8749be5c
+MD5sum: e8671dbef405c290fe108909b37ac614
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-harfbuzz
+Installed-Size: 149048
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.0.0-1.Ubuntu-bionic
+Depends: xtream-ui-fribidi
+Provides: xtream-ui-harfbuzz
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-harfbuzz/xtream-ui-harfbuzz_6.0.0-1.Ubuntu-bionic_amd64.deb
+Size: 19014600
+SHA256: 205264dd5fb8d61cc7a87e5053371145c77c20e82fc2dac2c23484ff11066e35
+SHA1: 5977272f5f8e125cdae547321346f0f85c9dca51
+MD5sum: ff79167f8a9b6680f5ea15975fdd3bc4
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-lame
+Installed-Size: 1416
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.100-1.Ubuntu-bionic
+Depends: xtream-ui-fdk-aac
+Provides: xtream-ui-lame
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-lame/xtream-ui-lame_3.100-1.Ubuntu-bionic_amd64.deb
+Size: 246556
+SHA256: 24b9e668d965b5c01b432d1f39c6ba6164ea4db5317d4b8c34cfc78920b50b96
+SHA1: 5cbd36bc858fa0dcc91c61eff253c85fb96a39d7
+MD5sum: c75884931d53a3c1627694e10fdcd1e0
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-libass
+Installed-Size: 776
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.17.0-1.Ubuntu-bionic
+Depends: xtream-ui-harfbuzz
+Provides: xtream-ui-libass
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libass/xtream-ui-libass_0.17.0-1.Ubuntu-bionic_amd64.deb
+Size: 125724
+SHA256: 0ba28ed6df998834da35794ec2d0f8b539a14f5a52788d09b83380d1a30e8819
+SHA1: d80b242967cbd7cd1e5cc5e6d90ea7492ef24371
+MD5sum: 421552ff339a5810b0d2299fd9492139
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-libffi
+Installed-Size: 272
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.4.4-1.Ubuntu-bionic
+Depends: xtream-ui-libtasn1
+Provides: xtream-ui-libffi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libffi/xtream-ui-libffi_3.4.4-1.Ubuntu-bionic_amd64.deb
+Size: 44476
+SHA256: 73844b2e69c847a2f6dffbaba571ef58ae2e996fc78683c74210a1021cfed907
+SHA1: 49cee73dc051d48c9e98f39c07ba3f4fab11360d
+MD5sum: fa62e159baf867c423f12cd03eaf7adf
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-libogg
+Installed-Size: 668
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.5-1.Ubuntu-bionic
+Depends: xtream-ui-libass
+Provides: xtream-ui-libogg
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libogg/xtream-ui-libogg_1.3.5-1.Ubuntu-bionic_amd64.deb
+Size: 194064
+SHA256: b58488671a7e15983c7c0cc3e88d8c393e20394bedef1e5e3ef96aa4b5e105cc
+SHA1: 8f321af82d9b2eb272b9f43e3339e58a0b7def53
+MD5sum: c85b01e034a08444a15dc5f090c6c0d0
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-libtasn1
+Installed-Size: 620
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 4.19.0-1.Ubuntu-bionic
+Depends: xtream-ui-nettle
+Provides: xtream-ui-libtasn1
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libtasn1/xtream-ui-libtasn1_4.19.0-1.Ubuntu-bionic_amd64.deb
+Size: 83476
+SHA256: 96f4cedec08424764d1ec9254bcc2f357787072c2842fbc63bd711e2975098be
+SHA1: a00829e792192df1e85d80beef8d0ae626c0b9b5
+MD5sum: 0129dd246098070cad2ed92d54335b94
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-libunistring
+Installed-Size: 5780
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1-1.Ubuntu-bionic
+Depends: xtream-ui-p11-kit
+Provides: xtream-ui-libunistring
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libunistring/xtream-ui-libunistring_1.1-1.Ubuntu-bionic_amd64.deb
+Size: 562920
+SHA256: 78860797bc808054fa2960989264556ce000e8c6604d3a65944ca7f4ee79605b
+SHA1: 270e6c3938d2f986929085d427a98817c5de760a
+MD5sum: bcc83f8c7a6bde4fc25c070f5029b0b5
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-libvpx
+Installed-Size: 5520
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.12.0-1.Ubuntu-bionic
+Depends: xtream-ui-opus
+Provides: xtream-ui-libvpx
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libvpx/xtream-ui-libvpx_1.12.0-1.Ubuntu-bionic_amd64.deb
+Size: 1265608
+SHA256: 6337efdb23f35e3ce557051172dc3c2b97e0e3f7248cd57ccadbfff1ac6f7c18
+SHA1: 253be441e9952520bcf033b71889fb83067a994b
+MD5sum: bd1ed63ac5b6694d599d77978dbc2ce4
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-nasm
+Installed-Size: 3356
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.16.01-1.Ubuntu-bionic
+Depends: xtream-ui-gnutls
+Provides: xtream-ui-nasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nasm/xtream-ui-nasm_2.16.01-1.Ubuntu-bionic_amd64.deb
+Size: 339808
+SHA256: f30a1d9bf710876b738aa9fd08c595dee19643af6f4713d288c4e6781ece95a6
+SHA1: a8ea74c958e17310d8304ddc135f2e526f44be66
+MD5sum: 46d40068f4c266779991ff857ba6fed1
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-nettle
+Installed-Size: 28744
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.8.1-1.Ubuntu-bionic
+Depends: xtream-ui-gmp
+Provides: xtream-ui-nettle
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nettle/xtream-ui-nettle_3.8.1-1.Ubuntu-bionic_amd64.deb
+Size: 1799360
+SHA256: 13762fdf500c548456368173349bf66a6cdee6a94aa98e45cb4bca1428a428e8
+SHA1: 0660973a06fb7d672fed964fac89f75a7b8b7536
+MD5sum: 3eba93daf7833ab8c87d043e95b4ccff
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-openssl3
+Installed-Size: 37524
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.0.7-1.Ubuntu-bionic
+Provides: xtream-ui-openssl3
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-openssl3/xtream-ui-openssl3_3.0.7-1.Ubuntu-bionic_amd64.deb
+Size: 5260780
+SHA256: 317dd6c4b9daa6943350347be261798cc064738aa8223bd28277202a8092a556
+SHA1: 4bf67a1e7c60f6392d42439eaa4df7d40e5b2347
+MD5sum: 1ce64dde8ef0db798b86a1ca69d9f0fe
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-opus
+Installed-Size: 2712
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.1-1.Ubuntu-bionic
+Depends: xtream-ui-lame
+Provides: xtream-ui-opus
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-opus/xtream-ui-opus_1.3.1-1.Ubuntu-bionic_amd64.deb
+Size: 337552
+SHA256: 539adef1d9acd50cdcc690d99b006a3577f4761b90a77218fcc1c7c9e8bfe17c
+SHA1: 8b50c4759565c7eddc9abecf7f0eb66e2e7ed413
+MD5sum: 06da04a49e8dcd29e535444a2cfdfcf2
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-p11-kit
+Installed-Size: 4192
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.24.1-1.Ubuntu-bionic
+Depends: xtream-ui-libffi
+Provides: xtream-ui-p11-kit
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-p11-kit/xtream-ui-p11-kit_0.24.1-1.Ubuntu-bionic_amd64.deb
+Size: 474948
+SHA256: 36def25820dd3a9b70df22d2b71f7f59be76359cf28e6f0a7f917ecf8bc537f9
+SHA1: aad0999470dc20f982c254455c99652bf6ebd54a
+MD5sum: 2715e79b8477de9b91484d740b415232
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-theora
+Installed-Size: 3456
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1.1-1.Ubuntu-bionic
+Depends: xtream-ui-libogg
+Provides: xtream-ui-theora
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-theora/xtream-ui-theora_1.1.1-1.Ubuntu-bionic_amd64.deb
+Size: 396400
+SHA256: f1902377c6b5b77871c16687dc012373191c7e4908208b4c7c56076d0459cb1f
+SHA1: c6f392d9ce22e1a42f3f0e24dd5b2a3e8742ca4e
+MD5sum: ffff5f98074b925a1ed6e79dd9ee03b0
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-vorbis
+Installed-Size: 3048
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.Ubuntu-bionic
+Depends: xtream-ui-theora
+Provides: xtream-ui-vorbis
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-vorbis/xtream-ui-vorbis_1.3.7-1.Ubuntu-bionic_amd64.deb
+Size: 368304
+SHA256: 32261c2c9cf35bd98a80d97ff058dcc53d76e12a6ca7125e08d67030f2d258e9
+SHA1: 1794a0de6671c3ba1a9eaf6cfd5e4d3b43f9ee60
+MD5sum: f4f2aca14808140ffed06765c3e73d40
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-x264
+Installed-Size: 5616
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.Ubuntu-bionic
+Depends: xtream-ui-yasm
+Provides: xtream-ui-x264
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x264/xtream-ui-x264_2023.01-1.Ubuntu-bionic_amd64.deb
+Size: 811676
+SHA256: 22c2b28abcb02e4d78d30631abfb461fa0c899536f0c3911404aed04550ceee1
+SHA1: 4197e37653c6d84da6e297fcdb8564ea7addc951
+MD5sum: e4e43b06d689f0b342dde66291eb6539
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-x265
+Installed-Size: 13788
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.5-1.Ubuntu-bionic
+Depends: xtream-ui-x264
+Provides: xtream-ui-x265
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x265/xtream-ui-x265_3.5-1.Ubuntu-bionic_amd64.deb
+Size: 1380436
+SHA256: 05546659a9e3e7ca95e33c7cecc5b8b8e2fdd62b02e7d711aa9767d4d0f966a9
+SHA1: 37af3edd8727a4054df807c762d2c4c5ee0e1fe1
+MD5sum: 0354114c95035fc2c13f01ec3401022b
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-xavs
+Installed-Size: 1228
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.Ubuntu-bionic
+Depends: xtream-ui-xvid
+Provides: xtream-ui-xavs
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xavs/xtream-ui-xavs_2023.01-1.Ubuntu-bionic_amd64.deb
+Size: 223692
+SHA256: e165020a1f9b9c4cb91843e16b07d3f5b1eeaeeb02326a448df7b0259c8d6fef
+SHA1: cfaf10bc226a2f7d5199283b3ea6056b0ca3cf50
+MD5sum: 7258d8d0470e8100463a4e70fd1fc9f5
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-xvid
+Installed-Size: 2532
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.Ubuntu-bionic
+Depends: xtream-ui-vorbis
+Provides: xtream-ui-xvid
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xvid/xtream-ui-xvid_1.3.7-1.Ubuntu-bionic_amd64.deb
+Size: 210020
+SHA256: d51c6a137cdc63844ffc9496a45fd776923a337b539d24375ac8c77a94675f25
+SHA1: fe163273db564d1b29b8a902b3a2401b7321cdb8
+MD5sum: 1ae47b6ec3880680a38bcb51e03ecdf5
+Description: Package created with checkinstall 1.6.2
+
+Package: xtream-ui-yasm
+Installed-Size: 5092
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.0-1.Ubuntu-bionic
+Depends: xtream-ui-nasm
+Provides: xtream-ui-yasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-yasm/xtream-ui-yasm_1.3.0-1.Ubuntu-bionic_amd64.deb
+Size: 562576
+SHA256: 176af2a1befc8e734c9c4d1c2364707d5df8c6d8f55bf56962f36512372e90e0
+SHA1: 1aef574ca8d40c08c7ac835774ecb2923bc4bf9b
+MD5sum: 9ac08f49556a8cae1dad03be99033e22
+Description: Package created with checkinstall 1.6.2
+
