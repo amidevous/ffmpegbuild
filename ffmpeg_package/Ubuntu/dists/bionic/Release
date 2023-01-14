@@ -1,0 +1,21 @@
+Origin: ffmpeg local
+Label: ffmpeg local
+Suite: bionic
+Codename: bionic
+Version: 18.04
+Date: Sat, 14 Jan 2023 09:04:55 UTC
+Architectures: amd64
+Components: main
+Description: local repo for ffmpeg build
+MD5Sum:
+ a353fd300e2878ffcf6085f9f7ce14e7 12865 main/binary-amd64/Packages
+ 0331293bf2b819d813138ff9b794f547 3374 main/binary-amd64/Packages.gz
+ 8c604ad172f5d8f6659fb663d3f2f0a8 149 main/binary-amd64/Release
+SHA1:
+ 8687e28be9fbe78bec744ff95e4e9be33fa1e31c 12865 main/binary-amd64/Packages
+ e6de1b37407e503a1b47009b773bb45f00e6ea74 3374 main/binary-amd64/Packages.gz
+ 46e97a94eb47bff4a3fad679986c2094b6fff043 149 main/binary-amd64/Release
+SHA256:
+ 357d17bf0878c628738f4bbcf4e4a9e0a7b92288b396bf110492aacf8f0f4c9a 12865 main/binary-amd64/Packages
+ c505683f6a0bbee9234494c4ccc51ffc8dcce13146a8f0c5845ddd65087b06c0 3374 main/binary-amd64/Packages.gz
+ 62d5516b3716f772b89c1570c77b65a8d2c40df0eeee757feeaca789816dd69f 149 main/binary-amd64/Release
