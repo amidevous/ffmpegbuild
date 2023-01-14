@@ -13,8 +13,11 @@ for build require gcc 8.0 or + build variable
 
 
 `export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
+
 export PATH="/root/ffmpeg_build/bin:$PATH"
+
 export PKG_CONFIG_PATH="/root/ffmpeg_build/lib64/pkgconfig:$PKG_CONFIG_PATH"
+
 export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"`
 
 
