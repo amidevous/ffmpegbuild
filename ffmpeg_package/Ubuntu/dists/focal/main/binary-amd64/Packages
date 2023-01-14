@@ -1,0 +1,383 @@
+Package: xtream-ui-fdk-aac
+Installed-Size: 22476
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.0.2-1.Ubuntu-focal
+Depends: xtream-ui-x265
+Provides: xtream-ui-fdk-aac
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fdk-aac/xtream-ui-fdk-aac_2.0.2-1.Ubuntu-focal_amd64.deb
+Size: 3782092
+SHA256: 10b4352ae1be1ca0f25481e65e43ba8a2d62c75127dc5c222d714d7e43a5135d
+SHA1: 21d5fadda795808a7048c4b7cbf919a59d796dd0
+MD5sum: b3bc8a223650188db3df915a319e3abb
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-fribidi
+Installed-Size: 460
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.0.12-1.Ubuntu-focal
+Depends: xtream-ui-libvpx
+Provides: xtream-ui-fribidi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fribidi/xtream-ui-fribidi_1.0.12-1.Ubuntu-focal_amd64.deb
+Size: 44380
+SHA256: 86ed6e800d05b009d5eb1a3e414e04762766c2f6c5b8c99ee5b19172ad91f8db
+SHA1: 9f0e6823917ded7bd7296930661535c4e623061a
+MD5sum: 1338805f9e691e3f1a1b718511a76915
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gmp
+Installed-Size: 3608
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.2.1-1.Ubuntu-focal
+Depends: xtream-ui-openssl3
+Provides: xtream-ui-gmp
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gmp/xtream-ui-gmp_6.2.1-1.Ubuntu-focal_amd64.deb
+Size: 471424
+SHA256: 5e467ad42af8a35c4e95d7cbfce860a99c73cba1dab8b5b2f6782aaf46851006
+SHA1: c4910a0c856b5d8bf4ef1a15a47597d6b5abf511
+MD5sum: 2589cb5c7dea48dfc591c66d28f50c99
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gnutls
+Installed-Size: 4888
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.6.16-1.Ubuntu-focal
+Depends: xtream-ui-libunistring
+Provides: xtream-ui-gnutls
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gnutls/xtream-ui-gnutls_3.6.16-1.Ubuntu-focal_amd64.deb
+Size: 915808
+SHA256: c6dd40ded67d8b35a73e708cdafe981e9a5ab0705af91567761582af1e33d8a5
+SHA1: 265ce704cba9d0effde5f49ac8ef4f580e5adafd
+MD5sum: 8e0d81e0e51f188ef36dec848fcabdb8
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-harfbuzz
+Installed-Size: 190712
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.0.0-1.Ubuntu-focal
+Depends: xtream-ui-fribidi
+Provides: xtream-ui-harfbuzz
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-harfbuzz/xtream-ui-harfbuzz_6.0.0-1.Ubuntu-focal_amd64.deb
+Size: 22657140
+SHA256: 5bd6374d68fcba73f3f3a3bf7eb9fab653ff27080860fc11872c0afd8a91abcf
+SHA1: b75ae9c4d80ffcc343442e27dce0401d0a107bdf
+MD5sum: 5340c284d57fb7249f578264e9c5be38
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-lame
+Installed-Size: 1428
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.100-1.Ubuntu-focal
+Depends: xtream-ui-fdk-aac
+Provides: xtream-ui-lame
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-lame/xtream-ui-lame_3.100-1.Ubuntu-focal_amd64.deb
+Size: 247212
+SHA256: 850f1efd33ebe421cf24b5216e0d2df8720fdcd259a4ae720be9f0f3c13697c7
+SHA1: 5eefd0f40f521273190341ae065675b3ccd82ad1
+MD5sum: a7644f38ee121e8440238c97564cf92d
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libass
+Installed-Size: 780
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.17.0-1.Ubuntu-focal
+Depends: xtream-ui-harfbuzz
+Provides: xtream-ui-libass
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libass/xtream-ui-libass_0.17.0-1.Ubuntu-focal_amd64.deb
+Size: 126040
+SHA256: 5011a2e32390edc135291c602297a70d6831857eee16dd362636e2db4579170e
+SHA1: e78b4e3c489e3b32d5ff981d04c45d863f216979
+MD5sum: 8e665451e46b96232e0d0da388725f63
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libffi
+Installed-Size: 280
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.4.4-1.Ubuntu-focal
+Depends: xtream-ui-libtasn1
+Provides: xtream-ui-libffi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libffi/xtream-ui-libffi_3.4.4-1.Ubuntu-focal_amd64.deb
+Size: 44692
+SHA256: 10a7b0f061d0bdd3d9e4cec1ac4e396e26de1f5eb2d95f6c5379dacf4c77f4a9
+SHA1: 08e6be32d7716d0ff5592422ace53b4108d1b98e
+MD5sum: 74a2c586f8d889b6edd6b5b06f04afd4
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libogg
+Installed-Size: 676
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.5-1.Ubuntu-focal
+Depends: xtream-ui-libass
+Provides: xtream-ui-libogg
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libogg/xtream-ui-libogg_1.3.5-1.Ubuntu-focal_amd64.deb
+Size: 193820
+SHA256: 018512f18e3f2061779d64816c39f8ca01aef9d96ea8d02b7021f4f5a80eda60
+SHA1: 8d30e1bb960c7f2a9e8cb1cefc8bdef79484cc50
+MD5sum: 0fa1f83a86aa170690103f03f1fa035f
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libtasn1
+Installed-Size: 640
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 4.19.0-1.Ubuntu-focal
+Depends: xtream-ui-nettle
+Provides: xtream-ui-libtasn1
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libtasn1/xtream-ui-libtasn1_4.19.0-1.Ubuntu-focal_amd64.deb
+Size: 83592
+SHA256: 6f8eae2b80e77659d27430890f350ff5307acb2deb5a187af3c2d5c7cf3888cc
+SHA1: f56d50a64697c734b3cbe5bb3c5814b917d5e47b
+MD5sum: 675f1dce63467fe41c4899ef92f90c03
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libunistring
+Installed-Size: 5872
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1-1.Ubuntu-focal
+Depends: xtream-ui-p11-kit
+Provides: xtream-ui-libunistring
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libunistring/xtream-ui-libunistring_1.1-1.Ubuntu-focal_amd64.deb
+Size: 556932
+SHA256: 1de7835e670f5bf4b64a2249576271b2402fbd25bfbdd616d1ca33e6599267ec
+SHA1: adc8763cd79de12e7bd9ea9422b45cc4af90beb8
+MD5sum: c3464bb3ebda714fa1eb03a681fad01c
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libvpx
+Installed-Size: 4816
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.12.0-1.Ubuntu-focal
+Depends: xtream-ui-opus
+Provides: xtream-ui-libvpx
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libvpx/xtream-ui-libvpx_1.12.0-1.Ubuntu-focal_amd64.deb
+Size: 1140528
+SHA256: 28ad472010d01d782dff90dad39e9c6894dc0acf1268013c5e0da9c9a52e925e
+SHA1: 909d4f75a6074cbc9ef9441b9207deb1faed8404
+MD5sum: 5c86c7676f4f43e2d694c79a2c2010ff
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nasm
+Installed-Size: 3436
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.16.01-1.Ubuntu-focal
+Depends: xtream-ui-gnutls
+Provides: xtream-ui-nasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nasm/xtream-ui-nasm_2.16.01-1.Ubuntu-focal_amd64.deb
+Size: 356508
+SHA256: 2f06a481cc25821dc121779e24ebdf5104baa6b814040aace9e903985cd3c2ea
+SHA1: e6e5b763c6e0355c1eeef466da7a885168d9665c
+MD5sum: a3c1d4229fdea5922a8b7d8c530754d0
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nettle
+Installed-Size: 29152
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.8.1-1.Ubuntu-focal
+Depends: xtream-ui-gmp
+Provides: xtream-ui-nettle
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nettle/xtream-ui-nettle_3.8.1-1.Ubuntu-focal_amd64.deb
+Size: 1817212
+SHA256: 5b4eec6d83a1dbd83f08dd1044c82595a50b430a05c6bff5c6b1fe277bb3fe74
+SHA1: a56ed074d014d760bd8e6aeb1bd0e4063ebc4840
+MD5sum: 0a8b8f39a2440ea1227f2f116d3ff01b
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-openssl3
+Installed-Size: 37916
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.0.7-1.Ubuntu-focal
+Provides: xtream-ui-openssl3
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-openssl3/xtream-ui-openssl3_3.0.7-1.Ubuntu-focal_amd64.deb
+Size: 5274644
+SHA256: 28b6f56a019877dbce7ff5db58e95c52bb1b4a779f1efa2584f9bd482afa796d
+SHA1: 43723ef064fa39ffd011f241329fbc2d47ac72ca
+MD5sum: 3d4e2ae526dad9d52ab9a2a7c2603674
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-opus
+Installed-Size: 2784
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.1-1.Ubuntu-focal
+Depends: xtream-ui-lame
+Provides: xtream-ui-opus
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-opus/xtream-ui-opus_1.3.1-1.Ubuntu-focal_amd64.deb
+Size: 339168
+SHA256: 006d8bc18225de7e4272a86e2a4dd8158835a998af95429dba717713cc950c27
+SHA1: 1505dbad4372f1345ffc3e7a90bfc7bee7c5c068
+MD5sum: cc6b5e91ae61d8b3ef6542bdbc3e30eb
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-p11-kit
+Installed-Size: 4332
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.24.1-1.Ubuntu-focal
+Depends: xtream-ui-libffi
+Provides: xtream-ui-p11-kit
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-p11-kit/xtream-ui-p11-kit_0.24.1-1.Ubuntu-focal_amd64.deb
+Size: 479400
+SHA256: afd80ef9237b1ae2a15a6caa73e9271f895b4bc48567379b93811aa8dc8a0a73
+SHA1: 3787651865ead67baea2303957d8ae741214a190
+MD5sum: 611f382c0a284425f9b0ad0665d1a6bb
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-theora
+Installed-Size: 3452
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1.1-1.Ubuntu-focal
+Depends: xtream-ui-libogg
+Provides: xtream-ui-theora
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-theora/xtream-ui-theora_1.1.1-1.Ubuntu-focal_amd64.deb
+Size: 403964
+SHA256: 07c4a1e802fe39bfd75c2a59941163f8413c1d6237def1f5b05725a3a875b476
+SHA1: 0724b81631c6bd986fd9909a5c0306c8337530fa
+MD5sum: fc7a70169524ce3cda4bf3b305359695
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-vorbis
+Installed-Size: 3028
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.Ubuntu-focal
+Depends: xtream-ui-theora
+Provides: xtream-ui-vorbis
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-vorbis/xtream-ui-vorbis_1.3.7-1.Ubuntu-focal_amd64.deb
+Size: 360980
+SHA256: f8d35c41f0fee711abe2679f29b1045dee191ffc56fc3311b21941e86c118de5
+SHA1: ef11a1295cd0a44eb535067ae081dafc8ae9f8d3
+MD5sum: 3d11c9570490299b609f9ff4d2ee2f02
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x264
+Installed-Size: 5616
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.Ubuntu-focal
+Depends: xtream-ui-yasm
+Provides: xtream-ui-x264
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x264/xtream-ui-x264_2023.01-1.Ubuntu-focal_amd64.deb
+Size: 802024
+SHA256: 4364bda71db1fcec59109c1473a29a211d26368e1d1288d0245dbf5c4ff31ce4
+SHA1: e33594be88861d68f28ed149c2e71537d36fcf02
+MD5sum: a3307ee94fd9ca35532ad0b21c8b6074
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x265
+Installed-Size: 13196
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.5-1.Ubuntu-focal
+Depends: xtream-ui-x264
+Provides: xtream-ui-x265
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x265/xtream-ui-x265_3.5-1.Ubuntu-focal_amd64.deb
+Size: 1349292
+SHA256: f077cd94b2318bae094ec4948e1c45406f5c1ccb411a2d22088bc4ce3cf2da2e
+SHA1: f3b36231ba65bdf27af100c4731c80d63abde97b
+MD5sum: 057e7cfc765d7349a78a64097ede6295
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xavs
+Installed-Size: 1204
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.Ubuntu-focal
+Depends: xtream-ui-xvid
+Provides: xtream-ui-xavs
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xavs/xtream-ui-xavs_2023.01-1.Ubuntu-focal_amd64.deb
+Size: 221404
+SHA256: 3f37d6fdf5e3015fe1294d591690ca0eaacf7bf40ac323f2c4b4d04e3b37dbd1
+SHA1: 495f405b59b488a0ac8d9d7e85be1d9032acd07e
+MD5sum: 8e971f3db3164aced956e29e4e30011b
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xvid
+Installed-Size: 2552
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.Ubuntu-focal
+Depends: xtream-ui-vorbis
+Provides: xtream-ui-xvid
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xvid/xtream-ui-xvid_1.3.7-1.Ubuntu-focal_amd64.deb
+Size: 211116
+SHA256: d5c09e73906fb6b9f34af2dcf498f9ea069cdc5d5e0ac704a67f1c046bc2215c
+SHA1: 5a59fbde4f5ef50f3db2217d2025c4f1da6c2cd5
+MD5sum: c2524a182cc92f2f9d215e457eef2198
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-yasm
+Installed-Size: 5136
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.0-1.Ubuntu-focal
+Depends: xtream-ui-nasm
+Provides: xtream-ui-yasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-yasm/xtream-ui-yasm_1.3.0-1.Ubuntu-focal_amd64.deb
+Size: 570144
+SHA256: 9c708a4e6a8c182195dde3b889195080bbd1426494973918076ec0af1e0d7012
+SHA1: 68ed6815d697866c256dd73f31ee371f03c39d16
+MD5sum: 00740986cd9af43211340f25bda5c1cc
+Description: Package created with checkinstall 1.6.3
+
