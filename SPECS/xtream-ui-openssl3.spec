@@ -36,7 +36,7 @@ protocols.
 %autosetup -S git -n openssl-%{version}
 
 %build
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
+#RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 
 export HASHBANGPERL=/usr/bin/perl
 if test -f "/opt/rh/devtoolset-8/enable"; then
