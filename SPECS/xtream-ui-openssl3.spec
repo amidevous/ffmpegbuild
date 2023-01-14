@@ -36,13 +36,69 @@ protocols.
 %autosetup -S git -n openssl-%{version}
 
 %build
-#RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
+RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 
 export HASHBANGPERL=/usr/bin/perl
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-./Configure --prefix=/root/ffmpeg_build --openssldir=/root/ffmpeg_build/etc/pki/tls shared zlib
+sslarch=%{_os}-%{_target_cpu}
+%ifarch %ix86
+sslarch=linux-elf
+if ! echo %{_target} | grep -q i686 ; then
+	sslflags="no-asm 386"
+fi
+%endif
+%ifarch x86_64
+sslflags=enable-ec_nistp_64_gcc_128
+%endif
+%ifarch sparcv9
+sslarch=linux-sparcv9
+sslflags=no-asm
+%endif
+%ifarch sparc64
+sslarch=linux64-sparcv9
+sslflags=no-asm
+%endif
+%ifarch alpha alphaev56 alphaev6 alphaev67
+sslarch=linux-alpha-gcc
+%endif
+%ifarch s390 sh3eb sh4eb
+sslarch="linux-generic32 -DB_ENDIAN"
+%endif
+%ifarch s390x
+sslarch="linux64-s390x"
+%endif
+%ifarch %{arm}
+sslarch=linux-armv4
+%endif
+%ifarch aarch64
+sslarch=linux-aarch64
+sslflags=enable-ec_nistp_64_gcc_128
+%endif
+%ifarch sh3 sh4
+sslarch=linux-generic32
+%endif
+%ifarch ppc64 ppc64p7
+sslarch=linux-ppc64
+%endif
+%ifarch ppc64le
+sslarch="linux-ppc64le"
+sslflags=enable-ec_nistp_64_gcc_128
+%endif
+%ifarch mips mipsel
+sslarch="linux-mips32 -mips32r2"
+%endif
+%ifarch mips64 mips64el
+sslarch="linux64-mips64 -mips64r2"
+%endif
+%ifarch mips64el
+sslflags=enable-ec_nistp_64_gcc_128
+%endif
+%ifarch riscv64
+sslarch=linux-generic64
+%endif
+./Configure --prefix=/root/ffmpeg_build --openssldir=/root/ffmpeg_build/etc/pki/tls shared zlib ${sslarch} $RPM_OPT_FLAGS
 
 # Do not run this in a production package the FIPS symbols must be patched-in
 #util/mkdef.pl crypto update
