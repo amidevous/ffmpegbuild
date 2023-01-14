@@ -308,7 +308,7 @@ if [[ $(inst  "xtream-ui-openssl3") != "$opensslversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/openssl-$opensslversion.tar.gz http://artfiles.org/openssl.org/source/openssl-$opensslversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-openssl3.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-openssl3.spec
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-openssl3.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-openssl3.spec
 sed -i "s|xtream-ui-openssl3version|$opensslversion|" "/root/rpmbuild/SPECS/xtream-ui-openssl3.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-openssl3.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-openssl3-$opensslversion-1.$dist.x86_64.rpm
@@ -342,15 +342,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-gmp
 if [[ $(inst  "xtream-ui-gmp") != "$gmpversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/gmp-$gmpversion.tar.xz https://ftp.gnu.org/gnu/gmp/gmp-$gmpversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-gmp.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-gmp.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/gmp-$gmpversion.tar.xz https://ftp.gnu.org/gnu/gmp/gmp-$gmpversion.tar.xz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-gmp.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-gmp.spec
 sed -i "s|xtream-ui-gmpversion|$gmpversion|" "/root/rpmbuild/SPECS/xtream-ui-gmp.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gmp.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gmp-$gmpversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-gmp
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O gmp-$gmpversion.tar.xz https://ftp.gnu.org/gnu/gmp/gmp-$gmpversion.tar.xz
+wget --no-check-certificate -O gmp-$gmpversion.tar.xz https://ftp.gnu.org/gnu/gmp/gmp-$gmpversion.tar.xz
 tar xf gmp-$gmpversion.tar.xz
 cd /root/ffmpeg_sources/gmp-$gmpversion
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --enable-cxx --enable-fat
@@ -377,15 +377,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
 if [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-nettle.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-nettle.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-nettle.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-nettle.spec
 sed -i "s|xtream-ui-nettleversion|$nettleversion|" "/root/rpmbuild/SPECS/xtream-ui-nettle.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nettle.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nettle-$nettleversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
+wget --no-check-certificate -O nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
 tar xf nettle-$nettleversion.tar.gz
 cd /root/ffmpeg_sources/nettle-$nettleversion
 ./configure --prefix=/root/ffmpeg_build --bindir=/root/ffmpeg_build/bin --sbindir=/root/ffmpeg_build/bin \
@@ -415,15 +415,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-libtasn1
 if [[ $(inst  "xtream-ui-libtasn1") != "$libtasn1version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libtasn1-$libtasn1version.tar.gz https://ftp.gnu.org/gnu/libtasn1/libtasn1-$libtasn1version.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libtasn1.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libtasn1-$libtasn1version.tar.gz https://ftp.gnu.org/gnu/libtasn1/libtasn1-$libtasn1version.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libtasn1.spec
 sed -i "s|xtream-ui-libtasn1version|$libtasn1version|" "/root/rpmbuild/SPECS/xtream-ui-libtasn1.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libtasn1.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libtasn1-$libtasn1version-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-libtasn1
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libtasn1-$libtasn1version.tar.gz https://ftp.gnu.org/gnu/libtasn1/libtasn1-$libtasn1version.tar.gz
+wget --no-check-certificate -O libtasn1-$libtasn1version.tar.gz https://ftp.gnu.org/gnu/libtasn1/libtasn1-$libtasn1version.tar.gz
 tar xf libtasn1-$libtasn1version.tar.gz
 cd /root/ffmpeg_sources/libtasn1-$libtasn1version
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64
@@ -451,15 +451,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-libffi
 if [[ $(inst  "xtream-ui-libffi") != "$libffiversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libffi-$libffiversion.tar.gz https://github.com/libffi/libffi/releases/download/v$libffiversion/libffi-$libffiversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libffi.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libffi.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libffi-$libffiversion.tar.gz https://github.com/libffi/libffi/releases/download/v$libffiversion/libffi-$libffiversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-libffi.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libffi.spec
 sed -i "s|xtream-ui-libffiversion|$libffiversion|" "/root/rpmbuild/SPECS/xtream-ui-libffi.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libffi.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libffi-$libffiversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-libffi
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libffi-$libffiversion.tar.gz https://github.com/libffi/libffi/releases/download/v$libffiversion/libffi-$libffiversion.tar.gz
+wget --no-check-certificate -O libffi-$libffiversion.tar.gz https://github.com/libffi/libffi/releases/download/v$libffiversion/libffi-$libffiversion.tar.gz
 tar xf libffi-$libffiversion.tar.gz
 cd /root/ffmpeg_sources/libffi-$libffiversion
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --disable-multi-os-directory
@@ -487,15 +487,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-p11-kit
 if [[ $(inst  "xtream-ui-p11-kit") != "$p11kitversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/p11-kit-$p11kitversion.tar.xz https://github.com/p11-glue/p11-kit/releases/download/$p11kitversion/p11-kit-$p11kitversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-p11-kit.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/p11-kit-$p11kitversion.tar.xz https://github.com/p11-glue/p11-kit/releases/download/$p11kitversion/p11-kit-$p11kitversion.tar.xz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-p11-kit.spec
 sed -i "s|xtream-ui-p11-kitversion|$p11kitversion|" "/root/rpmbuild/SPECS/xtream-ui-p11-kit.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-p11-kit.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-p11-kit-$p11kitversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-p11-kit
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O p11-kit-$p11kitversion.tar.xz https://github.com/p11-glue/p11-kit/releases/download/$p11kitversion/p11-kit-$p11kitversion.tar.xz
+wget --no-check-certificate -O p11-kit-$p11kitversion.tar.xz https://github.com/p11-glue/p11-kit/releases/download/$p11kitversion/p11-kit-$p11kitversion.tar.xz
 tar xf p11-kit-$p11kitversion.tar.xz
 cd /root/ffmpeg_sources/p11-kit-$p11kitversion
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --without-systemd --disable-nls
@@ -523,15 +523,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-libunistring
 if [[ $(inst  "xtream-ui-libunistring") != "$libunistringversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libunistring-$libunistringversion.tar.xz https://ftp.gnu.org/gnu/libunistring/libunistring-$libunistringversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libunistring.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libunistring.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libunistring-$libunistringversion.tar.xz https://ftp.gnu.org/gnu/libunistring/libunistring-$libunistringversion.tar.xz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-libunistring.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libunistring.spec
 sed -i "s|xtream-ui-libunistringversion|$libunistringversion|" "/root/rpmbuild/SPECS/xtream-ui-libunistring.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libunistring.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libunistring-$libunistringversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-libunistring
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libunistring-$libunistringversion.tar.xz https://ftp.gnu.org/gnu/libunistring/libunistring-$libunistringversion.tar.xz
+wget --no-check-certificate -O libunistring-$libunistringversion.tar.xz https://ftp.gnu.org/gnu/libunistring/libunistring-$libunistringversion.tar.xz
 tar -xvf libunistring-$libunistringversion.tar.xz
 cd /root/ffmpeg_sources/libunistring-$libunistringversion
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64
@@ -559,15 +559,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-gnutls
 if [[ $(inst  "xtream-ui-gnutls") != "$gnutlsversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-gnutls.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-gnutls.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-gnutls.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-gnutls.spec
 sed -i "s|xtream-ui-gnutlsversion|$gnutlsversion|" "/root/rpmbuild/SPECS/xtream-ui-gnutls.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-gnutls.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-gnutls-$gnutlsversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-gnutls
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
+wget --no-check-certificate -O gnutls-$gnutlsversion.tar.xz https://www.gnupg.org/ftp/gcrypt/gnutls/v$gnutlsversionmin/gnutls-$gnutlsversion.tar.xz
 tar -xvf gnutls-$gnutlsversion.tar.xz
 cd /root/ffmpeg_sources/gnutls-$gnutlsversion
 autoreconf -ifv
@@ -597,15 +597,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-nasm
 if [[ $(inst  "xtream-ui-nasm") != "$nasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
-wget -O /root/rpmbuild/SPECS/xtream-ui-nasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-nasm.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-nasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-nasm.spec
 sed -i "s|xtream-ui-nasmversion|$nasmversion|" "/root/rpmbuild/SPECS/xtream-ui-nasm.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-nasm.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-nasm-$nasmversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-nasm
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
+wget --no-check-certificate -O nasm-$nasmversion.tar.bz2 https://www.nasm.us/pub/nasm/releasebuilds/$nasmversion/nasm-$nasmversion.tar.bz2
 tar xjvf nasm-$nasmversion.tar.bz2
 cd /root/ffmpeg_sources/nasm-$nasmversion
 ./autogen.sh
@@ -634,15 +634,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-yasm
 if [[ $(inst  "xtream-ui-yasm") != "$yasmversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-yasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-yasm.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-yasm.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-yasm.spec
 sed -i "s|xtream-ui-yasmversion|$yasmversion|" "/root/rpmbuild/SPECS/xtream-ui-yasm.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-yasm.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-yasm-$yasmversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-yasm
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
+wget --no-check-certificate -O yasm-$yasmversion.tar.gz https://www.tortall.net/projects/yasm/releases/yasm-$yasmversion.tar.gz
 tar xzvf yasm-$yasmversion.tar.gz
 cd /root/ffmpeg_sources/yasm-$yasmversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --bindir="/root/ffmpeg_build/bin"
@@ -670,15 +670,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-x264
 if [[ $(inst  "xtream-ui-x264") != "$x264version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-x264.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-x264.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-x264.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-x264.spec
 sed -i "s|xtream-ui-x264version|$x264version|" "/root/rpmbuild/SPECS/xtream-ui-x264.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x264.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x264-$x264version-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-x264
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
+wget --no-check-certificate -O x264-stable.tar.gz https://code.videolan.org/videolan/x264/-/archive/stable/x264-stable.tar.gz
 tar -xvf x264-stable.tar.gz
 cd /root/ffmpeg_sources/x264-stable
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --bindir="/root/ffmpeg_build/bin" --enable-static
@@ -706,15 +706,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-x265
 if [[ $(inst  "xtream-ui-x265") != "$x265version-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-x265.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-x265.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-x265.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-x265.spec
 sed -i "s|xtream-ui-x265version|$x265version|" "/root/rpmbuild/SPECS/xtream-ui-x265.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-x265.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-x265-$x265version-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-x265
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
+wget --no-check-certificate -O x265_$x265version.tar.gz https://bitbucket.org/multicoreware/x265_git/downloads/x265_$x265version.tar.gz
 tar -xvf x265_$x265version.tar.gz
 cd /root/ffmpeg_sources/x265_$x265version/build/linux
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="/root/ffmpeg_build" -DLIB_INSTALL_DIR=lib64 -DENABLE_SHARED:bool=off ../../source
@@ -759,15 +759,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-fdk-aac
 if [[ $(inst  "xtream-ui-fdk-aac") != "$fdkaacversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/fdk-aac-$fdkaacversion.tar.gz https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v$fdkaacversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-fdk-aac.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-fdk-aac.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/fdk-aac-$fdkaacversion.tar.gz https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v$fdkaacversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-fdk-aac.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-fdk-aac.spec
 sed -i "s|xtream-ui-fdk-aacversion|$fdkaacversion|" "/root/rpmbuild/SPECS/xtream-ui-fdk-aac.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-fdk-aac.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-fdk-aac-$fdkaacversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-fdk-aac
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O fdk-aac-$fdkaacversion.tar.gz https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v$fdkaacversion.tar.gz
+wget --no-check-certificate -O fdk-aac-$fdkaacversion.tar.gz https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v$fdkaacversion.tar.gz
 tar -xvf fdk-aac-$fdkaacversion.tar.gz
 cd /root/ffmpeg_sources/fdk-aac-$fdkaacversion
 autoreconf -fiv
@@ -796,15 +796,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-lame
 if [[ $(inst  "xtream-ui-lame") != "$lameversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/lame-$lameversion.tar.gz https://downloads.sourceforge.net/project/lame/lame/$lameversion/lame-$lameversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-lame.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-lame.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/lame-$lameversion.tar.gz https://downloads.sourceforge.net/project/lame/lame/$lameversion/lame-$lameversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-lame.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-lame.spec
 sed -i "s|xtream-ui-lameversion|$lameversion|" "/root/rpmbuild/SPECS/xtream-ui-lame.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-lame.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-lame-$lameversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-lame
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O lame-$lameversion.tar.gz https://downloads.sourceforge.net/project/lame/lame/$lameversion/lame-$lameversion.tar.gz
+wget --no-check-certificate -O lame-$lameversion.tar.gz https://downloads.sourceforge.net/project/lame/lame/$lameversion/lame-$lameversion.tar.gz
 tar xzvf lame-$lameversion.tar.gz
 cd /root/ffmpeg_sources/lame-$lameversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --bindir="/root/ffmpeg_build/bin" --disable-shared --enable-nasm
@@ -832,15 +832,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-opus
 if [[ $(inst  "xtream-ui-opus") != "$opusversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/opus-$opusversion.tar.gz https://archive.mozilla.org/pub/opus/opus-$opusversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-opus.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-opus.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/opus-$opusversion.tar.gz https://archive.mozilla.org/pub/opus/opus-$opusversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-opus.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-opus.spec
 sed -i "s|xtream-ui-opusversion|$opusversion|" "/root/rpmbuild/SPECS/xtream-ui-opus.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-opus.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-opus-$opusversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-opus
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O opus-$opusversion.tar.gz https://archive.mozilla.org/pub/opus/opus-$opusversion.tar.gz
+wget --no-check-certificate -O opus-$opusversion.tar.gz https://archive.mozilla.org/pub/opus/opus-$opusversion.tar.gz
 tar xzvf opus-$opusversion.tar.gz
 cd /root/ffmpeg_sources/opus-$opusversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --disable-shared
@@ -868,15 +868,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-libvpx
 if [[ $(inst  "xtream-ui-libvpx") != "$libvpxversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libvpx-$libvpxversion.tar.gz https://chromium.googlesource.com/webm/libvpx/+archive/$libvpxcheckout.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libvpx.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libvpx.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libvpx-$libvpxversion.tar.gz https://chromium.googlesource.com/webm/libvpx/+archive/$libvpxcheckout.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-libvpx.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libvpx.spec
 sed -i "s|xtream-ui-libvpxversion|$libvpxversion|" "/root/rpmbuild/SPECS/xtream-ui-libvpx.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libvpx.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libvpx-$libvpxversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-libvpx
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libvpx-$libvpxversion.tar.gz https://chromium.googlesource.com/webm/libvpx/+archive/$libvpxcheckout.tar.gz
+wget --no-check-certificate -O libvpx-$libvpxversion.tar.gz https://chromium.googlesource.com/webm/libvpx/+archive/$libvpxcheckout.tar.gz
 mkdir -p /root/ffmpeg_sources/libvpx-$libvpxversion
 cd /root/ffmpeg_sources/libvpx-$libvpxversion
 tar -xvf ../libvpx-$libvpxversion.tar.gz
@@ -906,15 +906,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-fribidi
 if [[ $(inst  "xtream-ui-fribidi") != "$fribidiversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-fribidi.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-fribidi.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-fribidi.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-fribidi.spec
 sed -i "s|xtream-ui-fribidiversion|$fribidiversion|" "/root/rpmbuild/SPECS/xtream-ui-fribidi.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-fribidi.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-fribidi-$fribidiversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-fribidi
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
+wget --no-check-certificate -O fribidi-$fribidiversion.tar.xz https://github.com/fribidi/fribidi/releases/download/v$fribidiversion/fribidi-$fribidiversion.tar.xz
 tar -xvf fribidi-$fribidiversion.tar.xz
 cd /root/ffmpeg_sources/fribidi-$fribidiversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
@@ -943,15 +943,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-harfbuzz
 if [[ $(inst  "xtream-ui-harfbuzz") != "$harfbuzzversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
-wget -O /root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-harfbuzz.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-harfbuzz.spec
 sed -i "s|xtream-ui-harfbuzzversion|$harfbuzzversion|" "/root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-harfbuzz.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-harfbuzz-$harfbuzzversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-harfbuzz
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
+wget --no-check-certificate -O harfbuzz-$harfbuzzversion.tar.xz https://github.com/harfbuzz/harfbuzz/releases/download/$harfbuzzversion/harfbuzz-$harfbuzzversion.tar.xz
 tar -xvf harfbuzz-$harfbuzzversion.tar.xz
 cd /root/ffmpeg_sources/harfbuzz-$harfbuzzversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
@@ -979,15 +979,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-libass
 if [[ $(inst  "xtream-ui-libass") != "$libassversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libass.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libass.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-libass.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libass.spec
 sed -i "s|xtream-ui-libassversion|$libassversion|" "/root/rpmbuild/SPECS/xtream-ui-libass.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libass.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libass-$libassversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-libass
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
+wget --no-check-certificate -O libass-$libassversion.tar.gz https://github.com/libass/libass/releases/download/$libassversion/libass-$libassversion.tar.gz
 tar -xvf libass-$libassversion.tar.gz
 cd /root/ffmpeg_sources/libass-$libassversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
@@ -1015,15 +1015,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-libogg
 if [[ $(inst  "xtream-ui-libogg") != "$liboggversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-libogg.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libogg.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-libogg.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-libogg.spec
 sed -i "s|xtream-ui-liboggversion|$liboggversion|" "/root/rpmbuild/SPECS/xtream-ui-libogg.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-libogg.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-libogg-$liboggversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-libogg
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
+wget --no-check-certificate -O libogg-$liboggversion.tar.gz https://github.com/xiph/ogg/releases/download/v$liboggversion/libogg-$liboggversion.tar.gz
 tar -xvf libogg-$liboggversion.tar.gz
 cd /root/ffmpeg_sources/libogg-$liboggversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
@@ -1051,23 +1051,23 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-theora
 if [[ $(inst  "xtream-ui-theora") != "$theoraversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
 #patch: png_sizeof no longer available (since libpng 1.6)
-wget -O /root/rpmbuild/SOURCES/theora.patch https://gitlab.xiph.org/xiph/theora/-/commit/7288b539c52e99168488dc3a343845c9365617c8.patch
-wget -O /root/rpmbuild/SPECS/xtream-ui-theora.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-theora.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/theora.patch https://gitlab.xiph.org/xiph/theora/-/commit/7288b539c52e99168488dc3a343845c9365617c8.patch
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-theora.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-theora.spec
 sed -i "s|xtream-ui-theoraversion|$theoraversion|" "/root/rpmbuild/SPECS/xtream-ui-theora.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-theora.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-theora-$theoraversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-theora
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
+wget --no-check-certificate -O theora-$theoraversion.tar.gz https://github.com/xiph/theora/archive/refs/tags/v$theoraversion.tar.gz
 tar -xvf theora-$theoraversion.tar.gz
 cd /root/ffmpeg_sources/theora-$theoraversion
 ./autogen.sh
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
 #patch: png_sizeof no longer available (since libpng 1.6) 
-wget -O theora.patch https://gitlab.xiph.org/xiph/theora/-/commit/7288b539c52e99168488dc3a343845c9365617c8.patch
+wget --no-check-certificate -O theora.patch https://gitlab.xiph.org/xiph/theora/-/commit/7288b539c52e99168488dc3a343845c9365617c8.patch
 patch -p1 < theora.patch
 make -j$(nproc --all)
 checkinstall \
@@ -1093,15 +1093,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-vorbis
 if [[ $(inst  "xtream-ui-vorbis") != "$vorbisversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-vorbis.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-vorbis.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-vorbis.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-vorbis.spec
 sed -i "s|xtream-ui-vorbisversion|$vorbisversion|" "/root/rpmbuild/SPECS/xtream-ui-vorbis.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-vorbis.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-vorbis-$vorbisversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-vorbis
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
+wget --no-check-certificate -O libvorbis-$vorbisversion.tar.gz https://github.com/xiph/vorbis/releases/download/v$vorbisversion/libvorbis-$vorbisversion.tar.gz
 tar -xvf libvorbis-$vorbisversion.tar.gz
 cd /root/ffmpeg_sources/libvorbis-$vorbisversion
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --enable-static
@@ -1129,15 +1129,15 @@ $PACKAGE_INSTALLER_LOCAL xtream-ui-xvid
 if [[ $(inst  "xtream-ui-xvid") != "$xvidversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
-wget -O /root/rpmbuild/SOURCES/xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
-wget -O /root/rpmbuild/SPECS/xtream-ui-xvid.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xvid.spec
+wget --no-check-certificate -O /root/rpmbuild/SOURCES/xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-xvid.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xvid.spec
 sed -i "s|xtream-ui-xvidversion|$xvidversion|" "/root/rpmbuild/SPECS/xtream-ui-xvid.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xvid.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-xvid-$xvidversion-1.$dist.x86_64.rpm
 sleep 60
 $PACKAGE_INSTALLER_LOCAL xtream-ui-xvid
 elif [[ "$OS" = "Ubuntu" || "$OS" = "debian" ]]; then
-wget -O xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
+wget --no-check-certificate -O xvidcore-$xvidversion.tar.gz https://downloads.xvid.com/downloads/xvidcore-$xvidversion.tar.gz
 tar -xvf xvidcore-$xvidversion.tar.gz
 cd /root/ffmpeg_sources/xvidcore/build/generic
 ./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64
@@ -1171,7 +1171,7 @@ rm -f xavs-code-r55-trunk.zip
 mv xavs-code-r55-trunk xavs-$xavsversion
 tar -czvf /root/rpmbuild/SOURCES/xavs-$xavsversion.tar.gz xavs-$xavsversion
 rm -rf xavs-$xavsversion
-wget -O /root/rpmbuild/SPECS/xtream-ui-xavs.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xavs.spec
+wget --no-check-certificate -O /root/rpmbuild/SPECS/xtream-ui-xavs.spec https://github.com/amidevous/ffmpegbuild/raw/main/SPECS/xtream-ui-xavs.spec
 sed -i "s|xtream-ui-xavsversion|$xavsversion|" "/root/rpmbuild/SPECS/xtream-ui-xavs.spec"
 rpmbuild -ba /root/rpmbuild/SPECS/xtream-ui-xavs.spec
 /root/ffmpeg_package/$OS/$VER/$ARCH/repoadd /root/rpmbuild/RPMS/x86_64/xtream-ui-xavs-$xavsversion-1.$dist.x86_64.rpm
@@ -1203,7 +1203,7 @@ fi
 fi
 cd /root/ffmpeg_sources
 rm -rf *
-wget -O ffmpeg-$ffmpegversion.tar.bz2 https://ffmpeg.org/releases/ffmpeg-$ffmpegversion.tar.bz2
+wget --no-check-certificate -O ffmpeg-$ffmpegversion.tar.bz2 https://ffmpeg.org/releases/ffmpeg-$ffmpegversion.tar.bz2
 tar -xvf ffmpeg-$ffmpegversion.tar.bz2
 cd ffmpeg-$ffmpegversion
 ./configure \
