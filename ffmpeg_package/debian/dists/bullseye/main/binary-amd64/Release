@@ -1,0 +1,7 @@
+Archive: bullseye
+Version: 11
+Component: main
+Origin: ffmpeg local
+Label: ffmpeg local
+Architecture: amd64
+Description: local repo for ffmpeg build
