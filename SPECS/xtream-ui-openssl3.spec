@@ -13,6 +13,7 @@ Source: http://artfiles.org/openssl.org/source/openssl-%{version}.tar.gz
 
 License: ASL 2.0
 URL: http://www.openssl.org/
+AutoReq: no
 BuildRequires: gcc
 BuildRequires: coreutils, perl-interpreter, sed, zlib-devel, /usr/bin/cmp
 BuildRequires: lksctp-tools-devel
