@@ -1,0 +1,383 @@
+Package: xtream-ui-fdk-aac
+Installed-Size: 22752
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.0.2-1.debian-buster
+Depends: xtream-ui-x265
+Provides: xtream-ui-fdk-aac
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fdk-aac/xtream-ui-fdk-aac_2.0.2-1.debian-buster_amd64.deb
+Size: 3827288
+SHA256: b1b0846e8a4042c5c594d1a7dc56e1046516432dfc127cc512ec730c3cd09e65
+SHA1: 41bf656209375313334b6a3e926b737dabc3601b
+MD5sum: cd6454367384c808a4a1430380fe42b4
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-fribidi
+Installed-Size: 448
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.0.12-1.debian-buster
+Depends: xtream-ui-libvpx
+Provides: xtream-ui-fribidi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fribidi/xtream-ui-fribidi_1.0.12-1.debian-buster_amd64.deb
+Size: 43072
+SHA256: ca4d93e465014dccda06ebe8237f3d3d01c6545a714d2bced108b0a541eda16b
+SHA1: 7d247e5a73b882600d536a6249c385eb26f76f18
+MD5sum: f518219b0b102f8e74ad16c7a44dfb2f
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gmp
+Installed-Size: 3428
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.2.1-1.debian-buster
+Depends: xtream-ui-openssl3
+Provides: xtream-ui-gmp
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gmp/xtream-ui-gmp_6.2.1-1.debian-buster_amd64.deb
+Size: 461320
+SHA256: 6aa66223224732d71581ce9b44103eae85dec655a245622d5aea60d380d9798e
+SHA1: 13d3767fca64037604811e6f3aa3697cace306b4
+MD5sum: dc8f3cc69bb179bc918e04c958cc1e68
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gnutls
+Installed-Size: 4648
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.6.16-1.debian-buster
+Depends: xtream-ui-libunistring
+Provides: xtream-ui-gnutls
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gnutls/xtream-ui-gnutls_3.6.16-1.debian-buster_amd64.deb
+Size: 879496
+SHA256: a25429c8c3dda746f2ccd2f99a63ef684567de0e9ba1e3d5e459b1ece7b61bcc
+SHA1: 9160f4250c32654960e4165f013b8a9b9a28084f
+MD5sum: 3b1e31619d5daf4a924db48e2c8de055
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-harfbuzz
+Installed-Size: 186660
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.0.0-1.debian-buster
+Depends: xtream-ui-fribidi
+Provides: xtream-ui-harfbuzz
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-harfbuzz/xtream-ui-harfbuzz_6.0.0-1.debian-buster_amd64.deb
+Size: 22200476
+SHA256: 628c0d52a7726521048d6dbf70e18c3ed4f8e781b79599d0b8694906e5da92b3
+SHA1: 1f54e519c7228829a9c596b28953da4ea5001259
+MD5sum: ad155bd0df11e6a4fa74639c6edc6245
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-lame
+Installed-Size: 1372
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.100-1.debian-buster
+Depends: xtream-ui-fdk-aac
+Provides: xtream-ui-lame
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-lame/xtream-ui-lame_3.100-1.debian-buster_amd64.deb
+Size: 241016
+SHA256: df928d020a2c3eedc56c75ce8b7362418bec874aa515ce90a181f9f920b6decd
+SHA1: 9a490a59ffb5db228e90411a08c891b5be19318e
+MD5sum: 239b65b5f79107c3e0a92a88221e1376
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libass
+Installed-Size: 748
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.17.0-1.debian-buster
+Depends: xtream-ui-harfbuzz
+Provides: xtream-ui-libass
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libass/xtream-ui-libass_0.17.0-1.debian-buster_amd64.deb
+Size: 122072
+SHA256: fec7d343266f9d5bf9ee8e79fc4932c52841548b9767dc452616dfa8cf31e96c
+SHA1: 2d299846c1acac1d8b6e4004e5cca5d94bebcf7c
+MD5sum: 86ef502f1da41b587b2bf8168541d086
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libffi
+Installed-Size: 276
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.4.4-1.debian-buster
+Depends: xtream-ui-libtasn1
+Provides: xtream-ui-libffi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libffi/xtream-ui-libffi_3.4.4-1.debian-buster_amd64.deb
+Size: 43688
+SHA256: 3110c25f41336fb130aa28f2c0af9d2b0ac280d2fb92f78d720c607c110b6b17
+SHA1: 59247798b2467d6487184b550c6416b63fb4cb9a
+MD5sum: 29e29153021f4f25d89cb12945591895
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libogg
+Installed-Size: 676
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.5-1.debian-buster
+Depends: xtream-ui-libass
+Provides: xtream-ui-libogg
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libogg/xtream-ui-libogg_1.3.5-1.debian-buster_amd64.deb
+Size: 193820
+SHA256: 63656217be5f086555a4217c61f25e3992f0744fb7f61ea89137c52838d493b5
+SHA1: acbe1709b4e6550bddb177e301b5d707c096860c
+MD5sum: 89a9b2bab1c66eb31938601aa4311d59
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libtasn1
+Installed-Size: 620
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 4.19.0-1.debian-buster
+Depends: xtream-ui-nettle
+Provides: xtream-ui-libtasn1
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libtasn1/xtream-ui-libtasn1_4.19.0-1.debian-buster_amd64.deb
+Size: 81488
+SHA256: bf77c3d112657e3684f94aa228b3434fe8c197bed9742d285a7aea47aed28455
+SHA1: 1336dbff931cd539d93652c9e44ab97b70e0e95a
+MD5sum: 5affa0c3b916d4e42825c37d340d1a51
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libunistring
+Installed-Size: 5716
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1-1.debian-buster
+Depends: xtream-ui-p11-kit
+Provides: xtream-ui-libunistring
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libunistring/xtream-ui-libunistring_1.1-1.debian-buster_amd64.deb
+Size: 557408
+SHA256: b59596b0eb0b931fece2b9a134cd93f4205106ecfea9290071142e0ceb43cc97
+SHA1: c47b11e2c2891c80616658b4451d486704579cb8
+MD5sum: bfc08662b7834abb80636906d610f13f
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libvpx
+Installed-Size: 4992
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.12.0-1.debian-buster
+Depends: xtream-ui-opus
+Provides: xtream-ui-libvpx
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libvpx/xtream-ui-libvpx_1.12.0-1.debian-buster_amd64.deb
+Size: 1196112
+SHA256: 7deeb9f6205a118bc63bf7fc7160103f30f4a2900f839a30e0e416eedd20cd7a
+SHA1: 5252bbf3b08ccd665a6d6977bd35925dea3ec984
+MD5sum: 42086423f982607e9b31c4d6960a96ed
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nasm
+Installed-Size: 3408
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.16.01-1.debian-buster
+Depends: xtream-ui-gnutls
+Provides: xtream-ui-nasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nasm/xtream-ui-nasm_2.16.01-1.debian-buster_amd64.deb
+Size: 342940
+SHA256: 7c05737e603723d0d5a10f3c2266b82a83524a70dc6293060dba3a0ca43ca085
+SHA1: 2a6e5c701ce395d72b9bc4eaaf7659d1e5525708
+MD5sum: 233385304f4b7e5257fcbfcd52c72f40
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nettle
+Installed-Size: 28500
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.8.1-1.debian-buster
+Depends: xtream-ui-gmp
+Provides: xtream-ui-nettle
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nettle/xtream-ui-nettle_3.8.1-1.debian-buster_amd64.deb
+Size: 1802532
+SHA256: 6f6ec4312a24d86710459c76ee043f76551772ef7a088b67244d284a5754781e
+SHA1: ae10d152b0b3741dcfa0de06cc753d5d3b08440d
+MD5sum: 7e0ccd3ee9fe628eda4bbd9ea93e9085
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-openssl3
+Installed-Size: 37296
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.0.7-1.debian-buster
+Provides: xtream-ui-openssl3
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-openssl3/xtream-ui-openssl3_3.0.7-1.debian-buster_amd64.deb
+Size: 5072472
+SHA256: b20592560be68e93fa093eb24bdfd33be3c0247b4bf808a88112d4e56e497569
+SHA1: e68e778e71ac81624dca1d25ff85c838680eb695
+MD5sum: c81f7613800412710704943588ee58da
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-opus
+Installed-Size: 2708
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.1-1.debian-buster
+Depends: xtream-ui-lame
+Provides: xtream-ui-opus
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-opus/xtream-ui-opus_1.3.1-1.debian-buster_amd64.deb
+Size: 336892
+SHA256: 6e2a632ba76ac6cae37845856f2c77103f6150b615e1f6f73c396cb743220044
+SHA1: d7f0e4e803f9d02cad698a4c630d667a2a851fe4
+MD5sum: 7b582ba2235cd6a203b7a0d7beaa9af0
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-p11-kit
+Installed-Size: 4176
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.24.1-1.debian-buster
+Depends: xtream-ui-libffi
+Provides: xtream-ui-p11-kit
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-p11-kit/xtream-ui-p11-kit_0.24.1-1.debian-buster_amd64.deb
+Size: 467508
+SHA256: 42e9cf865fe91c1ff24c74ae7c8aa038adf8b83ad81c5e44b443c8c1e89e3353
+SHA1: c9a50978aa80b34135e735b15d1dacba9ff7401c
+MD5sum: 82eab26b3a3461be3325690d15f5d604
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-theora
+Installed-Size: 3408
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1.1-1.debian-buster
+Depends: xtream-ui-libogg
+Provides: xtream-ui-theora
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-theora/xtream-ui-theora_1.1.1-1.debian-buster_amd64.deb
+Size: 380008
+SHA256: 0ce2f31525d9aba0f9952110ef24a46b47d8cf7d066183137196fc0f8aa36740
+SHA1: 1a77de9e6d27e21d892464e1cd0ffb524270f0d7
+MD5sum: 388135e6ff3421312d8ef1432d03f291
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-vorbis
+Installed-Size: 2996
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.debian-buster
+Depends: xtream-ui-theora
+Provides: xtream-ui-vorbis
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-vorbis/xtream-ui-vorbis_1.3.7-1.debian-buster_amd64.deb
+Size: 355872
+SHA256: bfd76e5f410a7cfe03677b8d2489908113c9a82ae3726a8b97748e01221f60bf
+SHA1: b69b09e9404d15d9d29b48d31c618c699d544cbd
+MD5sum: 19faf2dcb5d596795b3902a3e30fd8c6
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x264
+Installed-Size: 5516
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.debian-buster
+Depends: xtream-ui-yasm
+Provides: xtream-ui-x264
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x264/xtream-ui-x264_2023.01-1.debian-buster_amd64.deb
+Size: 789528
+SHA256: f56f108a4586d94d0c4dba09655495aa59defc4f6e9102d52d242292dbf2149e
+SHA1: a892dccd639709700f3d36ec238c64c33ec507a9
+MD5sum: 3e856f3a9c9ddc9dcf3334f47307f44f
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x265
+Installed-Size: 11340
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.5-1.debian-buster
+Depends: xtream-ui-x264
+Provides: xtream-ui-x265
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x265/xtream-ui-x265_3.5-1.debian-buster_amd64.deb
+Size: 1003832
+SHA256: 1bd780025314122c6520e5d4571a3fe6b147e7c89b558c864553b67806001b75
+SHA1: 53338e87a297f82785da452c85828c40d1f5ed45
+MD5sum: 09d5835d5f4af98721c354029725a16a
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xavs
+Installed-Size: 1240
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.debian-buster
+Depends: xtream-ui-xvid
+Provides: xtream-ui-xavs
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xavs/xtream-ui-xavs_2023.01-1.debian-buster_amd64.deb
+Size: 226056
+SHA256: a266f44c3baae29acf98abf6a581aae35a5af28298b9616ff4b49787d27e5698
+SHA1: dd0b56470b3657d34435c1ace03202fb05fcb2fd
+MD5sum: 0ead110fafa424ca128b7269d9a6e07d
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xvid
+Installed-Size: 2500
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.debian-buster
+Depends: xtream-ui-vorbis
+Provides: xtream-ui-xvid
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xvid/xtream-ui-xvid_1.3.7-1.debian-buster_amd64.deb
+Size: 205996
+SHA256: 4213c2004cdca5f8c40874a352d0edfe3e56cdcb43d725bbdfc7f20b87f8c9b9
+SHA1: 312817fa4574386796ece4b7ee91d48026047338
+MD5sum: 832db5c085ba039b06d6686b45e4d4a7
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-yasm
+Installed-Size: 5044
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.0-1.debian-buster
+Depends: xtream-ui-nasm
+Provides: xtream-ui-yasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-yasm/xtream-ui-yasm_1.3.0-1.debian-buster_amd64.deb
+Size: 555436
+SHA256: e39ad75c87dc626188526378a73495535b2bfce3de17ebbc80920c77c24d4fdc
+SHA1: 0a30accc30571e119546f147b5870b91622b607f
+MD5sum: e929fd041ae6bee1da6332ee97506a36
+Description: Package created with checkinstall 1.6.3
+
