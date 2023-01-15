@@ -9,8 +9,6 @@ Release: 1%{?dist}
 Source: https://ftp.gnu.org/gnu/gmp/gmp-%{version}.tar.xz
 License: ASL 2.0
 URL: https://gnu.org
-BuildRequires: xtream-ui-openssl3
-Requires: xtream-ui-openssl3
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
