@@ -25,12 +25,8 @@ export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-if as --help | grep -q execstack; then
-  # the object files do not require an executable stack
-  export CCAS="gcc -c -Wa,--noexecstack"
-fi
 autoreconf -ifv
-./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --enable-cxx --enable-fat
+./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --enable-cxx --enable-fat $RPM_LD_FLAGS
 make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
