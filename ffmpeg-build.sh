@@ -40,7 +40,6 @@ echo "Detected : $OS  $VER  $ARCH"
 # this part must be updated every 6 months
 if [[ "$OS" = "CentOs" && "$VER" = "7" && "$ARCH" == "x86_64" || "$OS" = "CentOS-Stream" && "$VER" = "8" && "$ARCH" == "x86_64" ||
 "$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "35" && "$ARCH" == "x86_64" ||
-"$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "18.04" && "$ARCH" == "x86_64" || "$OS" = "Ubuntu" && "$VER" = "20.04" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "22.04" && "$ARCH" == "x86_64" || "$OS" = "debian" && "$VER" = "10" && "$ARCH" == "x86_64" ||
 "$OS" = "debian" && "$VER" = "11" && "$ARCH" == "x86_64" ]] ; then
@@ -53,30 +52,12 @@ else
 	echo "CentOS Stream Version 8"
 	echo "CentOS Stream Version 9"
 	echo "Fedora Version 35"
-	echo "Fedora Version 36"
-	echo "Fedora Version 37"
 	echo "Ubuntu Version 18.04 (LTS)"
 	echo "Ubuntu Version 20.04 (LTS)"
 	echo "Ubuntu Version 22.04 (LTS)"
 	echo "Debian 10 (Old Stable)"
 	echo "Debian 11 (Stable)"
     exit 1
-fi
-if [[ "$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
-    sslsystem=yes
-elif [[ "$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64"  ]] ; then
-    sslsystem=yes
-elif [[ "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64"  ]] ; then
-    sslsystem=yes
-else
-    sslsystem=no
-fi
-if [[ "$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64"  ]] ; then
-    nettlesystem=yes
-elif [[ "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64"  ]] ; then
-    nettlesystem=yes
-else
-    nettlesystem=no
 fi
 # define Package Variable
 if [[ "$OS" = "CentOs" ]] ; then
@@ -360,7 +341,7 @@ $PACKAGE_REMOVER xtream-ui-gmp
 $PACKAGE_REMOVER xtream-ui-openssl3
 rm -rf /root/ffmpeg_build/
 $PACKAGE_INSTALLER_LOCAL xtream-ui-openssl3
-if [[ "$sslsystem" = "yes" ]] ; then
+if [[ "$OS" = "CentOs" && "$VER" == "9"  ]]; then
 	rpm -e xtream-ui-openssl3
 	$PACKAGE_INSTALLER openssl-devel
 elif [[ $(inst  "xtream-ui-openssl3") != "$opensslversion-1.$dist" ]]; then
@@ -433,10 +414,7 @@ cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
 $PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
-if [[ "$nettlesystem" = "yes" ]] ; then
-	rpm -e xtream-ui-nettle
-	$PACKAGE_INSTALLER nettle-devel
-elif [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
+if [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget --no-check-certificate -O /root/rpmbuild/SOURCES/nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
