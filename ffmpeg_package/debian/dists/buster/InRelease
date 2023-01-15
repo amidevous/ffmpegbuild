@@ -1,0 +1,21 @@
+Origin: ffmpeg local
+Label: ffmpeg local
+Suite: buster
+Codename: buster
+Version: 10
+Date: Sat, 14 Jan 2023 20:54:04 UTC
+Architectures: amd64
+Components: main
+Description: local repo for ffmpeg build
+MD5Sum:
+ 3d146c5535cfa24718ed3154233f8ead 12865 main/binary-amd64/Packages
+ 006ebeabe7028f6d2f5ac5d75aaca98a 3372 main/binary-amd64/Packages.gz
+ a98194a9fe7c7928a266f9a0e269ac7e 146 main/binary-amd64/Release
+SHA1:
+ 933854e306a8c998f116b0357d0089c2a6a2ed78 12865 main/binary-amd64/Packages
+ 45ec10688a5bfab9847e796a570965ac906d86b6 3372 main/binary-amd64/Packages.gz
+ 5732eb8b6f1211d69360801d9badb74f8764c43e 146 main/binary-amd64/Release
+SHA256:
+ 8beb3d0e41456cf4651aac9cde0c714e8ea7dfd5d0eb44c6b9ab4ea11d645fa2 12865 main/binary-amd64/Packages
+ 99b4c86d6742930c40deec2a398172835faa301fa6bf37a209e939f772311155 3372 main/binary-amd64/Packages.gz
+ a5118d67bd5b9a0cb0215c4304bbac5db1a025437c31aa8ab5c160ab91a1bcc5 146 main/binary-amd64/Release
