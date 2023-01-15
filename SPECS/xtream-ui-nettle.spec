@@ -31,7 +31,7 @@ fi
 ./configure --prefix=/root/ffmpeg_build --bindir=/root/ffmpeg_build/bin --sbindir=/root/ffmpeg_build/bin \
 --libexecdir=/root/ffmpeg_build/libexec --sysconfdir=/root/ffmpeg_build/etc  --libdir=/root/ffmpeg_build/lib64 \
 --includedir=/root/ffmpeg_build/include --with-include-path=/root/ffmpeg_build/include --with-lib-path=/root/ffmpeg_build/lib \
- --enable-mini-gmp
+ --enable-mini-gmp  --host=x86_64-redhat-linux
 make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
