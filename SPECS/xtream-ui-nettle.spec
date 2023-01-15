@@ -20,7 +20,7 @@ protocols.
 %prep
 %autosetup -S git -n nettle-%{version}
 %build
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
+#RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
 export PATH="/root/ffmpeg_build/bin:$PATH"
 export PKG_CONFIG_PATH="/root/ffmpeg_build/lib64/pkgconfig:$PKG_CONFIG_PATH"
@@ -31,7 +31,7 @@ fi
 ./configure --prefix=/root/ffmpeg_build --bindir=/root/ffmpeg_build/bin --sbindir=/root/ffmpeg_build/bin \
 --libexecdir=/root/ffmpeg_build/libexec --sysconfdir=/root/ffmpeg_build/etc  --libdir=/root/ffmpeg_build/lib64 \
 --includedir=/root/ffmpeg_build/include --with-include-path=/root/ffmpeg_build/include --with-lib-path=/root/ffmpeg_build/lib \
- --enable-mini-gmp $RPM_OPT_FLAGS
+ --enable-mini-gmp
 make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
