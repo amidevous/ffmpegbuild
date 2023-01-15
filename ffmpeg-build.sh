@@ -71,7 +71,13 @@ elif [[ "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64"  ]] ; then
 else
     sslsystem=no
 fi
-
+if [[ "$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64"  ]] ; then
+    nettlesystem=yes
+elif [[ "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64"  ]] ; then
+    nettlesystem=yes
+else
+    nettlesystem=no
+fi
 # define Package Variable
 if [[ "$OS" = "CentOs" ]] ; then
     PACKAGE_INSTALLER="yum -y install" PACKAGE_INSTALLER_LOCAL="yum -y --enablerepo ffmpeg-local install" PACKAGE_BININSTALLER="rpm -i"
@@ -427,7 +433,7 @@ cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
 $PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
-if [[ "$sslsystem" = "yes" ]] ; then
+if [[ "$nettlesystem" = "yes" ]] ; then
 	rpm -e xtream-ui-nettle
 	$PACKAGE_INSTALLER nettle-devel
 elif [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
