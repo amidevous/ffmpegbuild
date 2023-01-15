@@ -1286,6 +1286,7 @@ cd ffmpeg-$ffmpegversion
   --enable-libxavs \
   --extra-libs='-lstdc++ -lrtmp -lgmp -lssl -lcrypto -lz -ldl -lm -lpthread -lunistring'
 make -j$(nproc --all)
+make depend
 make install
 if [[ "$OS" = "Ubuntu" && "$VER" = "18.04"  ]]; then
 update-alternatives --set gcc /usr/bin/gcc-7
