@@ -25,33 +25,23 @@ export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-#autoreconf -ifv
 ./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --enable-cxx --enable-fat --host=x86_64-redhat-linux
 make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
-#if [ ! -f $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmp.la ]
-#then
-mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/
-echo "found" > $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmp.la
-#fi
-#if [ ! -f $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmpxx.la ]
-#then
-mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/
-echo "found" > $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmpxx.la
-#fi
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmp.la
+rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmpxx.la
+
 
 %files
 /root/ffmpeg_build/include/gmp.h
 /root/ffmpeg_build/include/gmpxx.h
 /root/ffmpeg_build/lib64/libgmp.a
-/root/ffmpeg_build/lib64/libgmp.la
 /root/ffmpeg_build/lib64/libgmp.so
 /root/ffmpeg_build/lib64/libgmp.so.10
 /root/ffmpeg_build/lib64/libgmp.so.10.4.1
 /root/ffmpeg_build/lib64/libgmpxx.a
-/root/ffmpeg_build/lib64/libgmpxx.la
 /root/ffmpeg_build/lib64/libgmpxx.so
 /root/ffmpeg_build/lib64/libgmpxx.so.4
 /root/ffmpeg_build/lib64/libgmpxx.so.4.6.1
