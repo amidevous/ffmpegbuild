@@ -1,0 +1,21 @@
+Origin: ffmpeg local
+Label: ffmpeg local
+Suite: bullseye
+Codename: bullseye
+Version: 11
+Date: Sat, 14 Jan 2023 23:24:15 UTC
+Architectures: amd64
+Components: main
+Description: local repo for ffmpeg build
+MD5Sum:
+ 4cc9744d3987fac88ef5b2ffcf5dcd93 12960 main/binary-amd64/Packages
+ 3a1327560ba63f157134c75d54a0c871 3374 main/binary-amd64/Packages.gz
+ 55e9b5b2a8079671bdec81bda3c38371 148 main/binary-amd64/Release
+SHA1:
+ 47f99cd66028eecb1d7a276fa24e69526921af2a 12960 main/binary-amd64/Packages
+ f9b6aeedd833f9f4a5b036d8f31b0ef6677d2f9a 3374 main/binary-amd64/Packages.gz
+ 9741ab02e61b6a0f100934381754f1d9e7ab2d41 148 main/binary-amd64/Release
+SHA256:
+ 48f8f5d6730f68a8b9b1abfa4c8090d8a07771b56f374fce001938083309a172 12960 main/binary-amd64/Packages
+ e201252a2bd72d1d5ec91392b84ceeeabbf87d55be4431d47a949f215f6c0f79 3374 main/binary-amd64/Packages.gz
+ fae92db2d04d72389b4f166208eddc906f74f9b77a30b32410a8614548743c33 148 main/binary-amd64/Release
