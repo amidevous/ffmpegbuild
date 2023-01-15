@@ -64,9 +64,9 @@ else
 fi
 if [[ "$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
     sslsystem=yes
-elif [[ "$OS" = "Fedora" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
+elif [[ "$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64"  ]] ; then
     sslsystem=yes
-elif [[ "$OS" = "Fedora" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
+elif [[ "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64"  ]] ; then
     sslsystem=yes
 else
     sslsystem=no
