@@ -27,7 +27,7 @@ export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64
+./configure --prefix=/root/ffmpeg_build --libdir=/root/ffmpeg_build/lib64 --disable-static --disable-silent-rules --host=x86_64-linux-gnu
 make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
