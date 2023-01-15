@@ -9,8 +9,8 @@ Release: 1%{?dist}
 Source: https://ftp.gnu.org/gnu/libtasn1/libtasn1-%{version}.tar.gz
 License: ASL 2.0
 URL: https://gnu.org
-BuildRequires: xtream-ui-nettle
-Requires: xtream-ui-nettle
+#BuildRequires: xtream-ui-nettle
+#Requires: xtream-ui-nettle
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
