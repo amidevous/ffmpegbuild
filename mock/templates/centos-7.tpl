@@ -1,6 +1,6 @@
 # This list is taken from 'epel-7-x86_64' @buildsys-build group, minus the
 # 'epel-*' specific stuff.
-config_opts['chroot_setup_cmd'] = 'install @buildsys-build @core rpmfusion-free-release rpmfusion-nonfree-release'
+config_opts['chroot_setup_cmd'] = 'install @buildsys-build @core wget nano'
 
 config_opts['dist'] = 'el7'  # only useful for --resultdir variable subst
 config_opts['releasever'] = '7'
