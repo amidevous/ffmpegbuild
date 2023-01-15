@@ -31,6 +31,16 @@ make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 %make_install
+if [ ! -f $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmp.la ]
+then
+mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/
+touch $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmp.la
+fi
+if [ ! -f $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmpxx.la ]
+then
+mkdir -p $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/
+touch $RPM_BUILD_ROOT/root/ffmpeg_build/lib64/libgmpxx.la
+fi
 
 %files
 /root/ffmpeg_build/include/gmp.h
