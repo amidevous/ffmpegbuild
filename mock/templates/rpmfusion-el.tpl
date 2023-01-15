@@ -1,4 +1,4 @@
-config_opts['chroot_setup_cmd'] = 'install @core distribution-gpg-keys rpmfusion-free-release rpmfusion-nonfree-release'
+config_opts['chroot_setup_cmd'] = 'install @core distribution-gpg-keys rpmfusion-free-release rpmfusion-nonfree-release wget nano'
 
 config_opts['yum.conf'] += """
 
