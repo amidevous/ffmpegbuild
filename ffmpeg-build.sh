@@ -427,7 +427,10 @@ cd /root/ffmpeg_sources
 rm -rf *
 $PACKAGE_UPDATER
 $PACKAGE_INSTALLER_LOCAL xtream-ui-nettle
-if [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
+if [[ "$sslsystem" = "yes" ]] ; then
+	rpm -e xtream-ui-nettle
+	$PACKAGE_INSTALLER nettle-devel
+elif [[ $(inst  "xtream-ui-nettle") != "$nettleversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget --no-check-certificate -O /root/rpmbuild/SOURCES/nettle-$nettleversion.tar.gz https://ftp.gnu.org/gnu/nettle/nettle-$nettleversion.tar.gz
