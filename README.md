@@ -2,12 +2,12 @@
 
 auto build use
 
-`bash <(wget -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/ffmpeg-build.sh)`
+`bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/ffmpeg-build.sh)`
 
 just install depot and dependencie
 
 
-`bash <(wget -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/addrepo.sh)`
+`bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/addrepo.sh)`
 
 for build require gcc 8.0 or + build variable
 
