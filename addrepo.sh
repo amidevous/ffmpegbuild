@@ -39,7 +39,8 @@ ARCH=$(uname -m)
 echo "Detected : $OS  $VER  $ARCH"
 # this part must be updated every 6 months
 if [[ "$OS" = "CentOs" && "$VER" = "7" && "$ARCH" == "x86_64" || "$OS" = "CentOS-Stream" && "$VER" = "8" && "$ARCH" == "x86_64" ||
-"$OS" = "Fedora" && "$VER" = "35" && "$ARCH" == "x86_64" ||
+"$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "35" && "$ARCH" == "x86_64" ||
+"$OS" = "Fedora" && "$VER" = "36" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "18.04" && "$ARCH" == "x86_64" || "$OS" = "Ubuntu" && "$VER" = "20.04" && "$ARCH" == "x86_64" ||
 "$OS" = "Ubuntu" && "$VER" = "22.04" && "$ARCH" == "x86_64" || "$OS" = "debian" && "$VER" = "10" && "$ARCH" == "x86_64" ||
 "$OS" = "debian" && "$VER" = "11" && "$ARCH" == "x86_64" ]] ; then
@@ -50,7 +51,10 @@ else
 	echo "Only aviable for :"
 	echo "Centos Version 7"
 	echo "CentOS Stream Version 8"
+	echo "CentOS Stream Version 9"
 	echo "Fedora Version 35"
+	echo "Fedora Version 36"
+	echo "Fedora Version 37"
 	echo "Ubuntu Version 18.04 (LTS)"
 	echo "Ubuntu Version 20.04 (LTS)"
 	echo "Ubuntu Version 22.04 (LTS)"
@@ -58,6 +62,16 @@ else
 	echo "Debian 11 (Stable)"
     exit 1
 fi
+if [[ "$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
+    sslsystem=yes
+elif [[ "$OS" = "Fedora" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
+    sslsystem=yes
+elif [[ "$OS" = "Fedora" && "$VER" = "9" && "$ARCH" == "x86_64"  ]] ; then
+    sslsystem=yes
+else
+    sslsystem=no
+fi
+
 # define Package Variable
 if [[ "$OS" = "CentOs" ]] ; then
     PACKAGE_INSTALLER="yum -y install" PACKAGE_INSTALLER_LOCAL="yum -y --enablerepo ffmpeg-local install" PACKAGE_BININSTALLER="rpm -i"
@@ -176,6 +190,7 @@ rm -f "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/ /" | tee "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 wget --no-check-certificate -qO- "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VER}/Release.key" | gpg --dearmor | tee /etc/apt/trusted.gpg.d/devel_kubic_libcontainers_stable.gpg > /dev/null
 fi
+# podman repository for debian
 if [[ "$OS" = "debian"  ]] ; then
 rm -f "/etc/apt/sources.list.d/alvistack.list"
 echo "deb http://download.opensuse.org/repositories/home:/alvistack/Debian_${VER}/ /" | tee "/etc/apt/sources.list.d/alvistack.list"
@@ -183,6 +198,8 @@ wget --no-check-certificate -qO- "http://download.opensuse.org/repositories/home
 fi
 $PACKAGE_UPDATER
 $PACKAGE_INSTALLER podman
+rm -f "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list" "/etc/apt/sources.list.d/alvistack.list"
+$PACKAGE_UPDATER
 # update gcc to < 8.0
 if [[ "$OS" = "CentOs" && "$VER" == "7"  ]]; then
 $PACKAGE_UPDATER
@@ -211,6 +228,15 @@ export PATH="/root/ffmpeg_build/bin:$PATH"
 export PKG_CONFIG_PATH="/root/ffmpeg_build/lib64/pkgconfig:$PKG_CONFIG_PATH"
 export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"
 # local repo create and install
+if [ ! -d "/root/ffmpeg_package/" ]; then
+cd /root/
+wget --no-check-certificate -O /root/main.tar.gz https://github.com/amidevous/ffmpegbuild/archive/refs/heads/main.tar.gz
+tar -xvf /root/main.tar.gz
+rm -f /root/main.tar.gz
+mkdir -p /root/ffmpeg_package/
+mv /root/ffmpegbuild-main/ffmpeg_package/* /root/ffmpeg_package/
+rm -rf /root/ffmpegbuild-main
+fi
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 pkgarch=x86_64
 mkdir -p /root/ffmpeg_package/$OS/$VER/$ARCH/
@@ -328,7 +354,10 @@ $PACKAGE_REMOVER xtream-ui-gmp
 $PACKAGE_REMOVER xtream-ui-openssl3
 rm -rf /root/ffmpeg_build/
 $PACKAGE_INSTALLER_LOCAL xtream-ui-openssl3
-if [[ $(inst  "xtream-ui-openssl3") != "$opensslversion-1.$dist" ]]; then
+if [[ "$sslsystem" = "yes" ]] ; then
+	rpm -e xtream-ui-openssl3
+	$PACKAGE_INSTALLER openssl-devel
+elif [[ $(inst  "xtream-ui-openssl3") != "$opensslversion-1.$dist" ]]; then
 if [[ "$OS" = "CentOs" || "$OS" = "CentOS-Stream" || "$OS" = "Fedora" ]]; then
 mkdir -p /root/rpmbuild/SPECS /root/rpmbuild/SOURCES
 wget -O /root/rpmbuild/SOURCES/openssl-$opensslversion.tar.gz http://artfiles.org/openssl.org/source/openssl-$opensslversion.tar.gz
