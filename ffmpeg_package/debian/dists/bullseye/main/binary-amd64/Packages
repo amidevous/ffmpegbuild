@@ -1,0 +1,383 @@
+Package: xtream-ui-fdk-aac
+Installed-Size: 21032
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.0.2-1.debian-bullseye
+Depends: xtream-ui-x265
+Provides: xtream-ui-fdk-aac
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fdk-aac/xtream-ui-fdk-aac_2.0.2-1.debian-bullseye_amd64.deb
+Size: 3614644
+SHA256: aee3a2caa9cd271403baa0d2745e46c60a6401a7dabba713eedd6bfa95a0b9d3
+SHA1: 6660a967dd57404e136a4185ecd98869fb911eb0
+MD5sum: 5c7500d97396d1750f9a48a4f2494731
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-fribidi
+Installed-Size: 452
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.0.12-1.debian-bullseye
+Depends: xtream-ui-libvpx
+Provides: xtream-ui-fribidi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-fribidi/xtream-ui-fribidi_1.0.12-1.debian-bullseye_amd64.deb
+Size: 43632
+SHA256: e8f3b2c010414a4933de4d7708802fa43509ee4fa6f729a29c97a7e261685035
+SHA1: 2e385666318424475cc6cfa4b5cdcdf629fe42e5
+MD5sum: bb025e59ad1fbf2fa7246f097c0c7f83
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gmp
+Installed-Size: 3440
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.2.1-1.debian-bullseye
+Depends: xtream-ui-openssl3
+Provides: xtream-ui-gmp
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gmp/xtream-ui-gmp_6.2.1-1.debian-bullseye_amd64.deb
+Size: 461604
+SHA256: 33888a41a58cfd9e719cff96e8be2ae968ae9e64b9088c580b00fc38f61096a4
+SHA1: 5c1beab2e2655a5c12f8903b5fa53b6624ccbcdf
+MD5sum: d094143d1c4608b3dfb01f7fdb48b19b
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-gnutls
+Installed-Size: 4652
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.6.16-1.debian-bullseye
+Depends: xtream-ui-libunistring
+Provides: xtream-ui-gnutls
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-gnutls/xtream-ui-gnutls_3.6.16-1.debian-bullseye_amd64.deb
+Size: 882184
+SHA256: b49eccb72967449add293cf3c567d1963cab56b7750f74475c29439530869abc
+SHA1: a4869dcf9f79306a09ecf6082115144f5dab2e4c
+MD5sum: 489a507f500ad3dc1468836c835a742a
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-harfbuzz
+Installed-Size: 172056
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 6.0.0-1.debian-bullseye
+Depends: xtream-ui-fribidi
+Provides: xtream-ui-harfbuzz
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-harfbuzz/xtream-ui-harfbuzz_6.0.0-1.debian-bullseye_amd64.deb
+Size: 20833732
+SHA256: b528c5535c73d324075a141358b5dab086464f66bc5fdd19e7f78ad5b43ec5c3
+SHA1: 358942103011449f58c777851195a47f6f22c9fb
+MD5sum: bd00fbb9858ea3e9312a4537baf7b816
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-lame
+Installed-Size: 1384
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.100-1.debian-bullseye
+Depends: xtream-ui-fdk-aac
+Provides: xtream-ui-lame
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-lame/xtream-ui-lame_3.100-1.debian-bullseye_amd64.deb
+Size: 241472
+SHA256: b0b5f5d6f27d03e69f2500ef712edaab9aad717504fb2f0834c75a57c63fc46b
+SHA1: 7eadffd8877623e068bf31bb2f7c2e1792d798c4
+MD5sum: 27bb6a0940bcf6cc6efde04821837431
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libass
+Installed-Size: 756
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.17.0-1.debian-bullseye
+Depends: xtream-ui-harfbuzz
+Provides: xtream-ui-libass
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libass/xtream-ui-libass_0.17.0-1.debian-bullseye_amd64.deb
+Size: 122556
+SHA256: d867ab7bde7d383533955ee138ac5b6024d1fe1600a6417f040b92a8b8fb86ef
+SHA1: 9b3d7f547edee8a6581e5dc1f599223d981eb4d2
+MD5sum: 49a5e04df60f13aba343518a68804573
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libffi
+Installed-Size: 272
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.4.4-1.debian-bullseye
+Depends: xtream-ui-libtasn1
+Provides: xtream-ui-libffi
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libffi/xtream-ui-libffi_3.4.4-1.debian-bullseye_amd64.deb
+Size: 43728
+SHA256: b3d2d03de17ffa56f53423259a25e35c4145361de865d933ca5f4f9fe66d4dab
+SHA1: fa8d7c7aba8817a7d07e91cd86d4f6ea58d00413
+MD5sum: 82a6ba4e374f0cbc0a9d305fcb46c6b2
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libogg
+Installed-Size: 676
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.5-1.debian-bullseye
+Depends: xtream-ui-libass
+Provides: xtream-ui-libogg
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libogg/xtream-ui-libogg_1.3.5-1.debian-bullseye_amd64.deb
+Size: 193844
+SHA256: af2c77bf90047d5d024742b1cc5b8b3a56558945ebb3ee6ca04c49c501d03c38
+SHA1: 8baa98147ab9fa11c7e8baa0cc08cf8cbc782a21
+MD5sum: 72c76232e75ef441c3813bff21b8a1a0
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libtasn1
+Installed-Size: 616
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 4.19.0-1.debian-bullseye
+Depends: xtream-ui-nettle
+Provides: xtream-ui-libtasn1
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libtasn1/xtream-ui-libtasn1_4.19.0-1.debian-bullseye_amd64.deb
+Size: 81348
+SHA256: 0a51fd2d98a9e45fcbf72cbd83f98b3156bcb912dec4eca7aa058a2e874f8deb
+SHA1: 187b84f6a6f61b7ec281bce9f0ef674fcbf9233f
+MD5sum: d9f9429bde3d59d3c61f2e84c5ff4ed2
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libunistring
+Installed-Size: 5712
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1-1.debian-bullseye
+Depends: xtream-ui-p11-kit
+Provides: xtream-ui-libunistring
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libunistring/xtream-ui-libunistring_1.1-1.debian-bullseye_amd64.deb
+Size: 550936
+SHA256: 8ea023719348be0250b9c37d2c874c8344116f06ad3d9300ed6574df40916692
+SHA1: 02f299eef7402ca7926a8aeb0b588541c6ea6d68
+MD5sum: f9949f440cfb6f00689d9ae84fb1de6b
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-libvpx
+Installed-Size: 4512
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.12.0-1.debian-bullseye
+Depends: xtream-ui-opus
+Provides: xtream-ui-libvpx
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-libvpx/xtream-ui-libvpx_1.12.0-1.debian-bullseye_amd64.deb
+Size: 1109664
+SHA256: d32a73d0a9dd36632d87db787bd754a823cbccb6263d66f1a050714b3abc5773
+SHA1: 5016ff06df7530a0d98bb46b1286ff2c50bbfe85
+MD5sum: 73264cbc4abe9898b65c32cee5e06f14
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nasm
+Installed-Size: 3408
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2.16.01-1.debian-bullseye
+Depends: xtream-ui-gnutls
+Provides: xtream-ui-nasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nasm/xtream-ui-nasm_2.16.01-1.debian-bullseye_amd64.deb
+Size: 345256
+SHA256: c9924f4f1e7d044389f6c9651149ca76cd5a3f425ff0ef8b3901a82a8621f0e3
+SHA1: 38df5a96e29e7d56f3aaa7184aef5f1ca42fabef
+MD5sum: 1cce2178306b98ce3b3c47c59264ca40
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-nettle
+Installed-Size: 28304
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.8.1-1.debian-bullseye
+Depends: xtream-ui-gmp
+Provides: xtream-ui-nettle
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-nettle/xtream-ui-nettle_3.8.1-1.debian-bullseye_amd64.deb
+Size: 1762692
+SHA256: 094981bfcfdd9c121f7e1229fc519b3b02f081009fa7f2932a59ab658c4ab7cf
+SHA1: 79ee4a00c8f247a5c04fd92cb7f34e2d8a8cf3a9
+MD5sum: 8300c94bb602f4f8fb7df4d739f959c6
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-openssl3
+Installed-Size: 37288
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.0.7-1.debian-bullseye
+Provides: xtream-ui-openssl3
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-openssl3/xtream-ui-openssl3_3.0.7-1.debian-bullseye_amd64.deb
+Size: 5062536
+SHA256: 46651b168c6166332da0c234402e5fc2be8a69329a1f8f25475126db0c1f568e
+SHA1: ab34f31f77a6ed8c434f2c7a8c553cc711678fd2
+MD5sum: 61da8f31efc62e8044d1c73069e2f1cd
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-opus
+Installed-Size: 2768
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.1-1.debian-bullseye
+Depends: xtream-ui-lame
+Provides: xtream-ui-opus
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-opus/xtream-ui-opus_1.3.1-1.debian-bullseye_amd64.deb
+Size: 339488
+SHA256: e6602836e814b68394c8572c448b5d1c6b6e573c9e70bc3a172ecce05b5e2153
+SHA1: 57c73bdd680f12ae0fac40ebb819556deea58f2f
+MD5sum: 1461a947198f37c37941be6505b9dd3c
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-p11-kit
+Installed-Size: 4228
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 0.24.1-1.debian-bullseye
+Depends: xtream-ui-libffi
+Provides: xtream-ui-p11-kit
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-p11-kit/xtream-ui-p11-kit_0.24.1-1.debian-bullseye_amd64.deb
+Size: 466892
+SHA256: 6524ec83b18963554a6f2ccf5e43b7c1059436dc0c21902f0166077a7357ba3f
+SHA1: adf4a0969843005c811d17c4488e557d365dc57c
+MD5sum: 593bb233b246a1a6c3597ea0058d6f05
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-theora
+Installed-Size: 3428
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.1.1-1.debian-bullseye
+Depends: xtream-ui-libogg
+Provides: xtream-ui-theora
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-theora/xtream-ui-theora_1.1.1-1.debian-bullseye_amd64.deb
+Size: 401940
+SHA256: 685ab1f130be356e4650efeb7e9e8e11b5bd8336725176f0a6e572939d1ce1e0
+SHA1: d19afe94ee1632845cc3505ba72207e56c79f807
+MD5sum: 91f30fb8dd360a9503217702ce0bb298
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-vorbis
+Installed-Size: 2996
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.debian-bullseye
+Depends: xtream-ui-theora
+Provides: xtream-ui-vorbis
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-vorbis/xtream-ui-vorbis_1.3.7-1.debian-bullseye_amd64.deb
+Size: 356620
+SHA256: 34426bd4162f4c6d6ded37b9e1e38fa082734312c44ea2e0c974c021d1ea82e7
+SHA1: 624470dff82051ec76fceae67dec4f945f5e00e5
+MD5sum: ab3fc920b9ede43c620696a716f368cd
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x264
+Installed-Size: 5480
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.debian-bullseye
+Depends: xtream-ui-yasm
+Provides: xtream-ui-x264
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x264/xtream-ui-x264_2023.01-1.debian-bullseye_amd64.deb
+Size: 797808
+SHA256: c0aba9533e73d314ba738241439f872be90db82adced77ff646061343b465f53
+SHA1: 217c2ec4969c72d7f7fe964b7123b72e43807ecb
+MD5sum: fa2f05a33ae5f11575f544352c8e0f7d
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-x265
+Installed-Size: 11320
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 3.5-1.debian-bullseye
+Depends: xtream-ui-x264
+Provides: xtream-ui-x265
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-x265/xtream-ui-x265_3.5-1.debian-bullseye_amd64.deb
+Size: 998160
+SHA256: b2f6c6e0bbcac7021f57204222505610760a7b7f40d0ede9e354386c8df1a9db
+SHA1: adca4098a2e295af1cc59c974971fc48dae6e59c
+MD5sum: e45c91474b10a34d30ac01ed51aa4586
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xavs
+Installed-Size: 1148
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 2023.01-1.debian-bullseye
+Depends: xtream-ui-xvid
+Provides: xtream-ui-xavs
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xavs/xtream-ui-xavs_2023.01-1.debian-bullseye_amd64.deb
+Size: 213336
+SHA256: f0dba0beea4c7a785cf2a47dceaf6cdcb95802e193a2bf7b34c925afd2b0be61
+SHA1: 4f0859a60645b3cf96901ec2e0a7d09c6461f60b
+MD5sum: fecbbedf82e879e04266aa32189a2540
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-xvid
+Installed-Size: 2472
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.7-1.debian-bullseye
+Depends: xtream-ui-vorbis
+Provides: xtream-ui-xvid
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-xvid/xtream-ui-xvid_1.3.7-1.debian-bullseye_amd64.deb
+Size: 206912
+SHA256: 394bbcc6bee35dc703569674782b946ebb8c70326f5dc24a5ea08c53809fd597
+SHA1: f85b3c7a6eeea7dcb449c41a4f864d059610ae57
+MD5sum: 453fe465e4b66f0865e030af90d40109
+Description: Package created with checkinstall 1.6.3
+
+Package: xtream-ui-yasm
+Installed-Size: 5032
+Maintainer: amidevous@gmail.com
+Architecture: amd64
+Version: 1.3.0-1.debian-bullseye
+Depends: xtream-ui-nasm
+Provides: xtream-ui-yasm
+Priority: extra
+Section: checkinstall
+Filename: pool/main/x/xtream-ui-yasm/xtream-ui-yasm_1.3.0-1.debian-bullseye_amd64.deb
+Size: 562280
+SHA256: ce13c88ca532771bdf5a1713f3b9e03c9e5ee5127bc955bfacc510404959b569
+SHA1: 56341dd3d18a48a7d6def22973e95af76a4c5dbe
+MD5sum: 45479f69dce043e4d1a532898ec03739
+Description: Package created with checkinstall 1.6.3
+
