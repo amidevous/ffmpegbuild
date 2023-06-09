@@ -4,7 +4,7 @@
 %global __check_rpaths %{nil}
 Summary: Utilities from the general purpose cryptography library with TLS implementation
 Name: xtream-ui-libunistring
-Version: xtream-ui-libunistringversion
+Version: 1.1
 Release: 1%{?dist}
 Source: https://ftp.gnu.org/gnu/libunistring/libunistring-%{version}.tar.xz
 License: ASL 2.0
