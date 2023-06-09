@@ -119,11 +119,15 @@ rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/
 /home/xtreamcodes/ffmpeg_build/lib64/libhogweed.a
 /home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so
 /home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so.6
-#/home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so.6.6
+/home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so.6.8
 /home/xtreamcodes/ffmpeg_build/lib64/libnettle.a
 /home/xtreamcodes/ffmpeg_build/lib64/libnettle.so
 /home/xtreamcodes/ffmpeg_build/lib64/libnettle.so.8
-#/home/xtreamcodes/ffmpeg_build/lib64/libnettle.so.8.6
+/home/xtreamcodes/ffmpeg_build/lib64/libnettle.so.8.8
+/home/xtreamcodes/ffmpeg_build/include/nettle/balloon.h
+/home/xtreamcodes/ffmpeg_build/include/nettle/ocb.h
+/home/xtreamcodes/ffmpeg_build/include/nettle/siv-gcm.h
+/home/xtreamcodes/ffmpeg_build/include/nettle/sm4.h
 /home/xtreamcodes/ffmpeg_build/lib64/pkgconfig/hogweed.pc
 /home/xtreamcodes/ffmpeg_build/lib64/pkgconfig/nettle.pc
 
