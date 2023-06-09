@@ -19,7 +19,7 @@ machines. OpenSSL includes a certificate management tool and shared
 libraries which provide various cryptographic algorithms and
 protocols.
 %prep
-%autosetup -S git -n nasm-%{version}
+%autosetup -n nasm-%{version}
 %build
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
