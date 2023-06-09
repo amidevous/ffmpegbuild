@@ -81,10 +81,10 @@ wget https://github.com/libffi/libffi/releases/download/v3.4.4/libffi-3.4.4.tar.
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-libffi.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-libffi.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-libffi.spec
 dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-libffi-3.4.4-1.el7.x86_64.rpm')
-
-
-
-
+wget https://github.com/p11-glue/p11-kit/releases/download/0.24.1/p11-kit-0.24.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/p11-kit-0.24.1.tar.xz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-p11-kit.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-p11-kit.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-p11-kit.spec
+dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-p11-kit-0.24.1-1.el7.x86_64.rpm')
 
 
 
