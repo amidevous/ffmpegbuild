@@ -15,6 +15,7 @@ BuildRequires: devtoolset-8
 BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
 BuildRequires: xtream-ui-gmp
 Requires: xtream-ui-gmp
+Provides: libhogweed.so.6()(64bit) libhogweed.so.6(HOGWEED_6)(64bit) libnettle.so.8()(64bit) libnettle.so.8(NETTLE_8)(64bit)
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
