@@ -12,7 +12,8 @@ URL: https://www.nasm.us
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
 %endif
-BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch xtream-ui-gnutls
+BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
+BuildRequires: xtream-ui-gnutls
 %description
 The OpenSSL toolkit provides support for secure communications between
 machines. OpenSSL includes a certificate management tool and shared
