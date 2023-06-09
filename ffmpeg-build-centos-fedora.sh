@@ -62,9 +62,21 @@ if [[ "$OS" = "CentOs" ]] ; then
 #    PACKAGE_GROUPINSTALL="dnf -y groupinstall"PACKAGE_SOURCEDOWNLOAD="dnf download --source"
 #    PACKAGE_BUILDDEP="dnf build-dep -y"
 fi
-dnf -y install rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
+dnf -y install rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch m4
 mkdir -p $rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
+wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/gmp-6.2.1.tar.xz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-gmp.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-gmp.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-gmp.spec
+dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-gmp-6.2.1-1.el7.x86_64.rpm')
+wget https://ftp.gnu.org/gnu/nettle/nettle-3.9.1.tar.gz -O $(rpm --eval %_topdir)/SOURCES/nettle-3.9.1.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-nettle.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
+dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-nettle-3.9.1-1.el7.x86_64.rpm')
+
+
+
+
 wget https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01.tar.bz2 -O $(rpm --eval %_topdir)/SOURCES/nasm-2.16.01.tar.bz2
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-nasm.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-nasm.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-nasm.spec
