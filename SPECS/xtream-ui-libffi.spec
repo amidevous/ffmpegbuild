@@ -21,7 +21,7 @@ machines. OpenSSL includes a certificate management tool and shared
 libraries which provide various cryptographic algorithms and
 protocols.
 %prep
-%autosetup -S git -n libffi-%{version}
+%autosetup -n libffi-%{version}
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/home/xtreamcodes/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
