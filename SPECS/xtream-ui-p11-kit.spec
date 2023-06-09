@@ -4,7 +4,7 @@
 %global __check_rpaths %{nil}
 Summary: Utilities from the general purpose cryptography library with TLS implementation
 Name: xtream-ui-p11-kit
-Version: xtream-ui-p11-kitversion
+Version: 0.24.1
 Release: 1%{?dist}
 Source: https://github.com/p11-glue/p11-kit/releases/download/%{version}/p11-kit-%{version}.tar.xz
 License: ASL 2.0
