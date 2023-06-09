@@ -25,13 +25,13 @@ protocols.
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="/home/xtreamcodes/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
-export PATH="/root/ffmpeg_build/bin:$PATH"
+export PATH="/home/xtreamcodes/iptv_xtream_codes/bin:$PATH"
 export PKG_CONFIG_PATH="/home/xtreamcodes/ffmpeg_build/lib64/pkgconfig:$PKG_CONFIG_PATH"
 export CFLAGS="$CFLAGS -I/home/xtreamcodes/ffmpeg_build/include -L/home/xtreamcodes/ffmpeg_build/lib64"
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-./configure --prefix=/home/xtreamcodes/ffmpeg_build --libdir=/home/xtreamcodes/ffmpeg_build/lib64 --bindir= --without-systemd --disable-nls
+./configure --prefix=/home/xtreamcodes/ffmpeg_build --libdir=/home/xtreamcodes/ffmpeg_build/lib64 --bindir=/home/xtreamcodes/iptv_xtream_codes/bin --without-systemd --disable-nls
 make %{?_smp_mflags}
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
@@ -41,8 +41,8 @@ rm -rf $RPM_BUILD_ROOT/usr
 
 
 %files
-/root/ffmpeg_build/bin/p11-kit
-/root/ffmpeg_build/bin/trust
+/home/xtreamcodes/iptv_xtream_codes/bin/p11-kit
+/home/xtreamcodes/iptv_xtream_codes/bin/trust
 /home/xtreamcodes/ffmpeg_build/etc/pkcs11/pkcs11.conf.example
 /home/xtreamcodes/ffmpeg_build/include/p11-kit-1/p11-kit/deprecated.h
 /home/xtreamcodes/ffmpeg_build/include/p11-kit-1/p11-kit/iter.h
