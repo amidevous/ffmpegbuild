@@ -31,7 +31,7 @@ export CFLAGS="$CFLAGS -I/home/xtreamcodes/ffmpeg_build/include -L/home/xtreamco
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-./configure --prefix=/home/xtreamcodes/ffmpeg_build --bindir=/root/ffmpeg_build/bin --sbindir=/root/ffmpeg_build/bin \
+./configure --prefix=/home/xtreamcodes/ffmpeg_build --bindir=/home/xtreamcodes/iptv_xtream_codes/bin --sbindir=/root/ffmpeg_build/bin \
 --libexecdir=/home/xtreamcodes/ffmpeg_build/libexec --sysconfdir=/home/xtreamcodes/ffmpeg_build/etc  --libdir=/home/xtreamcodes/ffmpeg_build/lib64 \
 --includedir=/home/xtreamcodes/ffmpeg_build/include --with-include-path=/home/xtreamcodes/ffmpeg_build/include --with-lib-path=/home/xtreamcodes/ffmpeg_build/lib64 \
  --enable-mini-gmp
@@ -119,11 +119,11 @@ rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/
 /home/xtreamcodes/ffmpeg_build/lib64/libhogweed.a
 /home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so
 /home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so.6
-/home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so.6.6
+#/home/xtreamcodes/ffmpeg_build/lib64/libhogweed.so.6.6
 /home/xtreamcodes/ffmpeg_build/lib64/libnettle.a
 /home/xtreamcodes/ffmpeg_build/lib64/libnettle.so
 /home/xtreamcodes/ffmpeg_build/lib64/libnettle.so.8
-/home/xtreamcodes/ffmpeg_build/lib64/libnettle.so.8.6
+#/home/xtreamcodes/ffmpeg_build/lib64/libnettle.so.8.6
 /home/xtreamcodes/ffmpeg_build/lib64/pkgconfig/hogweed.pc
 /home/xtreamcodes/ffmpeg_build/lib64/pkgconfig/nettle.pc
 
