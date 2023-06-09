@@ -73,6 +73,17 @@ wget https://ftp.gnu.org/gnu/nettle/nettle-3.9.1.tar.gz -O $(rpm --eval %_topdir
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-nettle.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
 dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-nettle-3.9.1-1.el7.x86_64.rpm')
+wget https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz -O $(rpm --eval %_topdir)/SOURCES/libtasn1-4.19.0.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-libtasn1.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-libtasn1.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-libtasn1.spec
+dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-libtasn1-4.19.0-1.el7.x86_64.rpm')
+
+
+
+
+
+
+
 
 
 
