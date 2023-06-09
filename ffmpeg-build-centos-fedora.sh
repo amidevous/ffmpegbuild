@@ -77,8 +77,10 @@ wget https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz -O $(rpm --eval %_t
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-libtasn1.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-libtasn1.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-libtasn1.spec
 dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-libtasn1-4.19.0-1.el7.x86_64.rpm')
-
-
+wget https://github.com/libffi/libffi/releases/download/v3.4.4/libffi-3.4.4.tar.gz -O $(rpm --eval %_topdir)/SOURCES/libffi-3.4.4.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-libffi.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-libffi.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-libffi.spec
+dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-libffi-3.4.4-1.el7.x86_64.rpm')
 
 
 
