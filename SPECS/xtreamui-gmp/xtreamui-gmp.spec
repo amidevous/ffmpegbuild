@@ -2,7 +2,9 @@
 # Important for %%{ix86}:
 # This rpm has to be build on a CPU with sse2 support like Pentium 4 !
 #
+if test -f "/home/xtreamcodes/ffmpeg_build/macros"; then
 %include /home/xtreamcodes/ffmpeg_build/macros
+fi
 
 Summary: GNU arbitrary precision library
 Name: xtreamui-gmp
