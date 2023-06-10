@@ -39,20 +39,20 @@ URL: https://www.w3.org/2003/entities/
 
 Source0: https://www.sourceware.org/pub/docbook-tools/new-trials/SOURCES/sgml-common-%{version}.tgz
 # Following 4 from openjade/pubtext - same maintainer as in SGML-common, so up2date:
-Source1: xml.dcl
-Source2: xml.soc
-Source3: html.dcl
-Source4: html.soc
-Source5: http://www.w3.org/%{xmlxsdver}/xml.xsd
-Source6: http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd
-Source7: http://www.w3.org/2001/XMLSchema.dtd
-Source8: http://www.w3.org/2001/datatypes.dtd
-Source9: sgmlwhich.1
-Source10: sgml.conf.5
+Source1: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/xml.dcl
+Source2: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/xml.soc
+Source3: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/html.dcl
+Source4: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/html.soc
+Source5: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/xml.xsd
+Source6: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/xmldsig-core-schema.xsd
+Source7: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/XMLSchema.dtd
+Source8: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/datatypes.dtd
+Source9: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/sgmlwhich.1
+Source10: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/sgml.conf.5
 
-Patch0: sgml-common-umask.patch
-Patch1: sgml-common-xmldir.patch
-Patch2: sgml-common-quotes.patch
+Patch0: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/sgml-common-umask.patch
+Patch1: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/sgml-common-xmldir.patch
+Patch2: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-sgml-common/sgml-common-quotes.patch
 
 BuildRequires: make
 BuildRequires: libxml2
