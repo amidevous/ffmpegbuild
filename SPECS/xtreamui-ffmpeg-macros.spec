@@ -17,12 +17,10 @@
 %global _rundir %{_prefix}/run
 %global _localstatedir %{_prefix}/var
 %global _sharedstatedir %{_prefix}/var/lib
-%global _var %{_prefix}/var
-%global _usr %{_prefix}
 %global _usrsrc %{_prefix}/src
 %global _initddir %{_sysconfdir}/rc.d/init.d
 %global _initrddir %{_initddir}
-Summary: Summary: Utilities from the general purpose cryptography library with TLS implementation
+Summary: rpm macros for build ffmpeg for xtreamui
 Name: xtreamui-ffmpeg-macros
 Version: 1.0.0
 Release: 1%{?dist}
@@ -30,11 +28,7 @@ License: GPLV3
 URL: https://github.com/amidevous/ffmpegbuild
 BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
 %description
-The OpenSSL toolkit provides support for secure communications between
-machines. OpenSSL includes a certificate management tool and shared
-libraries which provide various cryptographic algorithms and
-protocols.
-%prep
+rpm macros for build ffmpeg for xtreamui.
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
@@ -42,11 +36,10 @@ export PATH="%{_bindir}:$PATH"
 export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
 export CFLAGS="$CFLAGS -I%{_includedir} -L%{_libdir}"
 
-
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_prefix}
-cat > %{_prefix}/macros <<EOF
+cat > %{buildroot}%{_prefix}/macros <<EOF
 %global debug_package %{nil}
 %define __arch_install_post %{nil}
 %global __brp_check_rpaths %{nil}
@@ -66,12 +59,13 @@ cat > %{_prefix}/macros <<EOF
 %global _rundir %{_prefix}/run
 %global _localstatedir %{_prefix}/var
 %global _sharedstatedir %{_prefix}/var/lib
-%global _var %{_prefix}/var
-%global _usr %{_prefix}
-%global _usrsrc %{_prefix}/src
-%global _initddir %{_sysconfdir}/rc.d/init.d
-%global _initrddir %{_initddir}
+%if 0%{?rhel} == 7
+BuildRequires: devtoolset-8
+%endif
+BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
 EOF
-
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %files
 %{_prefix}/macros
