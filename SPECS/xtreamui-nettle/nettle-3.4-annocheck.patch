@@ -1,0 +1,13 @@
+Index: nettle-3.7/Makefile.in
+===================================================================
+--- nettle-3.7.orig/Makefile.in
++++ nettle-3.7/Makefile.in
+@@ -291,7 +291,7 @@ libhogweed.a: $(hogweed_OBJS)
+ 
+ %.$(OBJEXT): %.asm $(srcdir)/m4-utils.m4 $(srcdir)/asm.m4 config.m4 machine.m4
+ 	$(M4) $(srcdir)/m4-utils.m4 $(srcdir)/asm.m4 config.m4 machine.m4 $< >$*.s
+-	$(COMPILE) -c $*.s
++	$(COMPILE) -c -Wa,--generate-missing-build-notes=yes $*.s
+ 
+ %.$(OBJEXT): %.c
+ 	$(COMPILE) -c $< \
