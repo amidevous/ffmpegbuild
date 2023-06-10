@@ -83,7 +83,7 @@ rm -vf %{buildroot}{%{python2_sitearch},%{python3_sitearch}}/*.a
 rm -vrf %{buildroot}%{_datadir}/doc/
 (cd doc/examples ; make clean ; rm -rf .deps Makefile)
 gzip -9 -c doc/libxml2-api.xml > doc/libxml2-api.xml.gz
-rm -rf %{buildroot}%{python3_sitearch} %{buildroot}%{python3_sitelib}
+
 
 %check
 # Tests require the XML conformance suite, and fail in doc/examples somwhere.
@@ -117,6 +117,11 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_libdir}/pkgconfig/libxml-2.0.pc
 %{_libdir}/cmake/libxml2/
 %{_libdir}/libxml2.a
+%{python3_sitearch}/libxml2mod.so
+%{python3_sitelib}/libxml2.py
+%{python3_sitelib}/__pycache__/libxml2.*
+%{python3_sitelib}/drv_libxml2.py
+%{python3_sitelib}/__pycache__/drv_libxml2.*
 
 %changelog
 * Wed Apr 12 2023 David King <amigadave@amigadave.com> - 2.10.4-1
