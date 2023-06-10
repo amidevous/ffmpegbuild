@@ -61,6 +61,10 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
+
 %files
 %license Artistic.txt BSD.txt COPYING GNU_GPL-2.0 GNU_LGPL-2.0
 %doc AUTHORS
