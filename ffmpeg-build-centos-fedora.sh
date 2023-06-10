@@ -53,7 +53,8 @@ if [[ "$OS" = "CentOs" ]] ; then
     dnf -y install devtoolset-8
 fi
 dnf -y install rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel cmake3 \
-autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils
+autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils \
+unzip python3-devel
 rm -rf $(rpm --eval %_topdir)/SPECS $(rpm --eval %_topdir)/SOURCES
 mkdir -p $(rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
@@ -76,14 +77,23 @@ wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.11-covscan-issues-rhel9.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.11-covscan-issues-rhel9.patch
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/xtreamui-zlib.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-zlib.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-zlib.spec
-dnf -y install unzip $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-zlib-1.2.13-3.*.rpm')
+dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-zlib-1.2.13-3.*.rpm')
+
+wget https://download.gnome.org/sources/libxml2/2.10/libxml2-2.10.4.tar.xz -O $(rpm --eval %_topdir)/SOURCES/libxml2-2.10.4.tar.xz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libxml2/libxml2-multilib.patch -O $(rpm --eval %_topdir)/SOURCES/libxml2-multilib.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libxml2/libxml2-2.9.8-python3-unicode-errors.patch -O $(rpm --eval %_topdir)/SOURCES/libxml2-2.9.8-python3-unicode-errors.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libxml2/xtreamui-libxml2.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-libxml2.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-libxml2.spec
+dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-libxml2-2.10.4-1.*.rpm')
 
 
 
 
 
 
-xtreamui-libxml2.spec
+
+
+
 
 
 
