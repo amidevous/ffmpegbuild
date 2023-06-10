@@ -41,9 +41,8 @@ Release:        3%{?dist}
 Summary:        A low-level cryptographic library
 
 License:        LGPLv3+ or GPLv2+
-URL:            http://www.lysator.liu.se/~nisse/nettle/
-Source0:	nettle-%{version}-hobbled.tar.xz
-#Source0:        http://www.lysator.liu.se/~nisse/archive/nettle-%{version}.tar.gz
+URL:            https://ftp.gnu.org/gnu/nettle
+Source0:        https://ftp.gnu.org/gnu/nettle/nettle-3.8.tar.gz
 %if 0%{?bootstrap}
 Source1:	nettle-%{version_old}-hobbled.tar.xz
 Source2:	nettle-3.5-remove-ecc-testsuite.patch
