@@ -40,7 +40,7 @@ License: LGPLv3+ or GPLv2+
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
 %endif
-BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat
+BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 #autoreconf on arm needs:
 BuildRequires: perl-Carp
