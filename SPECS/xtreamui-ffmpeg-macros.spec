@@ -22,15 +22,18 @@
 %global _usrsrc %{_prefix}/src
 %global _initddir %{_sysconfdir}/rc.d/init.d
 %global _initrddir %{_initddir}
-Summary: macros for ffmpeg build for xtreamui
+Summary: Summary: Utilities from the general purpose cryptography library with TLS implementation
 Name: xtreamui-ffmpeg-macros
 Version: 1.0.0
 Release: 1%{?dist}
-License: ASL 2.0
+License: GPLV3
 URL: https://github.com/amidevous/ffmpegbuild
 BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
 %description
-macros for ffmpeg build for xtreamui.
+The OpenSSL toolkit provides support for secure communications between
+machines. OpenSSL includes a certificate management tool and shared
+libraries which provide various cryptographic algorithms and
+protocols.
 %prep
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
