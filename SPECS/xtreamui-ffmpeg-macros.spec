@@ -30,8 +30,7 @@ License: ASL 2.0
 URL: https://github.com/amidevous/ffmpegbuild
 BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch
 %description
-macros for ffmpeg build for xtreamui
-
+macros for ffmpeg build for xtreamui.
 %prep
 %build
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
