@@ -89,7 +89,13 @@ dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-libxml2-2.10.4
 
 
 
+xtreamui-sgml-common.spec
 
+
+
+
+
+Requires: xtreamui-xml-common
 
 
 
