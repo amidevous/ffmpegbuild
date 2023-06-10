@@ -20,79 +20,225 @@
 %global _usrsrc %{_prefix}/src
 %global _initddir %{_sysconfdir}/rc.d/init.d
 %global _initrddir %{_initddir}
-Summary: Utilities from the general purpose cryptography library with TLS implementation
+Summary: Modular Assembler
 Name: xtreamui-yasm
-Version: xtream-ui-yasmversion
-Release: 1%{?dist}
-Source: https://www.tortall.net/projects/yasm/releases/yasm-%{version}.tar.gz
-License: ASL 2.0
-URL: https://gnu.org
+Release: 17%{?dist}
+License: BSD and (GPLv2+ or Artistic or LGPLv2+) and LGPLv2
+URL: http://yasm.tortall.net/
+Source: http://www.tortall.net/projects/yasm/releases/yasm-%{version}.tar.gz
+Patch1: 0001-Update-elf-objfmt.c.patch
+BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
+BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
+BuildRequires: bison
+BuildRequires: byacc
+BuildRequires: gettext-devel
+BuildRequires: xmlto
 BuildRequires: xtreamui-nasm
 Requires: xtreamui-nasm
 %description
-The OpenSSL toolkit provides support for secure communications between
-machines. OpenSSL includes a certificate management tool and shared
-libraries which provide various cryptographic algorithms and
-protocols.
+Yasm is a complete rewrite of the NASM assembler under the "new" BSD License
+(some portions are under other licenses, see COPYING for details). It is
+designed from the ground up to allow for multiple assembler syntaxes to be
+supported (eg, NASM, TASM, GAS, etc.) in addition to multiple output object
+formats and even multiple instruction sets. Another primary module of the
+overall design is an optimizer module.
 %prep
-%autosetup -S git -n yasm-%{version}
+%setup -q -n yasm-%{version}
+%patch1 -p1
 %build
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
-export LD_LIBRARY_PATH="/root/ffmpeg_build/lib64:$LD_LIBRARY_PATH"
-export PATH="/root/ffmpeg_build/bin:$PATH"
-export PKG_CONFIG_PATH="/root/ffmpeg_build/lib64/pkgconfig:$PKG_CONFIG_PATH"
-export CFLAGS="$CFLAGS -I/root/ffmpeg_build/include -L/root/ffmpeg_build/lib64"
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-./configure --prefix="/root/ffmpeg_build" --libdir=/root/ffmpeg_build/lib64 --bindir="/root/ffmpeg_build/bin"
+#RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
+export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
+export PATH="%{_bindir}:$PATH"
+export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
+export CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -L%{_libdir}"
+%configure
 make %{?_smp_mflags}
 %install
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
-%make_install
-rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/dir
+rm -rf %{buildroot}
+make install DESTDIR=%{buildroot}
 
 %files
-/root/ffmpeg_build/bin/vsyasm
-/root/ffmpeg_build/bin/yasm
-/root/ffmpeg_build/bin/ytasm
-/root/ffmpeg_build/include/libyasm-stdint.h
-/root/ffmpeg_build/include/libyasm.h
-/root/ffmpeg_build/include/libyasm/arch.h
-/root/ffmpeg_build/include/libyasm/assocdat.h
-/root/ffmpeg_build/include/libyasm/bitvect.h
-/root/ffmpeg_build/include/libyasm/bytecode.h
-/root/ffmpeg_build/include/libyasm/compat-queue.h
-/root/ffmpeg_build/include/libyasm/coretype.h
-/root/ffmpeg_build/include/libyasm/dbgfmt.h
-/root/ffmpeg_build/include/libyasm/errwarn.h
-/root/ffmpeg_build/include/libyasm/expr.h
-/root/ffmpeg_build/include/libyasm/file.h
-/root/ffmpeg_build/include/libyasm/floatnum.h
-/root/ffmpeg_build/include/libyasm/hamt.h
-/root/ffmpeg_build/include/libyasm/insn.h
-/root/ffmpeg_build/include/libyasm/intnum.h
-/root/ffmpeg_build/include/libyasm/inttree.h
-/root/ffmpeg_build/include/libyasm/linemap.h
-/root/ffmpeg_build/include/libyasm/listfmt.h
-/root/ffmpeg_build/include/libyasm/md5.h
-/root/ffmpeg_build/include/libyasm/module.h
-/root/ffmpeg_build/include/libyasm/objfmt.h
-/root/ffmpeg_build/include/libyasm/parser.h
-/root/ffmpeg_build/include/libyasm/phash.h
-/root/ffmpeg_build/include/libyasm/preproc.h
-/root/ffmpeg_build/include/libyasm/section.h
-/root/ffmpeg_build/include/libyasm/symrec.h
-/root/ffmpeg_build/include/libyasm/valparam.h
-/root/ffmpeg_build/include/libyasm/value.h
-/root/ffmpeg_build/lib64/libyasm.a
-/root/ffmpeg_build/share/man/man1/yasm.1
-/root/ffmpeg_build/share/man/man7/yasm_arch.7
-/root/ffmpeg_build/share/man/man7/yasm_dbgfmts.7
-/root/ffmpeg_build/share/man/man7/yasm_objfmts.7
-/root/ffmpeg_build/share/man/man7/yasm_parsers.7
+%license Artistic.txt BSD.txt COPYING GNU_GPL-2.0 GNU_LGPL-2.0
+%doc AUTHORS
+%{_bindir}/vsyasm
+%{_bindir}/yasm
+%{_bindir}/ytasm
+%{_mandir}/man1/yasm.1*
+%{_includedir}/libyasm/
+%{_includedir}/libyasm-stdint.h
+%{_includedir}/libyasm.h
+%{_libdir}/libyasm.a
+%{_mandir}/man7/yasm_*.7*
+
 
 %changelog
-* Thu Nov 24 2022 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:3.0.7-2
-- Various provider-related imrovements necessary for PKCS#11 provider correct operations
-  Resolves: rhbz#2142517
+* Sat Jan 21 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-17
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
+
+* Sat Jul 23 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-16
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
+* Sat Jan 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-15
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
+
+* Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-14
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
+* Thu Jan 28 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-13
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-12
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-11
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-10
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-9
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-8
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
+* Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
+
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
+* Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Fri Feb 05 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
+* Thu Oct 01 2015 Christian Dersch <lupinix@mailbox.org> - 1.3.0-2
+- Fixed bogus date (RHBZ #1190908)
+
+* Wed Sep 30 2015 Christian Dersch <lupinix@mailbox.org> - 1.3.0-1
+- new version
+- spec cleanup
+
+* Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.0-8
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
+* Mon Aug 18 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.0-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.0-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
+* Fri Feb 15 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.0-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
+* Wed Oct 17 2012 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.2.0-3
+- Add missing Provides: bundled(md5-plumb)
+
+* Sun Jul 22 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
+* Thu Mar 15 2012 Matthias Saou <matthias@saou.eu> 1.2.0-1
+- Update to 1.2.0 (#750234).
+- Minor spec file cleanups (keep EPEL compatibility, #802162).
+
+* Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
+* Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
+* Sun Aug 15 2010 Matthias Saou <http://freshrpms.net/> 1.1.0-1
+- Update to 1.1.0 (#622240).
+
+* Thu Jul 29 2010 Matthias Saou <http://freshrpms.net/> 1.0.1-2
+- Provide static sub-package from devel (#609626).
+
+* Sun May 23 2010 Matthias Saou <http://freshrpms.net/> 1.0.1-1
+- Update to 1.0.1 (#593250).
+
+* Wed Apr 28 2010 Matthias Saou <http://freshrpms.net/> 1.0.0-1
+- Update to 1.0.0 (#580872).
+- Include new vsyasm binary.
+
+* Mon Dec  7 2009 Matthias Saou <http://freshrpms.net/> 0.8.0-1
+- Update to 0.8.0 (#523729).
+- Include new ytasm binary.
+
+* Mon Jul 27 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.7.2-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
+* Wed Feb 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.7.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
+* Wed Dec 24 2008 Matthias Saou <http://freshrpms.net/> 0.7.2-1
+- Update to 0.7.2.
+- Remove useless /sbin/ldconfig calls, as we don't ship any shared library.
+- Update summary.
+
+* Sat Sep  6 2008 Tom "spot" Callaway <tcallawa@redhat.com> 0.7.1-2
+- fix license tag so that it doesn't trigger a false positive on the check
+  script.
+
+* Tue May 20 2008 Matthias Saou <http://freshrpms.net/> 0.7.1-1
+- Update to 0.7.1.
+
+* Tue May 13 2008 Matthias Saou <http://freshrpms.net/> 0.7.0-1
+- Update to 0.7.0.
+
+* Tue Feb 19 2008 Fedora Release Engineering <rel-eng@fedoraproject.org>
+- Autorebuild for GCC 4.3
+
+* Mon Sep 24 2007 Matthias Saou <http://freshrpms.net/> 0.6.2-1
+- Update to 0.6.2.
+
+* Thu Aug 23 2007 Matthias Saou <http://freshrpms.net/> 0.6.1-3
+- Rebuild for new BuildID feature.
+
+* Fri Aug  3 2007 Matthias Saou <http://freshrpms.net/> 0.6.1-2
+- Update License field, it wasn't simply "BSD"...
+
+* Tue Jun 19 2007 Matthias Saou <http://freshrpms.net/> 0.6.1-1
+- Update to 0.6.1.
+
+* Sun Feb 25 2007 Matthias Saou <http://freshrpms.net/> 0.6.0-1
+- Update to 0.6.0.
+
+* Mon Aug 28 2006 Matthias Saou <http://freshrpms.net/> 0.5.0-2
+- FC6 rebuild.
+- Require the same release in the devel sub-package.
+
+* Fri Jul 14 2006 Matthias Saou <http://freshrpms.net/> 0.5.0-1
+- Update to 0.5.0.
+- Remove empty files from %%doc.
+- There are no more shared libraries, only a static one, so update %%files.
+
+* Mon Mar  6 2006 Matthias Saou <http://freshrpms.net/> 0.4.0-6
+- FC5 rebuild.
+
+* Thu Feb  9 2006 Matthias Saou <http://freshrpms.net/> 0.4.0-5
+- Rebuild for new gcc/glibc.
+
+* Sun May 22 2005 Jeremy Katz <katzj@redhat.com> - 0.4.0-4
+- rebuild on all arches
+
+* Thu Apr  7 2005 Michael Schwendt <mschwendt[AT]users.sf.net>
+- rebuilt
+
+* Mon Feb 14 2005 David Woodhouse <dwmw2@infradead.org> 0.4.0-2
+- Fix corruption in genmacro
+
+* Fri Jan 28 2005 Matthias Saou <http://freshrpms.net/> 0.4.0-1
+- Initial RPM release.
+
+
