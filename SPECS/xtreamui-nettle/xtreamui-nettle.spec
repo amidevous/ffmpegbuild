@@ -64,8 +64,8 @@ fi
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
 export PATH="%{_bindir}:$PATH"
 export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
-export CFLAGS=" -I%{_includedir} -L%{_libdir}"
-autoreconf RPM_OPT_FLAGS-ifv
+export CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -L%{_libdir}"
+autoreconf -ifv
 %configure --enable-shared --enable-fat --enable-mini-gmp
 %make_build
 
