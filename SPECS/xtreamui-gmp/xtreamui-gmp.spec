@@ -44,11 +44,6 @@ BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ l
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 #autoreconf on arm needs:
 BuildRequires: perl-Carp
-# Generate the .hmac checksum unless --without fips is used
-%bcond_without fips
-%if %{with fips}
-BuildRequires: fipscheck
-%endif
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
@@ -93,18 +88,6 @@ sed -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
     -i libtool
 export LD_LIBRARY_PATH=`pwd`/.libs
 %make_build
-
-%if %{with fips}
-%define __spec_install_post \
-    %{?__debug_package:%{__debug_install_post}} \
-    %{__arch_install_post} \
-    %{__os_install_post} \
-    fipshmac -d $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_libdir}/libgmp.so.10.* \
-    file=`basename $RPM_BUILD_ROOT%{_libdir}/libgmp.so.10.*.hmac` && \
-        mv $RPM_BUILD_ROOT%{_libdir}/$file $RPM_BUILD_ROOT%{_libdir}/.$file && \
-        ln -s .$file $RPM_BUILD_ROOT%{_libdir}/.libgmp.so.10.hmac
-%{nil}
-%endif
 
 %install
 export LD_LIBRARY_PATH=`pwd`/.libs
@@ -156,9 +139,6 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %license COPYING COPYING.LESSERv3 COPYINGv2 COPYINGv3
 %doc NEWS README
 %{_libdir}/libgmp.so.*
-%if %{with fips}
-%{_libdir}/.libgmp.so.*.hmac
-%endif
 %{_libdir}/libgmpxx.so.*
 %{_libdir}/libgmp.so
 %{_libdir}/libgmpxx.so
