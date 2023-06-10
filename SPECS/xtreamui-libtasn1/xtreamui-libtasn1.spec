@@ -29,7 +29,7 @@ Release:	2%{?dist}
 License:	GPLv3+ and LGPLv2+
 URL:		http://www.gnu.org/software/libtasn1/
 Source0:	http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
-Patch1:		libtasn1-3.4-rpath.patch
+Patch1:		https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libtasn1/libtasn1-3.4-rpath.patch
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
 %endif
@@ -76,6 +76,10 @@ rm -f $RPM_BUILD_ROOT{%_libdir/*.la,%_infodir/dir}
 
 %check
 make check
+
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 
 %files
 %license COPYING doc/COPYING*
