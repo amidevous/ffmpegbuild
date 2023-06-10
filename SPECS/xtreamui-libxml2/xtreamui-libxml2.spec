@@ -83,8 +83,8 @@ rm -vf %{buildroot}{%{python2_sitearch},%{python3_sitearch}}/*.a
 rm -vrf %{buildroot}%{_datadir}/doc/
 (cd doc/examples ; make clean ; rm -rf .deps Makefile)
 gzip -9 -c doc/libxml2-api.xml > doc/libxml2-api.xml.gz
-%global python3_sitearchnews %(rpm --eval %{python3_sitearch} | sed 's|/usr/|%{_prefix}|')
-%global python3_sitelibnews %(rpm --eval %{python3_sitelib} | sed 's|/usr/|%{_prefix}|')
+%global python3_sitearchnews %(rpm --eval %{python3_sitearch} | sed 's|/usr|%{_prefix}|')
+%global python3_sitelibnews %(rpm --eval %{python3_sitelib} | sed 's|/usr|%{_prefix}|')
 
 
 %check
