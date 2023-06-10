@@ -1,6 +1,60 @@
 #!/bin/bash
+echo -e "\nChecking that minimal requirements are ok"
+# Ensure the OS is compatible with the launcher
+if [ -f /etc/centos-release ]; then
+    inst() {
+       rpm -q --queryformat '%{Version}-%{Release}' "$1"
+    } 
+    if (inst "centos-stream-repos"); then
+    OS="CentOS-Stream"
+    else
+    OS="CentOs"
+    fi    
+    VERFULL=$(sed 's/^.*release //;s/ (Fin.*$//' /etc/centos-release) VER=${VERFULL:0:1} # return 6, 7, 8, 9 etc
+elif [ -f /etc/fedora-release ]; then
+    inst() {
+       rpm -q --queryformat '%{Version}-%{Release}' "$1"
+    } 
+    OS="Fedora" VERFULL=$(sed 's/^.*release //;s/ (Fin.*$//' /etc/fedora-release) VER=${VERFULL:0:2} # return 34, 35, 36,37 etc
+elif [ -f /etc/lsb-release ]; then
+    OS=$(grep DISTRIB_ID /etc/lsb-release | sed 's/^.*=//') VER=$(grep DISTRIB_RELEASE /etc/lsb-release | sed 's/^.*=//')
+	inst() {
+       dpkg-query --showformat='${Version}' --show "$1"
+    }
+elif [ -f /etc/os-release ]; then
+    OS=$(grep -w ID /etc/os-release | sed 's/^.*=//') VER=$(grep VERSION_ID /etc/os-release | sed 's/^.*"\(.*\)"/\1/' | head -n 1 | tail -n 1)
+ else
+    OS=$(uname -s) VER=$(uname -r)
+fi
+ARCH=$(uname -m)
+echo "Detected : $OS  $VER  $ARCH"
+# this part must be updated every 6 months
+if [[ "$OS" = "CentOs" && "$VER" = "7" && "$ARCH" == "x86_64" || "$OS" = "CentOS-Stream" && "$VER" = "8" && "$ARCH" == "x86_64" ||
+"$OS" = "CentOS-Stream" && "$VER" = "9" && "$ARCH" == "x86_64" || "$OS" = "Fedora" && "$VER" = "37" && "$ARCH" == "x86_64" ||
+ "$OS" = "Fedora" && "$VER" = "38" && "$ARCH" == "x86_64"  ]] ; then
+    echo "Ok."
+else
+    echo "Sorry, this OS is not supported."
+	echo "This script is online for Linux x86_64 Stable Version"
+	echo "Only aviable for :"
+	echo "Centos Version 7"
+	echo "CentOS Stream Version 8"
+	echo "CentOS Stream Version 9"
+	echo "Fedora Version 37"
+	echo "Fedora Version 38"
+    exit 1
+fi
+# define Package Variable
+if [[ "$OS" = "CentOs" ]] ; then
+		yum -y install epel-release
+		yum -y update
+		yum -y install dnf
+    dnf -y install centos-release-scl
+    dnf -y install devtoolset-8
+fi
 dnf -y install rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel cmake3 \
 autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils
+rm -rf $(rpm --eval %_topdir)/SPECS $(rpm --eval %_topdir)/SOURCES
 mkdir -p $(rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
 wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/gmp-6.2.1.tar.xz
