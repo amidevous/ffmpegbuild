@@ -37,12 +37,11 @@ Source3: gmp-mparam.h
 Patch2: gmp-6.0.0-debuginfo.patch
 Patch3: gmp-intel-cet.patch
 License: LGPLv3+ or GPLv2+
-BuildRequires: autoconf automake libtool
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
 %endif
-BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch m4
-BuildRequires: git
+BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat
+BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4
 #autoreconf on arm needs:
 BuildRequires: perl-Carp
 # Generate the .hmac checksum unless --without fips is used
@@ -50,8 +49,6 @@ BuildRequires: perl-Carp
 %if %{with fips}
 BuildRequires: fipscheck
 %endif
-BuildRequires: make
-BuildRequires: xtreamui-ffmpeg-macros
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
