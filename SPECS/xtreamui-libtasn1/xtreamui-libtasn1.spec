@@ -28,7 +28,7 @@ Release:	2%{?dist}
 # The libtasn1 library is LGPLv2+, utilities are GPLv3+
 License:	GPLv3+ and LGPLv2+
 URL:		http://www.gnu.org/software/libtasn1/
-Source0:	http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
+Source0:	https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
 Patch1:		https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libtasn1/libtasn1-3.4-rpath.patch
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
