@@ -42,7 +42,7 @@ BuildRequires: make
 
 BuildArch: noarch
 Source0: https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F{%version}/docbook-xsl-nons-%{version}.tar.bz2
-Source1: %{name}.Makefile
+Source1: docbook-style-xsl.Makefile
 Source2:  https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F{%version}/docbook-xsl-doc-%{version}.tar.bz2
 
 
