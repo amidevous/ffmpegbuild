@@ -68,7 +68,7 @@ export CFLAGS="$CFLAGS -I%{_includedir} -L%{_libdir}"
     --enable-static \
     --with-legacy \
     --with-ftp \
-    --with-xptr-locs \
+    --with-xptr-locs
 %make_build
 
 %install
