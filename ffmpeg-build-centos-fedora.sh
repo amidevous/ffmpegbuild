@@ -52,7 +52,7 @@ if [[ "$OS" = "CentOs" ]] ; then
     dnf -y install centos-release-scl
     dnf -y install devtoolset-8
 fi
-dnf -y install rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat \
+dnf -y install rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel \
 autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 rm -rf $(rpm --eval %_topdir)/SPECS $(rpm --eval %_topdir)/SOURCES
 mkdir -p $(rpm --eval %_topdir)/SPECS
