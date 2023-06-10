@@ -32,7 +32,7 @@ Patch0:         https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPE
 # Patch from openSUSE.
 # See:  https://bugzilla.gnome.org/show_bug.cgi?id=789714
 Patch1:         https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libxml2/libxml2-2.9.8-python3-unicode-errors.patch
-BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel cmake3
+BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel cmake3 python3-devel
 BuildRequires: autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils
 BuildRequires: xtreamui-zlib
 Requires: xtreamui-zlib
@@ -69,6 +69,7 @@ export CFLAGS="$CFLAGS -I%{_includedir} -L%{_libdir}"
     --with-legacy \
     --with-ftp \
     --with-xptr-locs
+    --with-python=%{__python3}
 %make_build
 
 %install
@@ -82,6 +83,7 @@ rm -vf %{buildroot}{%{python2_sitearch},%{python3_sitearch}}/*.a
 rm -vrf %{buildroot}%{_datadir}/doc/
 (cd doc/examples ; make clean ; rm -rf .deps Makefile)
 gzip -9 -c doc/libxml2-api.xml > doc/libxml2-api.xml.gz
+rm -rf %{buildroot}%{python3_sitearch} %{buildroot}%{python3_sitelib}
 
 %check
 # Tests require the XML conformance suite, and fail in doc/examples somwhere.
