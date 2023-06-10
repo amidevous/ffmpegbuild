@@ -39,6 +39,8 @@ BuildRequires:	bison, help2man
 BuildRequires:	valgrind-devel
 BuildRequires:  gtk-doc
 Requires:	pkgconfig
+BuildRequires:  xtreamui-yasm
+Requires:	xtreamui-yasm
 
 %description
 A library that provides Abstract Syntax Notation One (ASN.1, as specified
