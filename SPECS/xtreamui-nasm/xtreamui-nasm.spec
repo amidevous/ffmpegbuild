@@ -65,6 +65,10 @@ make all %{?_smp_mflags}
 %check
 make -C test golden test diff
 
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
+
 %files
 %license LICENSE
 %doc AUTHORS CHANGES README.md
