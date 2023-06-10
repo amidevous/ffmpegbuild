@@ -42,10 +42,10 @@ Summary:        A low-level cryptographic library
 
 License:        LGPLv3+ or GPLv2+
 URL:            http://www.lysator.liu.se/~nisse/nettle/
-Source0:	%{name}-%{version}-hobbled.tar.xz
-#Source0:        http://www.lysator.liu.se/~nisse/archive/%%{name}-%%{version}.tar.gz
+Source0:	nettle-%{version}-hobbled.tar.xz
+#Source0:        http://www.lysator.liu.se/~nisse/archive/nettle-%{version}.tar.gz
 %if 0%{?bootstrap}
-Source1:	%{name}-%{version_old}-hobbled.tar.xz
+Source1:	nettle-%{version_old}-hobbled.tar.xz
 Source2:	nettle-3.5-remove-ecc-testsuite.patch
 %endif
 Patch0:		nettle-3.4-annocheck.patch
@@ -67,7 +67,7 @@ kernel space.
 
 
 %prep
-%autosetup -Tb 0 -p1
+%autosetup -Tb 0 -p1 -n nettle-%{version}
 
 %if 0%{?bootstrap}
 mkdir -p bootstrap_ver
