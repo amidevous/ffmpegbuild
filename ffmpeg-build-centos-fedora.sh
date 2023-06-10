@@ -51,18 +51,9 @@ if [[ "$OS" = "CentOs" ]] ; then
 		yum -y install dnf
     dnf -y install centos-release-scl
     dnf -y install devtoolset-8
-#PACKAGE_INSTALLER="yum -y install" PACKAGE_INSTALLER_LOCAL="yum -y --enablerepo ffmpeg-local install" PACKAGE_BININSTALLER="rpm -i"
-#	PACKAGE_REMOVER="yum -y remove" PACKAGE_UPDATER="yum -y update" PACKAGE_UPDGRADER="yum -y  upgrade" PACKAGE_UTILS="yum-utils"
-#    PACKAGE_GROUPINSTALL="yum -y groupinstall" PACKAGE_SOURCEDOWNLOAD="yumdownloader --source"
-#    PACKAGE_BUILDDEP="yum-builddep -y"
-#elif [[ "$OS" = "Fedora" || "$OS" = "CentOS-Stream"  ]]; then
-#    PACKAGE_INSTALLER="dnf -y install" PACKAGE_INSTALLER_LOCAL="dnf -y --enablerepo ffmpeg-local install"
-#	PACKAGE_BININSTALLER="rpm -i" PACKAGE_REMOVER="dnf -y remove"
-#    PACKAGE_UPDATER="dnf -y update" PACKAGE_UPDGRADER="dnf -y upgrade" PACKAGE_UTILS="dnf-utils"
-#    PACKAGE_GROUPINSTALL="dnf -y groupinstall"PACKAGE_SOURCEDOWNLOAD="dnf download --source"
-#    PACKAGE_BUILDDEP="dnf build-dep -y"
 fi
-dnf -y install rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch m4
+dnf -y install rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat \
+autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 rm -rf $(rpm --eval %_topdir)/SPECS $(rpm --eval %_topdir)/SOURCES
 mkdir -p $(rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
@@ -74,6 +65,18 @@ wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/xtreamui-gmp.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-gmp.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-gmp.spec
 dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-gmp-6.2.1-4.*.rpm')
+wget https://www.zlib.net/zlib-1.2.13.tar.xz -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.13.tar.xz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.5-minizip-fixuncrypt.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.5-minizip-fixuncrypt.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-optimized-s390.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.13-optimized-s390.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-Fix-bug-in-deflateBound.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.13-Fix-bug-in-deflateBound.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-power-optimizations.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.13-power-optimizations.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-IBM-Z-hw-accelerated-deflate.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.13-IBM-Z-hw-accelerated-deflate.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-s390x-vectorize-crc32.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.13-s390x-vectorize-crc32.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.11-covscan-issues.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.11-covscan-issues.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.11-covscan-issues-rhel9.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.11-covscan-issues-rhel9.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/xtreamui-zlib.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-zlib.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-zlib.spec
+dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-zlib-1.2.13-3.*.rpm')
 
 
 
@@ -89,10 +92,53 @@ dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-gmp-6.2.1-4.*.
 
 
 
-wget https://ftp.gnu.org/gnu/nettle/nettle-3.9.1.tar.gz -O $(rpm --eval %_topdir)/SOURCES/nettle-3.9.1.tar.gz
-wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-nettle.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
+wget https://github.com/silnrsi/teckit/releases/download/v2.5.11/teckit-2.5.11.tar.gz -O $(rpm --eval %_topdir)/SOURCES/teckit-2.5.11.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gettext/xtreamui-teckit.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-teckit.spec
+
+
+
+
+
+
+
+
+
+
+
+
+
+wget https://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.1.tar.gz -O $(rpm --eval %_topdir)/SOURCES/gettext-0.21.1.tar.gz
+wget https://ftp.gnu.org/pub/gnu/gettext/msghack.py -O $(rpm --eval %_topdir)/SOURCES/msghack.py
+wget https://ftp.gnu.org/pub/gnu/gettext/msghack.1 -O $(rpm --eval %_topdir)/SOURCES/msghack.1
+wget https://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.1-disable-libtextstyle.patch -O $(rpm --eval %_topdir)/SOURCES/gettext-0.21.1-disable-libtextstyle.patch
+wget https://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.1-covscan.patch -O $(rpm --eval %_topdir)/SOURCES/gettext-0.21.1-covscan.patch
+wget https://ftp.gnu.org/pub/gnu/gettext/gettext-java17-2062407.patch -O $(rpm --eval %_topdir)/SOURCES/gettext-java17-2062407.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gettext/xtreamui-gettext.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-gettext.spec
+
+
+
+
+
+
+
+
+
+
+
+
+
+wget https://ftp.gnu.org/gnu/nettle/nettle-3.8.tar.gz -O $(rpm --eval %_topdir)/SOURCES/nettle-3.8.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-nettle/xtreamui-nettle.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
-dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-nettle-3.9.1-1.el7.x86_64.rpm')
+
+dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-nettle-3.8-1.*.rpm')
+
+
+
+
+
+
+
 wget https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz -O $(rpm --eval %_topdir)/SOURCES/libtasn1-4.19.0.tar.gz
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-libtasn1.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-libtasn1.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-libtasn1.spec
