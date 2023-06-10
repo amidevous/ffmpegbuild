@@ -34,6 +34,9 @@ BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgcon
 %description
 rpm macros for build ffmpeg for xtreamui.
 %build
+if test -f "/opt/rh/devtoolset-8/enable"; then
+source /opt/rh/devtoolset-8/enable
+fi
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
 export PATH="%{_bindir}:$PATH"
