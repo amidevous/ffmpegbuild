@@ -22,6 +22,7 @@
 %global _initrddir %{_initddir}
 Summary: Modular Assembler
 Name: xtreamui-yasm
+Version: 1.3.0
 Release: 17%{?dist}
 License: BSD and (GPLv2+ or Artistic or LGPLv2+) and LGPLv2
 URL: http://yasm.tortall.net/
