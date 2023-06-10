@@ -69,7 +69,7 @@ export CFLAGS="$CFLAGS -I%{_includedir} -L%{_libdir}"
     --with-legacy \
     --with-ftp \
     --with-xptr-locs \
-    --with-python=%{__python3}
+    --with-python=%{__python3} PYTHON=%{__python3}
 %make_build
 
 %install
