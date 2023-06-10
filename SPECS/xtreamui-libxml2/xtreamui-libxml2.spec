@@ -2,7 +2,7 @@
 %define __arch_install_post %{nil}
 %global __brp_check_rpaths %{nil}
 %global __check_rpaths %{nil}
-(sleep 30)
+%(sleep 30)
 %global _prefix /home/xtreamcodes/ffmpeg_build
 %global _sysconfdir %{_prefix}/etc
 %global _includedir %{_prefix}/include
@@ -84,7 +84,7 @@ rm -vf %{buildroot}{%{python2_sitearch},%{python3_sitearch}}/*.a
 rm -vrf %{buildroot}%{_datadir}/doc/
 (cd doc/examples ; make clean ; rm -rf .deps Makefile)
 gzip -9 -c doc/libxml2-api.xml > doc/libxml2-api.xml.gz
-%global python3_sitearchnews ($(rpm --eval %{python3_sitearch} | sed 's|/usr/%{_lib}|%{_libdir}|'))
+%global python3_sitearchnews %($(rpm --eval %{python3_sitearch} | sed 's|/usr/%{_lib}|%{_libdir}|'))
 #echo "$(rpm --eval %{python3_sitearch} | sed 's|/usr/%{_lib}|%{_libdir}|')"
 echo "$(rpm --eval %{python3_sitelib})"
 sleep 30
