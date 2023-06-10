@@ -24,17 +24,6 @@
 %global nettle_so_ver 8
 %global hogweed_so_ver 6
 
-# Set to 1 when building a bootstrap for a bumped so-name.
-%global bootstrap 0
-
-%if 0%{?bootstrap}
-%global version_old 3.5.1
-%global nettle_so_ver_old 7
-%global hogweed_so_ver_old 5
-%endif
-
-%bcond_without fips
-
 Name:           nettle
 Version:        3.8
 Release:        3%{?dist}
@@ -43,13 +32,9 @@ Summary:        A low-level cryptographic library
 License:        LGPLv3+ or GPLv2+
 URL:            https://ftp.gnu.org/gnu/nettle
 Source0:        https://ftp.gnu.org/gnu/nettle/nettle-3.8.tar.gz
-%if 0%{?bootstrap}
-Source1:	nettle-%{version_old}-hobbled.tar.xz
-Source2:	nettle-3.5-remove-ecc-testsuite.patch
-%endif
 Patch0:		nettle-3.4-annocheck.patch
 %if 0%{?rhel} == 7
-BuildRequires: devtoolset-11
+BuildRequires: devtoolset-8
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
@@ -66,27 +51,14 @@ kernel space.
 %prep
 %autosetup -Tb 0 -p1 -n nettle-%{version}
 
-%if 0%{?bootstrap}
-mkdir -p bootstrap_ver
-pushd bootstrap_ver
-tar --strip-components=1 -xf %{SOURCE1}
-patch -p1 < %{SOURCE2}
-
-# Disable -ggdb3 which makes debugedit unhappy
-sed s/ggdb3/g/ -i configure
-sed 's/ecc-192.c//g' -i Makefile.in
-sed 's/ecc-224.c//g' -i Makefile.in
-popd
-%endif
-
 # Disable -ggdb3 which makes debugedit unhappy
 sed s/ggdb3/g/ -i configure
 sed 's/ecc-secp192r1.c//g' -i Makefile.in
 sed 's/ecc-secp224r1.c//g' -i Makefile.in
 
 %build
-if test -f "/opt/rh/devtoolset-11/enable"; then
-source /opt/rh/devtoolset-11/enable
+if test -f "/opt/rh/devtoolset-8/enable"; then
+source /opt/rh/devtoolset-8/enable
 fi
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
@@ -96,23 +68,7 @@ export CFLAGS="$CFLAGS -I%{_includedir} -L%{_libdir}"
 autoreconf -ifv
 %configure --enable-shared --enable-fat
 %make_build
-
-%if 0%{?bootstrap}
-pushd bootstrap_ver
-autoconf
-%configure --with-tests
-%make_build
-popd
-%endif
-
 %install
-%if 0%{?bootstrap}
-make -C bootstrap_ver install-shared-nettle DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
-make -C bootstrap_ver install-shared-hogweed DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
-
-chmod 0755 $RPM_BUILD_ROOT%{_libdir}/libnettle.so.%{nettle_so_ver_old}.*
-chmod 0755 $RPM_BUILD_ROOT%{_libdir}/libhogweed.so.%{hogweed_so_ver_old}.*
-%endif
 
 %make_install
 make install-shared DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
@@ -146,12 +102,6 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_libdir}/libnettle.so.%{nettle_so_ver}.*
 %{_libdir}/libhogweed.so.%{hogweed_so_ver}
 %{_libdir}/libhogweed.so.%{hogweed_so_ver}.*
-%if 0%{?bootstrap}
-%{_libdir}/libnettle.so.%{nettle_so_ver_old}
-%{_libdir}/libnettle.so.%{nettle_so_ver_old}.*
-%{_libdir}/libhogweed.so.%{hogweed_so_ver_old}
-%{_libdir}/libhogweed.so.%{hogweed_so_ver_old}.*
-%endif
 %doc descore.README nettle.html nettle.pdf
 %{_includedir}/nettle
 %{_libdir}/libnettle.so
