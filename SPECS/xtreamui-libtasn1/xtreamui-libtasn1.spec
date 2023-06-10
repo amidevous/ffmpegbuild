@@ -92,7 +92,7 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/*
-%{_infodir}/*.info.*
+%{_infodir}/*
 %{_mandir}/man3/*asn1*
 
 
