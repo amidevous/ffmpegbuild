@@ -2,7 +2,7 @@
 %define __arch_install_post %{nil}
 %global __brp_check_rpaths %{nil}
 %global __check_rpaths %{nil}
-sleep 30
+(sleep 30)
 %global _prefix /home/xtreamcodes/ffmpeg_build
 %global _sysconfdir %{_prefix}/etc
 %global _includedir %{_prefix}/include
