@@ -176,11 +176,6 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 * Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.9.10-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
-* Thu Nov 12 11:57:41 CET 2020 Victor Stinner <vstinner@python.org> - 2.9.10-9
-- Build the Python extension with the PY_SSIZE_T_CLEAN macro to make it
-  compatible with Python 3.10.
-- Fixes: rhbz#1890878.
-
 * Wed Nov 11 2020 Richard W.M. Jones <rjones@redhat.com> - 2.9.10-8
 - Add correct fix for CVE-2020-24977 (RHBZ#1877788), thanks: Jan de Groot.
 
