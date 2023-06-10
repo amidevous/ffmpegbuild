@@ -32,7 +32,7 @@ Summary:        A low-level cryptographic library
 License:        LGPLv3+ or GPLv2+
 URL:            https://ftp.gnu.org/gnu/nettle
 Source0:        https://ftp.gnu.org/gnu/nettle/nettle-3.8.tar.gz
-#Patch0:		nettle-3.4-annocheck.patch
+Patch0:		nettle-3.4-annocheck.patch
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
 %endif
@@ -98,8 +98,7 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 
 %files
 %doc AUTHORS NEWS README
-%license COPYINGv2 COPYING.LESSERv3
-%{_infodir}/nettle.info.*
+%license COPYINGv2 COPYING.LESSER
 %{_libdir}/libnettle.so.%{nettle_so_ver}
 %{_libdir}/libnettle.so.%{nettle_so_ver}.*
 %{_libdir}/libhogweed.so.%{hogweed_so_ver}
