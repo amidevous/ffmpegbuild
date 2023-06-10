@@ -57,9 +57,9 @@ sed 's/ecc-secp192r1.c//g' -i Makefile.in
 sed 's/ecc-secp224r1.c//g' -i Makefile.in
 
 %build
-if test -f "/opt/rh/devtoolset-8/enable"; then
-source /opt/rh/devtoolset-8/enable
-fi
+#if test -f "/opt/rh/devtoolset-8/enable"; then
+#source /opt/rh/devtoolset-8/enable
+#fi
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
 export PATH="%{_bindir}:$PATH"
