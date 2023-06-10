@@ -1,7 +1,0 @@
-#!/bin/bash
-NAMERPM=$(rpm -pq --queryformat "%{NAME}" $1)
-MINRPM=${NAMERPM::1}
-mkdir -p /root/ffmpeg_package/CentOS-Stream/8/x86_64/Packages/$MINRPM
-mv $1 /root/ffmpeg_package/CentOS-Stream/8/x86_64/Packages/$MINRPM
-dnf -y remove /lib64/libldap.so.2
-createrepo --update /root/ffmpeg_package/CentOS-Stream/8/x86_64
