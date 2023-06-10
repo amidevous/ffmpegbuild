@@ -42,34 +42,6 @@ emphasizes speed over simplicity/elegance in its operations.
 Install the gmp package if you need a fast arbitrary precision
 library.
 
-%package c++
-Summary: C++ bindings for the GNU MP arbitrary precision library
-Requires: %{name}%{?_isa} = %{epoch}:%{version}-%{release}
-
-%description c++
-Bindings for using the GNU MP arbitrary precision library in C++ applications.
-
-%package devel
-Summary: Development tools for the GNU MP arbitrary precision library
-Requires: %{name}%{?_isa} = %{epoch}:%{version}-%{release}
-Requires: %{name}-c++%{?_isa} = %{epoch}:%{version}-%{release}
-
-%description devel
-The libraries, header files and documentation for using the GNU MP 
-arbitrary precision library in applications.
-
-If you want to develop applications which will use the GNU MP library,
-you'll need to install the gmp-devel package.  You'll also need to
-install the gmp package.
-
-%package static
-Summary: Development tools for the GNU MP arbitrary precision library
-Requires: %{name}-devel = %{epoch}:%{version}-%{release}
-
-%description static
-The static libraries for using the GNU MP arbitrary precision library 
-in applications.
-
 %prep
 %autosetup -S git -n gmp-%{version}
 
@@ -155,6 +127,11 @@ export LD_LIBRARY_PATH=`pwd`/.libs
 
 %ldconfig_scriptlets c++
 
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
+
+
 %files
 %license COPYING COPYING.LESSERv3 COPYINGv2 COPYINGv3
 %doc NEWS README
@@ -162,19 +139,13 @@ export LD_LIBRARY_PATH=`pwd`/.libs
 %if %{with fips}
 %{_libdir}/.libgmp.so.*.hmac
 %endif
-
-%files c++
 %{_libdir}/libgmpxx.so.*
-
-%files devel
 %{_libdir}/libgmp.so
 %{_libdir}/libgmpxx.so
 %{_libdir}/pkgconfig/gmp.pc
 %{_libdir}/pkgconfig/gmpxx.pc
 %{_includedir}/*.h
 %{_infodir}/gmp.info*
-
-%files static
 %{_libdir}/libgmp.a
 %{_libdir}/libgmpxx.a
 
