@@ -125,8 +125,6 @@ export LD_LIBRARY_PATH=`pwd`/.libs
 
 %ldconfig_scriptlets
 
-%ldconfig_scriptlets c++
-
 %post
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
