@@ -99,7 +99,7 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %files
 %doc AUTHORS NEWS README
 %license COPYINGv2 COPYING.LESSERv3
-%{_infodir}/nettle.info.*
+#%{_infodir}/nettle.info.*
 %{_libdir}/libnettle.so.%{nettle_so_ver}
 %{_libdir}/libnettle.so.%{nettle_so_ver}.*
 %{_libdir}/libhogweed.so.%{hogweed_so_ver}
