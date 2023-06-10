@@ -33,7 +33,7 @@ Patch0:         https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPE
 # See:  https://bugzilla.gnome.org/show_bug.cgi?id=789714
 Patch1:         https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libxml2/libxml2-2.9.8-python3-unicode-errors.patch
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel cmake3 python3-devel
-BuildRequires: autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils
+BuildRequires: autoconf automake libtool wget bzip2 bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils
 BuildRequires: xtreamui-zlib
 Requires: xtreamui-zlib
 
