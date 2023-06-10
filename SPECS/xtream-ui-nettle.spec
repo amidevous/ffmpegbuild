@@ -42,6 +42,10 @@ make %{?_smp_mflags}
 %make_install
 rm -rf $RPM_BUILD_ROOT/root/ffmpeg_build/share/info/
 
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
+
 %files
 /home/xtreamcodes/iptv_xtream_codes/bin/nettle-hash
 /home/xtreamcodes/iptv_xtream_codes/bin/nettle-lfib-stream
