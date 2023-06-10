@@ -1,3 +1,6 @@
+#!/bin/bash
+dnf -y install rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel cmake3 \
+autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar make pkgconfig patch m4 coreutils
 mkdir -p $(rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
 wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/gmp-6.2.1.tar.xz
@@ -19,9 +22,62 @@ wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.11-covscan-issues-rhel9.patch -O $(rpm --eval %_topdir)/SOURCES/zlib-1.2.11-covscan-issues-rhel9.patch
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/xtreamui-zlib.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-zlib.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-zlib.spec
+dnf -y install unzip $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-zlib-1.2.13-3.*.rpm')
+
+
+
+
+
+
+xtreamui-libxml2.spec
+
+
+
+
+
+xtreamui-docbook-dtd.spec
+
+
+
+
+
+
+
+
+xtreamui-docbook-style-xsl.spec
+
+
+
+
+
+xtreamui-xmlto.spec
+
+
+
+
+
+
+
+
+
+
+wget "https://github.com/libexpat/libexpat/archive/R_2_5_0.tar.gz#/expat-2.5.0.tar.gz" -O $(rpm --eval %_topdir)/SOURCES/expat-2.5.0.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-expat/xtreamui-expat.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-expat.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-expat.spec
 dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-zlib-1.2.13-3.*.rpm')
 
 
+
+
+
+
+
+
+
+wget "https://github.com/libexpat/libexpat/archive/R_2_5_0.tar.gz#/expat-2.5.0.tar.gz" -O $(rpm --eval %_topdir)/SOURCES/expat-2.5.0.tar.gz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-expat/xtreamui-expat.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-expat.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-expat.spec
+dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-zlib-1.2.13-3.*.rpm')
 
 
 
