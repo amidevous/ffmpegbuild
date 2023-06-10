@@ -88,7 +88,7 @@ sed 's/ecc-secp224r1.c//g' -i Makefile.in
 if test -f "/opt/rh/devtoolset-8/enable"; then
 source /opt/rh/devtoolset-8/enable
 fi
-#RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
+RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
 export PATH="%{_bindir}:$PATH"
 export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
