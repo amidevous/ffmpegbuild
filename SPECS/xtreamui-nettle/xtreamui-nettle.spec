@@ -52,9 +52,9 @@ kernel space.
 %autosetup -Tb 0 -p1 -n nettle-%{version}
 
 # Disable -ggdb3 which makes debugedit unhappy
-#sed s/ggdb3/g/ -i configure
-#sed 's/ecc-secp192r1.c//g' -i Makefile.in
-#sed 's/ecc-secp224r1.c//g' -i Makefile.in
+sed s/ggdb3/g/ -i configure
+sed 's/ecc-secp192r1.c//g' -i Makefile.in
+sed 's/ecc-secp224r1.c//g' -i Makefile.in
 
 %build
 if test -f "/opt/rh/devtoolset-8/enable"; then
@@ -98,7 +98,7 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 
 %files
 %doc AUTHORS NEWS README
-%license COPYINGv2 COPYING.LESSER
+%license COPYINGv2 COPYING.LESSERv3
 %{_libdir}/libnettle.so.%{nettle_so_ver}
 %{_libdir}/libnettle.so.%{nettle_so_ver}.*
 %{_libdir}/libhogweed.so.%{hogweed_so_ver}
