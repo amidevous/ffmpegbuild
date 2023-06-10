@@ -52,7 +52,7 @@ Patch0:		nettle-3.4-annocheck.patch
 BuildRequires: devtoolset-8
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat
-BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4
+BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 BuildRequires:  xtreamui-gmp xtreamui-gettext
 %if %{with fips}
 BuildRequires:  fipscheck
