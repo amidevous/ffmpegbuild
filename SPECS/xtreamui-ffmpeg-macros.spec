@@ -74,5 +74,7 @@ EOF
 %post
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
+/sbin/ldconfig
+%postun -p /sbin/ldconfig
 %files
 %{_prefix}/macros
