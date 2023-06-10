@@ -31,26 +31,26 @@ URL: https://www.zlib.net/
 
 Source: https://www.zlib.net/zlib-%{version}.tar.xz
 # https://github.com/madler/zlib/pull/210
-Patch0: zlib-1.2.5-minizip-fixuncrypt.patch
+Patch0: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.5-minizip-fixuncrypt.patch
 # resolves: #805113
-Patch1: zlib-1.2.13-optimized-s390.patch
+Patch1: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-optimized-s390.patch
 # Upstream commit: https://github.com/madler/zlib/commit/e554695638228b846d49657f31eeff0ca4680e8a
 # This patch is needed for a clean apply of the Patch19
-Patch2: zlib-1.2.13-Fix-bug-in-deflateBound.patch
+Patch2: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-Fix-bug-in-deflateBound.patch
 # IBM optimized crc32 for Power 8+ processors
 # ref: https://github.com/madler/zlib/pull/750
-Patch18: zlib-1.2.13-power-optimizations.patch
+Patch18: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-power-optimizations.patch
 # IBM Z hardware-accelerated deflate
 # ref: https://github.com/madler/zlib/pull/410
-Patch19: zlib-1.2.13-IBM-Z-hw-accelerated-deflate.patch
+Patch19: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-IBM-Z-hw-accelerated-deflate.patch
 # Patch for s390x crc32vx
 # ref: https://github.com/iii-i/zlib/releases/tag/crc32vx-v3
-Patch20: zlib-1.2.13-s390x-vectorize-crc32.patch
+Patch20: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.13-s390x-vectorize-crc32.patch
 # fixed covscan issues
-Patch22: zlib-1.2.11-covscan-issues.patch
+Patch22: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.11-covscan-issues.patch
 # fixed issues found by covscan for rhel-9
 # ref: https://github.com/madler/zlib/pull/554
-Patch23: zlib-1.2.11-covscan-issues-rhel9.patch
+Patch23: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-zlib/zlib-1.2.11-covscan-issues-rhel9.patch
 
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
