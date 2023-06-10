@@ -36,6 +36,8 @@ BuildRequires: autoconf automake libtool wget bzip2-devel gzip xz-devel wget tar
 BuildRequires: perl(Env)
 BuildRequires: asciidoc
 BuildRequires: xmlto
+BuildRequires: xtreamui-nettle
+Requires: xtreamui-nettle
 
 %description
 NASM is the Netwide Assembler, a free portable assembler for the Intel
