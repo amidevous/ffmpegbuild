@@ -20,7 +20,6 @@
 %global _usrsrc %{_prefix}/src
 %global _initddir %{_sysconfdir}/rc.d/init.d
 %global _initrddir %{_initddir}
-%bcond_without minizip
 
 Name:    xtreamui-zlib
 Version: 1.2.13
