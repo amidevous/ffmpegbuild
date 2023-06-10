@@ -24,7 +24,7 @@
 %global nettle_so_ver 8
 %global hogweed_so_ver 6
 
-Name:           nettle
+Name:           xtreamui-nettle
 Version:        3.8
 Release:        3%{?dist}
 Summary:        A low-level cryptographic library
