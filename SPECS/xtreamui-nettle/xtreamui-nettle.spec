@@ -49,7 +49,7 @@ Source2:	nettle-3.5-remove-ecc-testsuite.patch
 %endif
 Patch0:		nettle-3.4-annocheck.patch
 %if 0%{?rhel} == 7
-BuildRequires: devtoolset-8
+BuildRequires: devtoolset-11
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
@@ -85,8 +85,8 @@ sed 's/ecc-secp192r1.c//g' -i Makefile.in
 sed 's/ecc-secp224r1.c//g' -i Makefile.in
 
 %build
-if test -f "/opt/rh/devtoolset-8/enable"; then
-source /opt/rh/devtoolset-8/enable
+if test -f "/opt/rh/devtoolset-11/enable"; then
+source /opt/rh/devtoolset-11/enable
 fi
 RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
 export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
