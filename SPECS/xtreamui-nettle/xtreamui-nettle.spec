@@ -39,7 +39,7 @@ BuildRequires: devtoolset-8
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 BuildRequires:  xtreamui-gmp gettext
-
+Requires:  xtreamui-gmp
 
 %description
 Nettle is a cryptographic library that is designed to fit easily in more
