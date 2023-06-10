@@ -25,8 +25,8 @@ Name: xtreamui-yasm
 Version: 1.3.0
 Release: 17%{?dist}
 License: BSD and (GPLv2+ or Artistic or LGPLv2+) and LGPLv2
-URL: http://yasm.tortall.net/
-Source: http://www.tortall.net/projects/yasm/releases/yasm-%{version}.tar.gz
+URL: https://yasm.tortall.net/
+Source: https://www.tortall.net/projects/yasm/releases/yasm-%{version}.tar.gz
 Patch1: 0001-Update-elf-objfmt.c.patch
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
