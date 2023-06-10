@@ -38,6 +38,10 @@ make %{?_smp_mflags}
 %make_install
 rm -rf $RPM_BUILD_ROOT/home/xtreamcodes/ffmpeg_build/share/info/dir
 
+%post
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
+chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
+
 %files
 /home/xtreamcodes/iptv_xtream_codes/bin/asn1Coding
 /home/xtreamcodes/iptv_xtream_codes/bin/asn1Decoding
