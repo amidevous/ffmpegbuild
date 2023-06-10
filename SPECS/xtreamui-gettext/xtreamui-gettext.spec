@@ -82,7 +82,7 @@ Requires: diffutils
 
 
 %prep
-%autosetup -S git -n 
+%autosetup -S git -n gettext-%{version}
 # Refresh autotools files to latest versions
 # Should be removed after 0.21:
 autoreconf --force --install
