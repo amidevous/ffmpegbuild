@@ -32,10 +32,10 @@ Release: 4%{?dist}
 Epoch: 1
 URL: https://gmplib.org/
 Source0: https://gmplib.org/download/gmp/gmp-%{version}.tar.xz
-Source2: gmp.h
-Source3: gmp-mparam.h
-Patch2: gmp-6.0.0-debuginfo.patch
-Patch3: gmp-intel-cet.patch
+Source2: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp.h
+Source3: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-mparam.h
+Patch2: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-6.0.0-debuginfo.patch
+Patch3: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-intel-cet.patch
 License: LGPLv3+ or GPLv2+
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
