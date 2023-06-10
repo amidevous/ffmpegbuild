@@ -68,8 +68,8 @@ export CFLAGS="$CFLAGS -I%{_includedir} -L%{_libdir}"
     --enable-static \
     --with-legacy \
     --with-ftp \
-    --with-xptr-locs
-    --with-python=/usr/bin/python3
+    --with-xptr-locs \
+    --with-python=%{__python3}
 %make_build
 
 %install
