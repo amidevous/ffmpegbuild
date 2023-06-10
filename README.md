@@ -1,5 +1,9 @@
 # ffmpegbuild
 
+package available here
+
+https://copr.fedorainfracloud.org/coprs/amidevous/xtreamui/
+
 auto build use
 
 `bash <(wget --no-check-certificate -qO- https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/ffmpeg-build.sh)`
