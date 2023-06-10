@@ -53,10 +53,8 @@ BuildRequires: devtoolset-8
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
-BuildRequires:  xtreamui-gmp xtreamui-gettext
-%if %{with fips}
-BuildRequires:  fipscheck
-%endif
+BuildRequires:  xtreamui-gmp gettext
+
 
 %description
 Nettle is a cryptographic library that is designed to fit easily in more
@@ -107,29 +105,6 @@ autoconf
 popd
 %endif
 
-%if %{with fips}
-%define fipshmac() \
-	fipshmac -d $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_libdir}/%1.* \
-	file=`basename $RPM_BUILD_ROOT%{_libdir}/%1.*.hmac` && \
-	mv $RPM_BUILD_ROOT%{_libdir}/$file $RPM_BUILD_ROOT%{_libdir}/.$file && \
-	ln -s .$file $RPM_BUILD_ROOT%{_libdir}/.%1.hmac
-
-%if 0%{?bootstrap}
-%define bootstrap_fips 1
-%endif
-
-%define __spec_install_post \
-	%{?__debug_package:%{__debug_install_post}} \
-	%{__arch_install_post} \
-	%{__os_install_post} \
-	%fipshmac libnettle.so.%{nettle_so_ver} \
-	%fipshmac libhogweed.so.%{hogweed_so_ver} \
-	%{?bootstrap_fips:%fipshmac libnettle.so.%{nettle_so_ver_old}} \
-	%{?bootstrap_fips:%fipshmac libhogweed.so.%{hogweed_so_ver_old}} \
-%{nil}
-%endif
-
-
 %install
 %if 0%{?bootstrap}
 make -C bootstrap_ver install-shared-nettle DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
@@ -176,10 +151,6 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_libdir}/libnettle.so.%{nettle_so_ver_old}.*
 %{_libdir}/libhogweed.so.%{hogweed_so_ver_old}
 %{_libdir}/libhogweed.so.%{hogweed_so_ver_old}.*
-%endif
-%if %{with fips}
-%{_libdir}/.libhogweed.so.*.hmac
-%{_libdir}/.libnettle.so.*.hmac
 %endif
 %doc descore.README nettle.html nettle.pdf
 %{_includedir}/nettle
