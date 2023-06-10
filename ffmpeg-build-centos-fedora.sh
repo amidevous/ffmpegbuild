@@ -63,12 +63,35 @@ if [[ "$OS" = "CentOs" ]] ; then
 #    PACKAGE_BUILDDEP="dnf build-dep -y"
 fi
 dnf -y install rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch m4
-mkdir -p $rpm --eval %_topdir)/SPECS
+rm -rf $(rpm --eval %_topdir)/SPECS $(rpm --eval %_topdir)/SOURCES
+mkdir -p $(rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-ffmpeg-macros.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-ffmpeg-macros.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-ffmpeg-macros.spec
+dnf -y install autoconf automake libtool git $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-ffmpeg-macros-1.0.0-1.*.rpm')
 wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/gmp-6.2.1.tar.xz
-wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-gmp.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-gmp.spec
-rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-gmp.spec
-dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-gmp-6.2.1-1.el7.x86_64.rpm')
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp.h -O $(rpm --eval %_topdir)/SOURCES/gmp.h
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-mparam.h -O $(rpm --eval %_topdir)/SOURCES/gmp-mparam.h
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-6.0.0-debuginfo.patch -O $(rpm --eval %_topdir)/SOURCES/gmp-6.0.0-debuginfo.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-intel-cet.patch -O $(rpm --eval %_topdir)/SOURCES/gmp-intel-cet.patch
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/xtreamui-gmp.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-gmp.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-gmp.spec
+dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-gmp-6.2.1-1.*.rpm')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 wget https://ftp.gnu.org/gnu/nettle/nettle-3.9.1.tar.gz -O $(rpm --eval %_topdir)/SOURCES/nettle-3.9.1.tar.gz
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-nettle.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-nettle.spec
@@ -85,6 +108,13 @@ wget https://github.com/p11-glue/p11-kit/releases/download/0.24.1/p11-kit-0.24.1
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-p11-kit.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-p11-kit.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-p11-kit.spec
 dnf -y install $(find $(rpm --eval %_topdir) -name 'xtream-ui-p11-kit-0.24.1-1.el7.x86_64.rpm')
+
+
+
+wget https://ftp.gnu.org/gnu/libunistring/libunistring-1.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/libunistring-1.1.tar.xz
+wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtream-ui-libunistring.spec -O $(rpm --eval %_topdir)/SPECS/xtream-ui-libunistring.spec
+rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtream-ui-libunistring.spec
+
 
 
 
