@@ -66,9 +66,6 @@ dnf -y install rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-
 rm -rf $(rpm --eval %_topdir)/SPECS $(rpm --eval %_topdir)/SOURCES
 mkdir -p $(rpm --eval %_topdir)/SPECS
 mkdir -p $(rpm --eval %_topdir)/SOURCES
-wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-ffmpeg-macros.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-ffmpeg-macros.spec
-rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-ffmpeg-macros.spec
-dnf -y install autoconf automake libtool git $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-ffmpeg-macros-1.0.0-1.*.rpm')
 wget https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz -O $(rpm --eval %_topdir)/SOURCES/gmp-6.2.1.tar.xz
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp.h -O $(rpm --eval %_topdir)/SOURCES/gmp.h
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-mparam.h -O $(rpm --eval %_topdir)/SOURCES/gmp-mparam.h
@@ -76,7 +73,7 @@ wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/gmp-intel-cet.patch -O $(rpm --eval %_topdir)/SOURCES/gmp-intel-cet.patch
 wget https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-gmp/xtreamui-gmp.spec -O $(rpm --eval %_topdir)/SPECS/xtreamui-gmp.spec
 rpmbuild -ba $(rpm --eval %_topdir)/SPECS/xtreamui-gmp.spec
-dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-gmp-6.2.1-1.*.rpm')
+dnf -y install $(find $(rpm --eval %_topdir)/RPMS -name 'xtreamui-gmp-6.2.1-4.*.rpm')
 
 
 
