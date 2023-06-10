@@ -83,8 +83,7 @@ rm -vf %{buildroot}{%{python2_sitearch},%{python3_sitearch}}/*.a
 rm -vrf %{buildroot}%{_datadir}/doc/
 (cd doc/examples ; make clean ; rm -rf .deps Makefile)
 gzip -9 -c doc/libxml2-api.xml > doc/libxml2-api.xml.gz
-
-echo $(%{python3_sitearch} | sed 's|/usr/%{_lib}|%{_libdir}|')
+echo "$(rpm --eval %{python3_sitearch} | sed 's|/usr/%{_lib}|%{_libdir}|')"
 sleep 300
 
 
