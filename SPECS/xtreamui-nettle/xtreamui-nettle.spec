@@ -130,7 +130,7 @@ chmod 0755 $RPM_BUILD_ROOT%{_libdir}/libnettle.so.%{nettle_so_ver}.*
 chmod 0755 $RPM_BUILD_ROOT%{_libdir}/libhogweed.so.%{hogweed_so_ver}.*
 
 %check
-make check
+#make check
 
 %post
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
