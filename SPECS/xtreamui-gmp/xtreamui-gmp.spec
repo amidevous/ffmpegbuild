@@ -2,7 +2,28 @@
 # Important for %%{ix86}:
 # This rpm has to be build on a CPU with sse2 support like Pentium 4 !
 #
-%include /home/xtreamcodes/ffmpeg_build/macros
+%global debug_package %{nil}
+%define __arch_install_post %{nil}
+%global __brp_check_rpaths %{nil}
+%global __check_rpaths %{nil}
+%global _prefix /home/xtreamcodes/ffmpeg_build
+%global _sysconfdir %{_prefix}/etc
+%global _includedir %{_prefix}/include
+%global _bindir /home/xtreamcodes/iptv_xtream_codes/bin
+%global _sbindir %{_bindir}
+%global _libdir %{_prefix}/%{_lib}
+%global _libexecdir %{_prefix}/libexec
+%global _datarootdir %{_prefix}/share
+%global _datadir %{_datarootdir}
+%global _infodir %{_datarootdir}/info
+%global _mandir %{_datarootdir}/man
+%global _docdir %{_datadir}/doc
+%global _rundir %{_prefix}/run
+%global _localstatedir %{_prefix}/var
+%global _sharedstatedir %{_prefix}/var/lib
+%global _usrsrc %{_prefix}/src
+%global _initddir %{_sysconfdir}/rc.d/init.d
+%global _initrddir %{_initddir}
 
 Summary: GNU arbitrary precision library
 Name: xtreamui-gmp
@@ -17,8 +38,10 @@ Patch2: gmp-6.0.0-debuginfo.patch
 Patch3: gmp-intel-cet.patch
 License: LGPLv3+ or GPLv2+
 BuildRequires: autoconf automake libtool
-BuildRequires: gcc
-BuildRequires: gcc-c++
+%if 0%{?rhel} == 7
+BuildRequires: devtoolset-8
+%endif
+BuildRequires: rpm-build gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat wget bzip2 gzip xz wget tar make pkgconfig patch m4
 BuildRequires: git
 #autoreconf on arm needs:
 BuildRequires: perl-Carp
@@ -51,7 +74,9 @@ library.
 %endif
 
 %build
-
+if test -f "/opt/rh/devtoolset-8/enable"; then
+source /opt/rh/devtoolset-8/enable
+fi
 autoreconf -ifv
 if as --help | grep -q execstack; then
   # the object files do not require an executable stack
