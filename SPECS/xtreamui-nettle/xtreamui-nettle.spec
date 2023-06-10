@@ -53,7 +53,7 @@ BuildRequires: devtoolset-8
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel gcc-gnat
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4
-BuildRequires:  xtreamui-gmp gettext-devel
+BuildRequires:  xtreamui-gmp xtreamui-gettext
 %if %{with fips}
 BuildRequires:  fipscheck
 %endif
