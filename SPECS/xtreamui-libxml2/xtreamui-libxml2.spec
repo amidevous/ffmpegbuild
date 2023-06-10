@@ -119,11 +119,8 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_libdir}/pkgconfig/libxml-2.0.pc
 %{_libdir}/cmake/libxml2/
 %{_libdir}/libxml2.a
-%{python3_sitearchnews}/libxml2mod.so
-%{python3_sitelibnews}/libxml2.py
-%{python3_sitelibnews}/__pycache__/libxml2.*
-%{python3_sitelibnews}/drv_libxml2.py
-%{python3_sitelibnews}/__pycache__/drv_libxml2.*
+%{python3_sitearchnews}/*
+%{python3_sitelibnews}/*
 
 %changelog
 * Wed Apr 12 2023 David King <amigadave@amigadave.com> - 2.10.4-1
