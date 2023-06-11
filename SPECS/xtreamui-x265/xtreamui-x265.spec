@@ -37,11 +37,11 @@ License:    GPLv2+ and BSD
 Source0:    https://bitbucket.org/multicoreware/x265_git/downloads/x265_%{version}.tar.gz
 
 # fix building as PIC
-Patch0:     x265-pic.patch
-Patch1:     x265-high-bit-depth-soname.patch
-Patch2:     x265-detect_cpu_armhfp.patch
-Patch3:     x265-arm-cflags.patch
-Patch4:     x265-pkgconfig_path_fix.patch
+Patch0:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x265/x265-pic.patch
+Patch1:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x265/x265-high-bit-depth-soname.patch
+Patch2:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x265/x265-detect_cpu_armhfp.patch
+Patch3:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x265/x265-arm-cflags.patch
+Patch4:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x265/x265-pkgconfig_path_fix.patch
 
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
