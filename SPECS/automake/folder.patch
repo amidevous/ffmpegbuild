@@ -541,7 +541,7 @@ index c421dc991..14cc2d8b1 100644
 +  m4/vala.m4
  
 -dist_system_ac_DATA = %D%/acdir/README
-+dist_system_ac_DATA = %m4/acdir/README
++dist_system_ac_DATA = m4/acdir/README
  
  automake_internal_acdir = $(automake_acdir)/internal
 -dist_automake_internal_ac_DATA = %D%/internal/ac-config-macro-dirs.m4
