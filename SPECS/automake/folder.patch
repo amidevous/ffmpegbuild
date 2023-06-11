@@ -101,17 +101,17 @@ index 6bebb7063..eb6eae305 100644
 +  contrib/t/multilib.sh
 
 
-From 479d22d94ebb5d9d72c7abe4c12d2db095edf728 Mon Sep 17 00:00:00 2001
+From 61be4acb9bfcee62b420f264045d2a92c75a5f96 Mon Sep 17 00:00:00 2001
 From: amidevous <amidevous@users.noreply.github.com>
-Date: Sun, 11 Jun 2023 02:30:51 +0200
+Date: Sun, 11 Jun 2023 07:34:40 +0200
 Subject: [PATCH] Update local.mk
 
 ---
- doc/local.mk | 40 ++++++++++++++++++++--------------------
- 1 file changed, 20 insertions(+), 20 deletions(-)
+ doc/local.mk | 44 ++++++++++++++++++++++----------------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/doc/local.mk b/doc/local.mk
-index e76c04f5d..37e60864c 100644
+index d4b36f910..f9f04de6d 100644
 --- a/doc/local.mk
 +++ b/doc/local.mk
 @@ -18,36 +18,36 @@
@@ -119,9 +119,10 @@ index e76c04f5d..37e60864c 100644
  ## ---------------- ##
  
 -info_TEXINFOS = %D%/automake.texi %D%/automake-history.texi
-+info_TEXINFOS = doc/automake.texi doc/automake-history.texi
- doc_automake_TEXINFOS = %D%/fdl.texi
+-doc_automake_TEXINFOS = %D%/fdl.texi
 -doc_automake_history_TEXINFOS = %D%/fdl.texi
++info_TEXINFOS = doc/automake.texi doc/automake-history.texi
++doc_automake_TEXINFOS = doc/fdl.texi
 +doc_automake_history_TEXINFOS = doc/fdl.texi
  
  man1_MANS = \
@@ -143,8 +144,9 @@ index e76c04f5d..37e60864c 100644
  
  update_mans = \
    $(AM_V_GEN): \
-     && $(MKDIR_P) %D% \
+-    && $(MKDIR_P) %D% \
 -    && ./pre-inst-env $(PERL) $(srcdir)/%D%/help2man --output=$@
++    && $(MKDIR_P) doc \
 +    && ./pre-inst-env $(PERL) $(srcdir)/doc/help2man --output=$@
  
 -%D%/aclocal.1 %D%/automake.1:
@@ -201,6 +203,10 @@ index e76c04f5d..37e60864c 100644
  	  && : Make our	aclocal and automake avaiable before system ones. \
  	  && $(setup_autotools_paths) \
  	  && ( \
+
+
+
+
 
 From 86526aa9aabaa52c7938e435364bba08907d4edd Mon Sep 17 00:00:00 2001
 From: amidevous <amidevous@users.noreply.github.com>
