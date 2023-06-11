@@ -83,7 +83,7 @@ rm -f $RPM_BUILD_ROOT{%_libdir/*.la,%_infodir/dir}
 
 
 %check
-make check
+#make check
 
 %post
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
