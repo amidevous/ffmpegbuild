@@ -67,6 +67,12 @@ export CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -L%{_libdir}"
 %if 0%{?rhel} == 7
 export AUTOMAKE=automake-1.16
 export M4=m4_next
+export AUTOCONF=autoconf-2.69
+AUTOHEADER=autoheader-2.69
+ACLOCAL=aclocal-1.16
+AUTOPOINT=autopoint
+LIBTOOLIZE=libtoolize
+MAKE=make
 autoreconf-2.69 -v -f --install
 %else
 autoreconf -v -f --install
