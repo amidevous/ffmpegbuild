@@ -32,9 +32,11 @@ Source0:	https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
 Patch1:		https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libtasn1/libtasn1-3.4-rpath.patch
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
+BuildRequires: autoconf2.69 automake1.16 libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4_next coreutils
+%else
+BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
-BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
 BuildRequires:	bison, help2man
 BuildRequires:	valgrind-devel
 BuildRequires:  gtk-doc
@@ -62,7 +64,11 @@ export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
 export PATH="%{_bindir}:$PATH"
 export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
 export CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -L%{_libdir}"
+%if 0%{?rhel} == 7
+autoreconf-2.69 -v -f --install
+%else
 autoreconf -v -f --install
+%endif
 %configure --disable-static --disable-silent-rules
 # libtasn1 likes to regenerate docs
 touch doc/stamp_docs
