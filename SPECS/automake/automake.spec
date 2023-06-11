@@ -22,9 +22,9 @@ Source3:    http://git.savannah.gnu.org/cgit/config.git/plain/config.guess
 
 # Keep those patches in 'git format-patch' format (with docs).
 
-
+Patch0:     folder.patch
 %if %{with check} && !%{without automake_enables_optional_test}
-Patch0:     automake-1.15-disable-vala-tests.patch
+Patch1:     automake-1.15-disable-vala-tests.patch
 %endif
 
 URL:        http://www.gnu.org/software/automake/
