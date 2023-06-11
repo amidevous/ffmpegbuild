@@ -23,9 +23,9 @@ Source3:    https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
 # Keep those patches in 'git format-patch' format (with docs).
 
 
-%if %{with check} && !%{without automake_enables_optional_test}
-Patch0:     automake-1.15-disable-vala-tests.patch
-%endif
+#%if %{with check} && !%{without automake_enables_optional_test}
+#Patch0:     automake-1.15-disable-vala-tests.patch
+#%endif
 
 # BZ#1759942
 # automake bug#31222 - Don't use '\n' in sed substitution
