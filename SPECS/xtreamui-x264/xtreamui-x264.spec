@@ -104,8 +104,8 @@ scratch.
     --enable-pic
 
 %prep
-%setup -q -c -n x264-0.%{api}-%{snapshot}
-pushd x264-0.%{api}-%{snapshot}
+%setup -q -c -n x264-%{gitversion}
+pushd x264-%{gitversion}
 cp %{SOURCE2} .
 %patch0 -p1 -b .nover
 %patch1 -p1 -b .10b
