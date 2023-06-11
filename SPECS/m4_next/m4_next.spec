@@ -4,8 +4,8 @@ Version: 1.4.18
 Release: 6%{?dist}
 License: GPLv3+
 Group: Applications/Text
-Source0: http://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz
-Source1: http://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz.sig
+Source0: https://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz
+Source1: https://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz.sig
 URL: http://www.gnu.org/software/m4/
 
 Requires(post): /sbin/install-info
