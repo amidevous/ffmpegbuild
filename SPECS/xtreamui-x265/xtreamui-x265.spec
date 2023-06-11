@@ -26,7 +26,7 @@
 %global     _so_version 199
 
 Summary:    H.265/HEVC encoder
-Name:       xtremui-x265
+Name:       xtreamui-x265
 Version:    3.5
 Release:    5%{?dist}
 URL:        http://x265.org/
