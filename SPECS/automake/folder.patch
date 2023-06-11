@@ -1,0 +1,758 @@
+From fe904fc91f12302c60eaf8c6c946d51d45f2ad1c Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 02:26:14 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ bin/local.mk | 32 ++++++++++++++++----------------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/bin/local.mk b/bin/local.mk
+index 97b38db34..7bdfc5188 100644
+--- a/bin/local.mk
++++ b/bin/local.mk
+@@ -18,21 +18,21 @@
+ ##  The automake and aclocal scripts.  ##
+ ## ----------------------------------- ##
+ 
+-bin_SCRIPTS = %D%/automake %D%/aclocal
++bin_SCRIPTS = bin/automake bin/aclocal
+ nodist_noinst_SCRIPTS += \
+-  %D%/aclocal-$(APIVERSION) \
+-  %D%/automake-$(APIVERSION)
++  bin/aclocal-$(APIVERSION) \
++  bin/automake-$(APIVERSION)
+ 
+ CLEANFILES += \
+   $(bin_SCRIPTS) \
+-  %D%/aclocal-$(APIVERSION) \
+-  %D%/automake-$(APIVERSION)
++  bin/aclocal-$(APIVERSION) \
++  bin/automake-$(APIVERSION)
+ 
+ # Used by maintainer checks and such.
+-automake_in = $(srcdir)/%D%/automake.in
+-aclocal_in  = $(srcdir)/%D%/aclocal.in
+-automake_script = %D%/automake
+-aclocal_script  = %D%/aclocal
++automake_in = $(srcdir)/bin/automake.in
++aclocal_in  = $(srcdir)/bin/aclocal.in
++automake_script = bin/automake
++aclocal_script  = bin/aclocal
+ 
+ AUTOMAKESOURCES = $(automake_in) $(aclocal_in)
+ TAGS_FILES += $(AUTOMAKESOURCES)
+@@ -60,9 +60,9 @@ uninstall-hook:
+ 
+ # These files depend on Makefile so they are rebuilt if $(VERSION),
+ # $(datadir) or other do_subst'ituted variables change.
+-%D%/automake: %D%/automake.in
+-%D%/aclocal: %D%/aclocal.in
+-%D%/automake %D%/aclocal: Makefile
++bin/automake: bin/automake.in
++bin/aclocal: bin/aclocal.in
++bin/automake bin/aclocal: Makefile
+ 	$(AM_V_GEN)rm -f $@ $@-t $@-t2 \
+ 	  && $(MKDIR_P) $(@D) \
+ ## Common substitutions.
+@@ -72,12 +72,12 @@ uninstall-hook:
+ ## comments, and that is perfectly legit.
+ 	  && chmod a+x,a-w $@-t && mv -f $@-t $@
+ 
+-%D%/aclocal-$(APIVERSION): %D%/aclocal
++bin/aclocal-$(APIVERSION): bin/aclocal
+ 	$(AM_V_GEN) rm -f $@; \
+-	$(LN) %D%/aclocal $@
++	$(LN) bin/aclocal $@
+ 
+-%D%/automake-$(APIVERSION): %D%/automake
++bin/automake-$(APIVERSION): bin/automake
+ 	$(AM_V_GEN) rm -f $@; \
+-	$(LN) %D%/automake $@
++	$(LN) bin/automake $@
+ 
+ # vim: ft=automake noet
+
+
+From f26f0391a5841e80c52ecee93f4ff1bbf84e962f Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 02:27:45 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ contrib/t/local.mk | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/contrib/t/local.mk b/contrib/t/local.mk
+index 6bebb7063..eb6eae305 100644
+--- a/contrib/t/local.mk
++++ b/contrib/t/local.mk
+@@ -19,7 +19,7 @@
+ ## -------------------------------- ##
+ 
+ contrib_TESTS = \
+-  %D%/parallel-tests-html.sh \
+-  %D%/parallel-tests-html-recursive.sh \
+-  %D%/help-multilib.sh \
+-  %D%/multilib.sh
++  contrib/t/parallel-tests-html.sh \
++  contrib/t/parallel-tests-html-recursive.sh \
++  contrib/t/help-multilib.sh \
++  contrib/t/multilib.sh
+
+
+From 479d22d94ebb5d9d72c7abe4c12d2db095edf728 Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 02:30:51 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ doc/local.mk | 40 ++++++++++++++++++++--------------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
+
+diff --git a/doc/local.mk b/doc/local.mk
+index e76c04f5d..37e60864c 100644
+--- a/doc/local.mk
++++ b/doc/local.mk
+@@ -18,36 +18,36 @@
+ ##  Documentation.  ##
+ ## ---------------- ##
+ 
+-info_TEXINFOS = %D%/automake.texi %D%/automake-history.texi
++info_TEXINFOS = doc/automake.texi doc/automake-history.texi
+ doc_automake_TEXINFOS = %D%/fdl.texi
+-doc_automake_history_TEXINFOS = %D%/fdl.texi
++doc_automake_history_TEXINFOS = doc/fdl.texi
+ 
+ man1_MANS = \
+-  %D%/aclocal.1 \
+-  %D%/automake.1 \
+-  %D%/aclocal-$(APIVERSION).1 \
+-  %D%/automake-$(APIVERSION).1
++  doc/aclocal.1 \
++  doc/automake.1 \
++  doc/aclocal-$(APIVERSION).1 \
++  doc/automake-$(APIVERSION).1
+ 
+ $(man1_MANS): $(top_srcdir)/configure.ac
+ 
+ CLEANFILES += $(man1_MANS)
+ # XXX: This script should be updated with 'fetch' target.
+-EXTRA_DIST += %D%/help2man
++EXTRA_DIST += doc/help2man
+ 
+ update_mans = \
+   $(AM_V_GEN): \
+     && $(MKDIR_P) %D% \
+-    && ./pre-inst-env $(PERL) $(srcdir)/%D%/help2man --output=$@
++    && ./pre-inst-env $(PERL) $(srcdir)/doc/help2man --output=$@
+ 
+-%D%/aclocal.1 %D%/automake.1:
++doc/aclocal.1 doc/automake.1:
+ 	$(AM_V_GEN): \
+-	  && $(MKDIR_P) %D% \
++	  && $(MKDIR_P) doc \
+ 	  && f=`echo $@ | sed 's|.*/||; s|\.1$$||; $(transform)'` \
+ 	  && echo ".so man1/$$f-$(APIVERSION).1" > $@
+ 
+-%D%/aclocal-$(APIVERSION).1: $(aclocal_script) lib/Automake/Config.pm
++doc/aclocal-$(APIVERSION).1: $(aclocal_script) lib/Automake/Config.pm
+ 	$(update_mans) aclocal-$(APIVERSION)
+-%D%/automake-$(APIVERSION).1: $(automake_script) lib/Automake/Config.pm
++doc/automake-$(APIVERSION).1: $(automake_script) lib/Automake/Config.pm
+ 	$(update_mans) automake-$(APIVERSION)
+ 
+ ## ---------------------------- ##
+@@ -55,11 +55,11 @@ update_mans = \
+ ## ---------------------------- ##
+ 
+ amhello_sources = \
+-  %D%/amhello/configure.ac \
+-  %D%/amhello/Makefile.am \
+-  %D%/amhello/README \
+-  %D%/amhello/src/main.c \
+-  %D%/amhello/src/Makefile.am
++  doc/amhello/configure.ac \
++  doc/amhello/Makefile.am \
++  doc/amhello/README \
++  doc/amhello/src/main.c \
++  doc/amhello/src/Makefile.am
+ 
+ amhello_configury = \
+   aclocal.m4 \
+@@ -73,7 +73,7 @@ amhello_configury = \
+   src/Makefile.in
+ 
+ dist_noinst_DATA += $(amhello_sources)
+-dist_doc_DATA = $(srcdir)/%D%/amhello-1.0.tar.gz
++dist_doc_DATA = $(srcdir)/doc/amhello-1.0.tar.gz
+ 
+ setup_autotools_paths = { \
+   ACLOCAL=aclocal-$(APIVERSION) && export ACLOCAL \
+@@ -88,9 +88,9 @@ setup_autotools_paths = { \
+ 
+ # We depend on configure.ac so that we regenerate the tarball
+ # whenever the Automake version changes.
+-$(srcdir)/%D%/amhello-1.0.tar.gz: $(amhello_sources) $(srcdir)/configure.ac
++$(srcdir)/doc/amhello-1.0.tar.gz: $(amhello_sources) $(srcdir)/configure.ac
+ 	$(AM_V_GEN)tmp=amhello-output.tmp \
+-	  && $(am__cd) $(srcdir)/%D%/amhello \
++	  && $(am__cd) $(srcdir)/doc/amhello \
+ 	  && : Make our	aclocal and automake avaiable before system ones. \
+ 	  && $(setup_autotools_paths) \
+ 	  && ( \
+
+From 86526aa9aabaa52c7938e435364bba08907d4edd Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 02:35:02 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ lib/Automake/local.mk | 50 +++++++++++++++++++++----------------------
+ 1 file changed, 25 insertions(+), 25 deletions(-)
+
+diff --git a/lib/Automake/local.mk b/lib/Automake/local.mk
+index fbb21f3f1..de8e845d7 100644
+--- a/lib/Automake/local.mk
++++ b/lib/Automake/local.mk
+@@ -21,36 +21,36 @@
+ perllibdir = $(pkgvdatadir)/Automake
+ 
+ dist_perllib_DATA = \
+-  %D%/ChannelDefs.pm \
+-  %D%/Channels.pm \
+-  %D%/Condition.pm \
+-  %D%/Configure_ac.pm \
+-  %D%/DisjConditions.pm \
+-  %D%/FileUtils.pm \
+-  %D%/General.pm \
+-  %D%/Getopt.pm \
+-  %D%/Item.pm \
+-  %D%/ItemDef.pm \
+-  %D%/Language.pm \
+-  %D%/Location.pm \
+-  %D%/Options.pm \
+-  %D%/Rule.pm \
+-  %D%/RuleDef.pm \
+-  %D%/Variable.pm \
+-  %D%/VarDef.pm \
+-  %D%/Version.pm \
+-  %D%/XFile.pm \
+-  %D%/Wrap.pm
++  lib/Automake/ChannelDefs.pm \
++  lib/Automake/Channels.pm \
++  lib/Automake/Condition.pm \
++  lib/Automake/Configure_ac.pm \
++  lib/Automake/DisjConditions.pm \
++  lib/Automake/FileUtils.pm \
++  lib/Automake/General.pm \
++  lib/Automake/Getopt.pm \
++  lib/Automake/Item.pm \
++  lib/Automake/ItemDef.pm \
++  lib/Automake/Language.pm \
++  lib/Automake/Location.pm \
++  lib/Automake/Options.pm \
++  lib/Automake/Rule.pm \
++  lib/Automake/RuleDef.pm \
++  lib/Automake/Variable.pm \
++  lib/Automake/VarDef.pm \
++  lib/Automake/Version.pm \
++  lib/Automake/XFile.pm \
++  lib/Automake/Wrap.pm
+ 
+-nodist_perllib_DATA = %D%/Config.pm
++nodist_perllib_DATA = lib/Automake/Config.pm
+ CLEANFILES += $(nodist_perllib_DATA)
+ 
+-%D%/Config.pm: %D%/Config.in Makefile
++lib/Automake/Config.pm: lib/Automake/Config.in Makefile
+ 	$(AM_V_at)rm -f $@ $@-t
+-	$(AM_V_at)$(MKDIR_P) %D%
++	$(AM_V_at)$(MKDIR_P) lib/Automake
+ 	$(AM_V_GEN)in=Config.in \
+-	  && $(do_subst) <$(srcdir)/%D%/Config.in >$@-t
++	  && $(do_subst) <$(srcdir)/lib/Automake/Config.in >$@-t
+ 	$(generated_file_finalize)
+-EXTRA_DIST += %D%/Config.in
++EXTRA_DIST += lib/Automake/Config.in
+ 
+ # vim: ft=automake noet
+
+
+From e8c99e6fcd035d25e6617d7e537936756a568ec4 Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 02:39:05 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ lib/am/local.mk | 78 ++++++++++++++++++++++++-------------------------
+ 1 file changed, 39 insertions(+), 39 deletions(-)
+
+diff --git a/lib/am/local.mk b/lib/am/local.mk
+index 5332176d3..4b8723a0b 100644
+--- a/lib/am/local.mk
++++ b/lib/am/local.mk
+@@ -21,44 +21,44 @@
+ amdir = @amdir@
+ 
+ dist_am_DATA = \
+-  %D%/check.am \
+-  %D%/check2.am \
+-  %D%/clean-hdr.am \
+-  %D%/clean.am \
+-  %D%/compile.am \
+-  %D%/configure.am \
+-  %D%/data.am \
+-  %D%/dejagnu.am \
+-  %D%/depend.am \
+-  %D%/depend2.am \
+-  %D%/distdir.am \
+-  %D%/footer.am \
+-  %D%/header-vars.am \
+-  %D%/header.am \
+-  %D%/install.am \
+-  %D%/inst-vars.am \
+-  %D%/java.am \
+-  %D%/lang-compile.am \
+-  %D%/lex.am \
+-  %D%/library.am \
+-  %D%/libs.am \
+-  %D%/libtool.am \
+-  %D%/lisp.am \
+-  %D%/ltlib.am \
+-  %D%/ltlibrary.am \
+-  %D%/mans-vars.am \
+-  %D%/mans.am \
+-  %D%/program.am \
+-  %D%/progs.am \
+-  %D%/python.am \
+-  %D%/remake-hdr.am \
+-  %D%/scripts.am \
+-  %D%/subdirs.am \
+-  %D%/tags.am \
+-  %D%/texi-vers.am \
+-  %D%/texibuild.am \
+-  %D%/texinfos.am \
+-  %D%/vala.am \
+-  %D%/yacc.am
++  lib/am/check.am \
++  lib/am/check2.am \
++  lib/am/clean-hdr.am \
++  lib/am/clean.am \
++  lib/am/compile.am \
++  lib/am/configure.am \
++  lib/am/data.am \
++  lib/am/dejagnu.am \
++  lib/am/depend.am \
++  lib/am/depend2.am \
++  lib/am/distdir.am \
++  lib/am/footer.am \
++  lib/am/header-vars.am \
++  lib/am/header.am \
++  lib/am/install.am \
++  lib/am/inst-vars.am \
++  lib/am/java.am \
++  lib/am/lang-compile.am \
++  lib/am/lex.am \
++  lib/am/library.am \
++  lib/am/libs.am \
++  lib/am/libtool.am \
++  lib/am/lisp.am \
++  lib/am/ltlib.am \
++  lib/am/ltlibrary.am \
++  lib/am/mans-vars.am \
++  lib/am/mans.am \
++  lib/am/program.am \
++  lib/am/progs.am \
++  lib/am/python.am \
++  lib/am/remake-hdr.am \
++  lib/am/scripts.am \
++  lib/am/subdirs.am \
++  lib/am/tags.am \
++  lib/am/texi-vers.am \
++  lib/am/texibuild.am \
++  lib/am/texinfos.am \
++  lib/am/vala.am \
++  lib/am/yacc.am
+ 
+ # vim: ft=automake noet
+
+
+From 525d9918c4d5a26c4550b93a409290209bd37af7 Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 02:42:13 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ lib/local.mk | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
+
+diff --git a/lib/local.mk b/lib/local.mk
+index 286d435f4..ca0aec3db 100644
+--- a/lib/local.mk
++++ b/lib/local.mk
+@@ -19,32 +19,32 @@
+ ## -------------------------------------------------------------------- ##
+ 
+ dist_pkgvdata_DATA = \
+-  %D%/COPYING \
+-  %D%/INSTALL \
+-  %D%/texinfo.tex
++  lib/COPYING \
++  lib/INSTALL \
++  lib/texinfo.tex
+ 
+ # These must all be executable when installed.  However, if we use
+ # _SCRIPTS, then the program transform will be applied, which is not
+ # what we want.  So we make them executable by hand.
+ dist_script_DATA = \
+-  %D%/config.guess \
+-  %D%/config.sub \
+-  %D%/install-sh \
+-  %D%/mdate-sh \
+-  %D%/missing \
+-  %D%/mkinstalldirs \
+-  %D%/ylwrap \
+-  %D%/depcomp \
+-  %D%/compile \
+-  %D%/py-compile \
+-  %D%/ar-lib \
+-  %D%/test-driver \
+-  %D%/tap-driver.sh
++  lib/config.guess \
++  lib/config.sub \
++  lib/install-sh \
++  lib/mdate-sh \
++  lib/missing \
++  lib/mkinstalldirs \
++  lib/ylwrap \
++  lib/depcomp \
++  lib/compile \
++  lib/py-compile \
++  lib/ar-lib \
++  lib/test-driver \
++  lib/tap-driver.sh
+ 
+ install-data-hook:
+ 	@$(POST_INSTALL)
+ 	@for f in $(dist_script_DATA); do echo $$f; done \
+-	  | sed 's,^%D%/,,' \
++	  | sed 's,^lib/,,' \
+ 	  | ( st=0; \
+ 	      while read f; do \
+ 	        echo " chmod +x '$(DESTDIR)$(scriptdir)/$$f'"; \
+@@ -55,7 +55,7 @@ install-data-hook:
+ installcheck-local: installcheck-executable-scripts
+ installcheck-executable-scripts:
+ 	@for f in $(dist_script_DATA); do echo $$f; done \
+-	  | sed 's,^%D%/,,' \
++	  | sed 's,^lib/,,' \
+ 	  | while read f; do \
+ 	      path="$(pkgvdatadir)/$$f"; \
+ 	      test -x "$$path" || echo $$path; \
+
+
+From 6ea7a9b1dbd8312d083422e72b8ded9337cea569 Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 03:07:16 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ m4/local.mk | 76 ++++++++++++++++++++++++++---------------------------
+ 1 file changed, 38 insertions(+), 38 deletions(-)
+
+diff --git a/m4/local.mk b/m4/local.mk
+index c421dc991..14cc2d8b1 100644
+--- a/m4/local.mk
++++ b/m4/local.mk
+@@ -22,43 +22,43 @@ system_acdir = @system_acdir@
+ automake_acdir = @automake_acdir@
+ 
+ dist_automake_ac_DATA = \
+-  %D%/amversion.m4 \
+-  %D%/ar-lib.m4 \
+-  %D%/as.m4 \
+-  %D%/auxdir.m4 \
+-  %D%/cond.m4 \
+-  %D%/cond-if.m4 \
+-  %D%/depend.m4 \
+-  %D%/depout.m4 \
+-  %D%/dmalloc.m4 \
+-  %D%/extra-recurs.m4 \
+-  %D%/gcj.m4 \
+-  %D%/init.m4 \
+-  %D%/install-sh.m4 \
+-  %D%/lead-dot.m4 \
+-  %D%/lex.m4 \
+-  %D%/lispdir.m4 \
+-  %D%/maintainer.m4 \
+-  %D%/make.m4 \
+-  %D%/missing.m4 \
+-  %D%/mkdirp.m4 \
+-  %D%/obsolete.m4 \
+-  %D%/options.m4 \
+-  %D%/python.m4 \
+-  %D%/prog-cc-c-o.m4 \
+-  %D%/runlog.m4 \
+-  %D%/sanity.m4 \
+-  %D%/silent.m4 \
+-  %D%/strip.m4 \
+-  %D%/substnot.m4 \
+-  %D%/tar.m4 \
+-  %D%/upc.m4 \
+-  %D%/vala.m4
++  m4/amversion.m4 \
++  m4/ar-lib.m4 \
++  m4/as.m4 \
++  m4/auxdir.m4 \
++  m4/cond.m4 \
++  m4/cond-if.m4 \
++  m4/depend.m4 \
++  m4/depout.m4 \
++  m4/dmalloc.m4 \
++  m4/extra-recurs.m4 \
++  m4/gcj.m4 \
++  m4/init.m4 \
++  m4/install-sh.m4 \
++  m4/lead-dot.m4 \
++  m4/lex.m4 \
++  m4/lispdir.m4 \
++  m4/maintainer.m4 \
++  m4/make.m4 \
++  m4/missing.m4 \
++  m4/mkdirp.m4 \
++  m4/obsolete.m4 \
++  m4/options.m4 \
++  m4/python.m4 \
++  m4/prog-cc-c-o.m4 \
++  m4/runlog.m4 \
++  m4/sanity.m4 \
++  m4/silent.m4 \
++  m4/strip.m4 \
++  m4/substnot.m4 \
++  m4/tar.m4 \
++  m4/upc.m4 \
++  m4/vala.m4
+ 
+-dist_system_ac_DATA = %D%/acdir/README
++dist_system_ac_DATA = %m4/acdir/README
+ 
+ automake_internal_acdir = $(automake_acdir)/internal
+-dist_automake_internal_ac_DATA = %D%/internal/ac-config-macro-dirs.m4
++dist_automake_internal_ac_DATA = m4/internal/ac-config-macro-dirs.m4
+ 
+ # We build amversion.m4 here, instead of from config.status,
+ # because config.status is rerun each time one of configure's
+@@ -67,12 +67,12 @@ dist_automake_internal_ac_DATA = %D%/internal/ac-config-macro-dirs.m4
+ # loop otherwise.
+ # Use '$(top_srcdir)' for the benefit of non-GNU makes: this is
+ # how amversion.m4 appears in our dependencies.
+-$(top_srcdir)/%D%/amversion.m4: $(srcdir)/configure.ac \
+-                                $(srcdir)/%D%/amversion.in
++$(top_srcdir)/m4/amversion.m4: $(srcdir)/configure.ac \
++                                $(srcdir)/m4/amversion.in
+ 	$(AM_V_at)rm -f $@-t $@
+ 	$(AM_V_GEN)in=amversion.in \
+-	  && $(do_subst) <$(srcdir)/%D%/amversion.in >$@-t
++	  && $(do_subst) <$(srcdir)/m4/amversion.in >$@-t
+ 	$(generated_file_finalize)
+-EXTRA_DIST += %D%/amversion.in
++EXTRA_DIST += m4/amversion.in
+ 
+ # vim: ft=automake noet
+
+
+
+From 9007ccdcd744c66ed884c35f864f53d52509eec9 Mon Sep 17 00:00:00 2001
+From: amidevous <amidevous@users.noreply.github.com>
+Date: Sun, 11 Jun 2023 03:19:36 +0200
+Subject: [PATCH] Update local.mk
+
+---
+ t/local.mk | 90 +++++++++++++++++++++++++++---------------------------
+ 1 file changed, 45 insertions(+), 45 deletions(-)
+
+diff --git a/t/local.mk b/t/local.mk
+index 0d0aee6ad..a0614bbdb 100644
+--- a/t/local.mk
++++ b/t/local.mk
+@@ -31,7 +31,7 @@ TAP_LOG_DRIVER = AM_TAP_AWK='$(AWK)' $(SHELL) $(srcdir)/lib/tap-driver.sh
+ 
+ AM_TAP_LOG_DRIVER_FLAGS = --merge
+ 
+-EXTRA_DIST += %D%/README %D%/ax/is %D%/ax/is_newest %D%/ax/deltree.pl
++EXTRA_DIST += t/README t/ax/is t/ax/is_newest t/ax/deltree.pl
+ 
+ 
+ ## Will be updated later.
+@@ -63,14 +63,14 @@ AM_TESTS_ENVIRONMENT += stderr_fileno_=9; export stderr_fileno_;
+ # in case it is given with a relative name containing no slashes.
+ AM_TESTS_ENVIRONMENT += \
+   if test $(srcdir) != .; then \
+-    PATH='$(abs_srcdir)/%D%/ax$(PATH_SEPARATOR)'$$PATH; \
++    PATH='$(abs_srcdir)/t/ax$(PATH_SEPARATOR)'$$PATH; \
+   fi; \
+-  PATH='$(abs_builddir)/%D%/ax$(PATH_SEPARATOR)'$$PATH; \
++  PATH='$(abs_builddir)/t/ax$(PATH_SEPARATOR)'$$PATH; \
+   export PATH;
+ 
+ # Hand-written tests.
+ 
+-include $(srcdir)/%D%/list-of-tests.mk
++include $(srcdir)/t/list-of-tests.mk
+ 
+ TESTS += $(handwritten_TESTS)
+ EXTRA_DIST += $(handwritten_TESTS)
+@@ -78,28 +78,28 @@ EXTRA_DIST += $(handwritten_TESTS)
+ # Automatically-generated tests wrapping hand-written ones.
+ # Also, automatically-computed dependencies for tests.
+ 
+-include $(srcdir)/%D%/testsuite-part.am
++include $(srcdir)/t/testsuite-part.am
+ 
+ TESTS += $(generated_TESTS)
+ EXTRA_DIST += $(generated_TESTS)
+ 
+-$(srcdir)/%D%/testsuite-part.am:
+-	$(AM_V_at)rm -f %D%/testsuite-part.tmp $@
++$(srcdir)/t/testsuite-part.am:
++	$(AM_V_at)rm -f t/testsuite-part.tmp $@
+ 	$(AM_V_GEN)$(PERL) $(srcdir)/gen-testsuite-part \
+-	  --srcdir $(srcdir) > %D%/testsuite-part.tmp
+-	$(AM_V_at)chmod a-w %D%/testsuite-part.tmp
+-	$(AM_V_at)mv -f %D%/testsuite-part.tmp $@
++	  --srcdir $(srcdir) > t/testsuite-part.tmp
++	$(AM_V_at)chmod a-w t/testsuite-part.tmp
++	$(AM_V_at)mv -f t/testsuite-part.tmp $@
+ EXTRA_DIST += gen-testsuite-part
+ 
+ # The dependecies declared here are not truly complete, but such
+ # completeness would cause more issues than it would solve.  See
+ # automake bug#11347.
+ $(generated_TESTS): $(srcdir)/gen-testsuite-part
+-$(srcdir)/%D%/testsuite-part.am: $(srcdir)/gen-testsuite-part
+-$(srcdir)/%D%/testsuite-part.am: Makefile.am
++$(srcdir)/t/testsuite-part.am: $(srcdir)/gen-testsuite-part
++$(srcdir)/t/testsuite-part.am: Makefile.am
+ 
+ # Hand-written tests for stuff in 'contrib/'.
+-include $(srcdir)/contrib/%D%/local.mk
++include $(srcdir)/contrib/t/local.mk
+ TESTS += $(contrib_TESTS)
+ EXTRA_DIST += $(contrib_TESTS)
+ 
+@@ -110,56 +110,56 @@ EXTRA_DIST += $(contrib_TESTS)
+ # hand after having simply configured and built the package.
+ 
+ dist_noinst_DATA += \
+-  %D%/ax/test-init.sh \
+-  %D%/ax/test-lib.sh \
+-  %D%/ax/am-test-lib.sh \
+-  %D%/ax/tap-functions.sh
++  t/ax/test-init.sh \
++  t/ax/test-lib.sh \
++  t/ax/am-test-lib.sh \
++  t/ax/tap-functions.sh
+ 
+ # Few more static dependencies.
+-%D%/distcheck-missing-m4.log: %D%/ax/distcheck-hook-m4.am
+-%D%/distcheck-outdated-m4.log: %D%/ax/distcheck-hook-m4.am
+-EXTRA_DIST += %D%/ax/distcheck-hook-m4.am
++t/distcheck-missing-m4.log: t/ax/distcheck-hook-m4.am
++t/distcheck-outdated-m4.log: t/ax/distcheck-hook-m4.am
++EXTRA_DIST += t/ax/distcheck-hook-m4.am
+ 
+-%D%/ax/test-defs.sh: %D%/ax/test-defs.in Makefile
++t/ax/test-defs.sh: t/ax/test-defs.in Makefile
+ 	$(AM_V_at)rm -f $@ $@-t
+ 	$(AM_V_at)$(MKDIR_P) %D%/ax
+-	$(AM_V_GEN)in=%D%/ax/test-defs.in \
++	$(AM_V_GEN)in=t/ax/test-defs.in \
+ 	  && $(do_subst) <$(srcdir)/$$in >$@-t
+ 	$(generated_file_finalize)
+-EXTRA_DIST += %D%/ax/test-defs.in
+-CLEANFILES += %D%/ax/test-defs.sh
+-nodist_noinst_DATA += %D%/ax/test-defs.sh
++EXTRA_DIST += t/ax/test-defs.in
++CLEANFILES += t/ax/test-defs.sh
++nodist_noinst_DATA += t/ax/test-defs.sh
+ 
+-%D%/ax/shell-no-trail-bslash: %D%/ax/shell-no-trail-bslash.in Makefile
++t/ax/shell-no-trail-bslash: t/ax/shell-no-trail-bslash.in Makefile
+ 	$(AM_V_at)rm -f $@ $@-t
+-	$(AM_V_GEN)in=%D%/ax/shell-no-trail-bslash.in \
+-	  && $(MKDIR_P) %D%/ax \
++	$(AM_V_GEN)in=t/ax/shell-no-trail-bslash.in \
++	  && $(MKDIR_P) t/ax \
+ 	  && $(do_subst) <$(srcdir)/$$in >$@-t \
+ 	  && chmod a+x $@-t
+ 	$(generated_file_finalize)
+-EXTRA_DIST += %D%/ax/shell-no-trail-bslash.in
+-CLEANFILES += %D%/ax/shell-no-trail-bslash
+-nodist_noinst_SCRIPTS += %D%/ax/shell-no-trail-bslash
++EXTRA_DIST += t/ax/shell-no-trail-bslash.in
++CLEANFILES += t/ax/shell-no-trail-bslash
++nodist_noinst_SCRIPTS += t/ax/shell-no-trail-bslash
+ 
+-%D%/ax/cc-no-c-o: %D%/ax/cc-no-c-o.in Makefile
++t/ax/cc-no-c-o: t/ax/cc-no-c-o.in Makefile
+ 	$(AM_V_at)rm -f $@ $@-t
+-	$(AM_V_GEN)in=%D%/ax/cc-no-c-o.in \
+-	  && $(MKDIR_P) %D%/ax \
++	$(AM_V_GEN)in=t/ax/cc-no-c-o.in \
++	  && $(MKDIR_P) t/ax \
+ 	  && $(do_subst) <$(srcdir)/$$in >$@-t \
+ 	  && chmod a+x $@-t
+ 	$(generated_file_finalize)
+-EXTRA_DIST += %D%/ax/cc-no-c-o.in
+-CLEANFILES += %D%/ax/cc-no-c-o
+-nodist_noinst_SCRIPTS += %D%/ax/cc-no-c-o
++EXTRA_DIST += t/ax/cc-no-c-o.in
++CLEANFILES += t/ax/cc-no-c-o
++nodist_noinst_SCRIPTS += t/ax/cc-no-c-o
+ 
+-runtest: %D%/ax/runtest.in Makefile
++runtest: t/ax/runtest.in Makefile
+ 	$(AM_V_at)rm -f $@ $@-t
+-	$(AM_V_GEN)in=%D%/ax/runtest.in \
+-	  && $(MKDIR_P) %D%/ax \
++	$(AM_V_GEN)in=t/ax/runtest.in \
++	  && $(MKDIR_P) t/ax \
+ 	  && $(do_subst) <$(srcdir)/$$in >$@-t \
+ 	  && chmod a+x $@-t
+ 	$(generated_file_finalize)
+-EXTRA_DIST += %D%/ax/runtest.in
++EXTRA_DIST += t/ax/runtest.in
+ CLEANFILES += runtest
+ nodist_noinst_SCRIPTS += runtest
+ 
+@@ -221,7 +221,7 @@ check-local: check-tests-syntax
+ # See automake bug#10436.
+ check-no-trailing-backslash-in-recipes:
+ 	$(AM_V_GEN)$(MAKE) $(AM_MAKEFLAGS) check \
+-	  CONFIG_SHELL='$(abs_top_builddir)/%D%/ax/shell-no-trail-bslash'
++	  CONFIG_SHELL='$(abs_top_builddir)/t/ax/shell-no-trail-bslash'
+ .PHONY: check-no-trailing-backslash-in-recipes
+ 
+ # Some compilers out there (hello, MSVC) still choke on "-c -o" being
+@@ -241,8 +241,8 @@ check-parallel:
+ .PHONY: check-parallel
+ 
+ ## Checking the list of tests.
+-test_subdirs = %D% %D%/pm contrib/%D%
+-include %D%/CheckListOfTests.am
++test_subdirs = t t/pm contrib/t
++include t/CheckListOfTests.am
+ 
+ # Run the testsuite with the installed aclocal and automake.
+ installcheck-local: installcheck-testsuite
+@@ -255,7 +255,7 @@ installcheck-testsuite:
+ perf: all
+ 	$(AM_V_GEN)$(MAKE) $(AM_MAKEFLAGS) check \
+ 	  TEST_SUITE_LOG='$(PERF_TEST_SUITE_LOG)' TESTS='$(perf_TESTS)'
+-PERF_TEST_SUITE_LOG = %D%/perf/test-suite.log
++PERF_TEST_SUITE_LOG = t/perf/test-suite.log
+ CLEANFILES += $(PERF_TEST_SUITE_LOG)
+ EXTRA_DIST += $(perf_TESTS)
+ 
+
