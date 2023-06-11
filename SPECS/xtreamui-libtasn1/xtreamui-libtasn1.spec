@@ -73,7 +73,10 @@ ACLOCAL=aclocal-1.16
 AUTOPOINT=autopoint
 LIBTOOLIZE=libtoolize
 MAKE=make
+export AM_INIT_AUTOMAKE=automake-1.16
 autoreconf-2.69 -v -f --install
+aclocal-1.16 -v -f --install
+automake-1.16 -v -f --install
 %else
 autoreconf -v -f --install
 %endif
