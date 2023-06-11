@@ -146,8 +146,8 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/ffi*.h
 %{_libdir}/*.so
-%{_mandir}/man3/*.gz
-%{_infodir}/libffi.info.*
+%{_mandir}/man3/*
+%{_infodir}/libffi.inf*
 
 %changelog
 * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.4-2
