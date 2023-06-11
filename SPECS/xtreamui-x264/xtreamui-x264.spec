@@ -114,7 +114,7 @@ popd
 
 for variant in generic generic10 ; do
   rm -rf ${variant}
-  cp -pr x264-0.%{api}-%{snapshot} ${variant}
+  cp -pr x264-%{gitversion} ${variant}
 done
 
 
