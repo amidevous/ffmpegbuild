@@ -1,7 +1,7 @@
 Summary: The GNU macro processor
 Name: m4_next
 Version: 1.4.18
-Release: 6.1%{?dist}
+Release: 6%{?dist}
 License: GPLv3+
 Group: Applications/Text
 Source0: https://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz
@@ -35,15 +35,19 @@ chmod 644 COPYING
 
 %build
 #module load automake
-#. /etc/profile.d/modules.sh
+if test -f "/etc/profile.d/modules.sh"; then
+    . /etc/profile.d/modules.sh
+fi
 
 autoreconf -ivf
 %configure
 make %{?_smp_mflags}
 
 %install
-. /etc/profile.d/modules.sh
-module load automake
+#module load automake
+if test -f "/etc/profile.d/modules.sh"; then
+    . /etc/profile.d/modules.sh
+fi
 
 make install INSTALL="%{__install} -p" DESTDIR=$RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
