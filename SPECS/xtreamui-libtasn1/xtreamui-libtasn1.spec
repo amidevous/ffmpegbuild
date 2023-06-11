@@ -65,6 +65,8 @@ export PATH="%{_bindir}:$PATH"
 export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
 export CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -L%{_libdir}"
 %if 0%{?rhel} == 7
+export AUTOMAKE=automake-1.16
+export M4=m4_next
 autoreconf-2.69 -v -f --install
 %else
 autoreconf -v -f --install
