@@ -59,16 +59,22 @@ Release: 7%{?gver}%{?_with_bootstrap:_bootstrap}%{?dist}
 License: GPLv2+
 URL: https://www.videolan.org/developers/x264.html
 Source0: https://code.videolan.org/videolan/x264/-/archive/%{gitversion}/x264-%{gitversion}.tar.bz2
-Source1: x264-snapshot.sh
-Source2: version.h
+Source1: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x264/x264-snapshot.sh
+Source2: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x264/version.h
 
 # don't remove config.h and don't re-run version.sh
-Patch0: x264-nover.patch
+Patch0: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x264/x264-nover.patch
 # add 10b suffix to high bit depth build
-Patch1: x264-10b.patch
-Patch11: x264-opencl.patch
+Patch1: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x264/x264-10b.patch
+Patch11: https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-x264/x264-opencl.patch
 
-BuildRequires: gcc
+%if 0%{?rhel} == 7
+BuildRequires: devtoolset-8
+%endif
+BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
+BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
+BuildRequires:  xtreamui-libffi
+Requires:  xtreamui-libffi
 %{!?_without_gpac:BuildRequires: gpac-static >= 1.0.1 zlib-devel openssl-devel libpng-devel libjpeg-devel xz-devel libglvnd-devel mesa-libGLU-devel faad2-devel libmad-devel xvidcore-devel a52dec-devel libvorbis-devel libtheora-devel openjpeg2-devel }
 %{!?_without_libavformat:BuildRequires: ffmpeg-devel}
 %{?_with_ffmpegsource:BuildRequires: ffmpegsource-devel}
