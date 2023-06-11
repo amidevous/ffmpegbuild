@@ -16,9 +16,9 @@ Release:    6%{?dist}
 # docs ~> GFDL, sources ~> GPLv2+, mkinstalldirs ~> PD and install-sh ~> MIT
 License:    GPLv2+ and GFDL and Public Domain and MIT
 
-Source:     ftp://ftp.gnu.org/gnu/automake/automake-%{version}.tar.xz
-Source2:    http://git.savannah.gnu.org/cgit/config.git/plain/config.sub
-Source3:    http://git.savannah.gnu.org/cgit/config.git/plain/config.guess
+Source:     https://ftp.gnu.org/gnu/automake/automake-%{version}.tar.xz
+Source2:    https://git.savannah.gnu.org/cgit/config.git/plain/config.sub
+Source3:    https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
 
 # Keep those patches in 'git format-patch' format (with docs).
 
