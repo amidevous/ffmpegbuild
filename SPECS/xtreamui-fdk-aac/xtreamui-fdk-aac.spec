@@ -32,8 +32,8 @@ BuildRequires: devtoolset-8
 %endif
 BuildRequires: rpm-build make git gcc gcc-c++ gcc-gfortran gcc-objc gcc-objc++ libstdc++-devel
 BuildRequires: autoconf automake libtool wget bzip2 gzip xz wget tar make pkgconfig patch m4 coreutils
-BuildRequires: xtream-ui-x265
-Requires: xtream-ui-x265
+BuildRequires: xtreamui-x265
+Requires: xtreamui-x265
 %description
 The Fraunhofer FDK AAC Codec Library ("FDK AAC Codec") is software that
 implements the MPEG Advanced Audio Coding ("AAC") encoding and decoding
