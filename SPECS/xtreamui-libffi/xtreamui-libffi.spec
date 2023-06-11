@@ -24,7 +24,7 @@
 
 %global multilib_arches %{ix86} x86_64
 
-Name:		libffi
+Name:		xtreamui-libffi
 Version:	3.4.4
 Release:	2%{?dist}
 Summary:	A portable foreign function interface library
@@ -76,7 +76,7 @@ between the two languages.
 
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n libffi-3.4.4
 
 %build
 if test -f "/opt/rh/devtoolset-8/enable"; then
