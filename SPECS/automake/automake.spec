@@ -22,9 +22,9 @@ Source3:    https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
 
 # Keep those patches in 'git format-patch' format (with docs).
 
-Patch0:     folder.patch
+Patch0:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/automake/folder.patch
 %if %{with check} && !%{without automake_enables_optional_test}
-Patch1:     automake-1.15-disable-vala-tests.patch
+Patch1:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/automake/automake-1.15-disable-vala-tests.patch
 %endif
 
 URL:        http://www.gnu.org/software/automake/
