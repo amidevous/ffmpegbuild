@@ -183,7 +183,7 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %{_includedir}/x264_config.h
 %{_libdir}/libx264.so
 %{_libdir}/libx26410b.so
-%{_libdir}/pkgconfig/%{name}.pc
+%{_libdir}/pkgconfig/x264.pc
 
 %changelog
 * Mon Mar 13 2023 Leigh Scott <leigh123linux@gmail.com> - 0.164-7.20220602gitbaee400f
