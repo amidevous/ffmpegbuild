@@ -9,11 +9,11 @@ Version:    2.69
 Release:    29%{?dist}
 License:    GPLv2+ and GFDL
 Source0:    http://ftpmirror.gnu.org/autoconf/autoconf-%{version}.tar.xz
-Source1:    config.site
-Source2:    autoconf-init.el
+Source1:    https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/autoconf2.69/config.site
+Source2:    https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/autoconf2.69/autoconf-init.el
 URL:        http://www.gnu.org/software/autoconf/
 
-Patch1:     autoconf-2.69-perl-5.22-autoscan.patch
+Patch1:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/autoconf2.69/autoconf-2.69-perl-5.22-autoscan.patch
 
 BuildArch:  noarch
 
