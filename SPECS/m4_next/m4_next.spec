@@ -34,10 +34,8 @@ Install m4 if you need a macro processor.
 chmod 644 COPYING
 
 %build
-if test -f "/etc/profile.d/modules.sh"; then
-     #module load automake
-    . /etc/profile.d/modules.sh
-fi
+#module load automake
+#. /etc/profile.d/modules.sh
 
 autoreconf -ivf
 %configure
