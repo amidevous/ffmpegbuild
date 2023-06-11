@@ -83,7 +83,15 @@ rm -f $RPM_BUILD_ROOT{%_libdir/*.la,%_infodir/dir}
 
 
 %check
-#make check
+if test -f "/opt/rh/devtoolset-8/enable"; then
+source /opt/rh/devtoolset-8/enable
+fi
+#RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -DPURIFY $RPM_LD_FLAGS"
+export LD_LIBRARY_PATH="%{_libdir}:$LD_LIBRARY_PATH"
+export PATH="%{_bindir}:$PATH"
+export PKG_CONFIG_PATH="%{_libdir}/pkgconfig:$PKG_CONFIG_PATH"
+export CFLAGS="$RPM_OPT_FLAGS -I%{_includedir} -L%{_libdir}"
+make check
 
 %post
 chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/
