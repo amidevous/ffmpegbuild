@@ -94,6 +94,8 @@ build() {
     -DENABLE_TESTS:BOOL=ON \
     -DENABLE_HDR10_PLUS=YES \
     -DCMAKE_ASM_NASM_FLAGS=-w-macro-params-legacy \
+    -DBIN_INSTALL_DIR:PATH=%{_bindir} \
+    -DLIB_INSTALL_DIR:PATH=%{_libdir} \
     $* \
     ../source
 %cmake3_build
