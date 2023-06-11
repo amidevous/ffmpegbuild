@@ -30,7 +30,8 @@ Source3:    https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
 # BZ#1759942
 # automake bug#31222 - Don't use '\n' in sed substitution
 # http://git.savannah.gnu.org/cgit/automake.git/commit/?id=a348d830659fffd2cfc42994524783b07e69b4b5
-Patch1:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/automake1.16/automake-1.16-pep3147-tweak-fix.patch
+Patch1:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/automake1.16/autoconf-1.16.1-folder.patch
+Patch2:     https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/automake1.16/automake-1.16-pep3147-tweak-fix.patch
 
 
 URL:        http://www.gnu.org/software/automake/
