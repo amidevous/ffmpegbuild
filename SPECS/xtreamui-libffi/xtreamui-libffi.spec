@@ -20,7 +20,7 @@
 %global _usrsrc %{_prefix}/src
 %global _initddir %{_sysconfdir}/rc.d/init.d
 %global _initrddir %{_initddir}
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %global multilib_arches %{ix86} x86_64
 
