@@ -32,8 +32,8 @@ License:	MIT
 URL:		http://sourceware.org/libffi
 
 Source0:	https://github.com/libffi/libffi/releases/download/v3.4.4/libffi-3.4.4.tar.gz
-Source1:	ffi-multilib.h
-Source2:	ffitarget-multilib.h
+Source1:	https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libffi/ffi-multilib.h
+Source2:	https://raw.githubusercontent.com/amidevous/ffmpegbuild/main/SPECS/xtreamui-libffi/ffitarget-multilib.h
 
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8
