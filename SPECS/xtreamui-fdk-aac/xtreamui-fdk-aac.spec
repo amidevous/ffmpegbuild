@@ -65,7 +65,7 @@ chown -R xtreamcodes:xtreamcodes /home/xtreamcodes/*
 %files
 %doc ChangeLog
 %license NOTICE
-%{_libdir}/*.so.*
+%{_libdir}/*.so
 %doc documentation/*.pdf
 %{_libdir}/pkgconfig/fdk-aac.pc
 %{_includedir}/fdk-aac/
